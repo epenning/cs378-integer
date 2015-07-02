@@ -1,0 +1,177 @@
+==22142== Memcheck, a memory error detector
+==22142== Copyright (C) 2002-2013, and GNU GPL'd, by Julian Seward et al.
+==22142== Using Valgrind-3.10.0.SVN and LibVEX; rerun with -h for copyright info
+==22142== Command: ./TestInteger
+==22142== 
+Running main() from gtest_main.cc
+[==========] Running 26 tests from 1 test case.
+[----------] Global test environment set-up.
+[----------] 26 tests from IntegerFixture
+[ RUN      ] IntegerFixture.shift_left_1
+[       OK ] IntegerFixture.shift_left_1 (21 ms)
+[ RUN      ] IntegerFixture.shift_left_2
+[       OK ] IntegerFixture.shift_left_2 (4 ms)
+[ RUN      ] IntegerFixture.shift_left_3
+[       OK ] IntegerFixture.shift_left_3 (4 ms)
+[ RUN      ] IntegerFixture.shift_right_1
+[       OK ] IntegerFixture.shift_right_1 (6 ms)
+[ RUN      ] IntegerFixture.shift_right_2
+[       OK ] IntegerFixture.shift_right_2 (3 ms)
+[ RUN      ] IntegerFixture.shift_right_3
+[       OK ] IntegerFixture.shift_right_3 (4 ms)
+[ RUN      ] IntegerFixture.plus_digits_1
+[       OK ] IntegerFixture.plus_digits_1 (31 ms)
+[ RUN      ] IntegerFixture.plus_digits_2
+[       OK ] IntegerFixture.plus_digits_2 (4 ms)
+[ RUN      ] IntegerFixture.plus_digits_3
+[       OK ] IntegerFixture.plus_digits_3 (7 ms)
+[ RUN      ] IntegerFixture.plus_digits_4
+[       OK ] IntegerFixture.plus_digits_4 (6 ms)
+[ RUN      ] IntegerFixture.plus_digits_5
+[       OK ] IntegerFixture.plus_digits_5 (6 ms)
+[ RUN      ] IntegerFixture.minus_digits_1
+Borrow is: 1
+Dif is: 8
+Borrow is: 0
+Dif is: 4
+Borrow is: 0
+Dif is: 5
+Borrow is: 0
+Dif is: 5
+Borrow is: 0
+Dif is: 5
+[       OK ] IntegerFixture.minus_digits_1 (18 ms)
+[ RUN      ] IntegerFixture.minus_digits_2
+Borrow is: 1
+Dif is: 8
+Borrow is: 0
+Dif is: 4
+Borrow is: 0
+Dif is: 5
+Borrow is: 0
+Dif is: 5
+Borrow is: 0
+Dif is: 5
+[       OK ] IntegerFixture.minus_digits_2 (5 ms)
+[ RUN      ] IntegerFixture.minus_digits_3
+Borrow is: 1
+Dif is: 6
+Borrow is: 1
+Dif is: 5
+Borrow is: 1
+Dif is: 5
+Borrow is: 1
+Dif is: 5
+Borrow is: 0
+Dif is: 0
+[       OK ] IntegerFixture.minus_digits_3 (7 ms)
+[ RUN      ] IntegerFixture.minus_digits_4
+Borrow is: 0
+Dif is: 1
+Borrow is: 0
+Dif is: 6
+Borrow is: 0
+Dif is: 6
+Borrow is: 0
+Dif is: 6
+Borrow is: 0
+Dif is: 6
+[       OK ] IntegerFixture.minus_digits_4 (6 ms)
+[ RUN      ] IntegerFixture.minus_digits_5
+Borrow is: 0
+Dif is: 5
+Borrow is: 0
+Dif is: 5
+Borrow is: 0
+Dif is: 5
+[       OK ] IntegerFixture.minus_digits_5 (6 ms)
+[ RUN      ] IntegerFixture.multiplies_digits_1
+TestInteger.c++:221: Failure
+Value of: equal(out.begin(), out.end(), test.begin())
+  Actual: false
+Expected: true
+[  FAILED  ] IntegerFixture.multiplies_digits_1 (22 ms)
+[ RUN      ] IntegerFixture.multiplies_digits_2
+Borrow is: 1
+Dif is: 8
+Borrow is: 0
+Dif is: 4
+Borrow is: 0
+Dif is: 5
+Borrow is: 0
+Dif is: 5
+Borrow is: 0
+Dif is: 5
+TestInteger.c++:230: Failure
+Value of: out.end()
+  Actual: 8-byte object <94-B7 C5-05 00-00 00-00>
+Expected: itr
+Which is: 8-byte object <84-B7 C5-05 00-00 00-00>
+[  FAILED  ] IntegerFixture.multiplies_digits_2 (24 ms)
+[ RUN      ] IntegerFixture.multiplies_digits_3
+TestInteger.c++:240: Failure
+Value of: equal(out.begin(), out.end(), test.begin())
+  Actual: false
+Expected: true
+[  FAILED  ] IntegerFixture.multiplies_digits_3 (6 ms)
+[ RUN      ] IntegerFixture.multiplies_digits_4
+TestInteger.c++:251: Failure
+Value of: equal(out.begin(), out.end(), test.begin())
+  Actual: false
+Expected: true
+[  FAILED  ] IntegerFixture.multiplies_digits_4 (7 ms)
+[ RUN      ] IntegerFixture.multiplies_digits_5
+[       OK ] IntegerFixture.multiplies_digits_5 (5 ms)
+[ RUN      ] IntegerFixture.divides_digits_1
+TestInteger.c++:274: Failure
+Value of: equal(out.begin(), out.end(), test.begin())
+  Actual: false
+Expected: true
+[  FAILED  ] IntegerFixture.divides_digits_1 (6 ms)
+[ RUN      ] IntegerFixture.divides_digits_2
+TestInteger.c++:283: Failure
+Value of: out.end()
+  Actual: 8-byte object <C4-68 C6-05 00-00 00-00>
+Expected: itr
+Which is: 8-byte object <C0-68 C6-05 00-00 00-00>
+[  FAILED  ] IntegerFixture.divides_digits_2 (6 ms)
+[ RUN      ] IntegerFixture.divides_digits_3
+TestInteger.c++:293: Failure
+Value of: equal(out.begin(), out.end(), test.begin())
+  Actual: false
+Expected: true
+[  FAILED  ] IntegerFixture.divides_digits_3 (6 ms)
+[ RUN      ] IntegerFixture.divides_digits_4
+TestInteger.c++:305: Failure
+Value of: out.end()
+  Actual: 8-byte object <74-C1 C6-05 00-00 00-00>
+Expected: itr
+Which is: 8-byte object <70-C1 C6-05 00-00 00-00>
+[  FAILED  ] IntegerFixture.divides_digits_4 (7 ms)
+[ RUN      ] IntegerFixture.divides_digits_5
+[       OK ] IntegerFixture.divides_digits_5 (5 ms)
+[----------] 26 tests from IntegerFixture (239 ms total)
+
+[----------] Global test environment tear-down
+[==========] 26 tests from 1 test case ran. (268 ms total)
+[  PASSED  ] 18 tests.
+[  FAILED  ] 8 tests, listed below:
+[  FAILED  ] IntegerFixture.multiplies_digits_1
+[  FAILED  ] IntegerFixture.multiplies_digits_2
+[  FAILED  ] IntegerFixture.multiplies_digits_3
+[  FAILED  ] IntegerFixture.multiplies_digits_4
+[  FAILED  ] IntegerFixture.divides_digits_1
+[  FAILED  ] IntegerFixture.divides_digits_2
+[  FAILED  ] IntegerFixture.divides_digits_3
+[  FAILED  ] IntegerFixture.divides_digits_4
+
+ 8 FAILED TESTS
+==22142== 
+==22142== HEAP SUMMARY:
+==22142==     in use at exit: 0 bytes in 0 blocks
+==22142==   total heap usage: 1,061 allocs, 1,061 frees, 155,572 bytes allocated
+==22142== 
+==22142== All heap blocks were freed -- no leaks are possible
+==22142== 
+==22142== For counts of detected and suppressed errors, rerun with: -v
+==22142== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 0 from 0)

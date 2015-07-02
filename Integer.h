@@ -17,6 +17,8 @@
 #include <string>    // string
 #include <vector>    // vector
 
+using namespace std;
+
 // -----------------
 // shift_left_digits
 // -----------------
@@ -32,7 +34,11 @@
  */
 template <typename II, typename FI>
 FI shift_left_digits (II b, II e, int n, FI x) {
-    // <your code>
+    x = copy(b, e, x);
+    for (int i=0; i<n; i++) {
+        *x = 0;
+        ++x;
+    }
     return x;}
 
 // ------------------
@@ -50,7 +56,17 @@ FI shift_left_digits (II b, II e, int n, FI x) {
  */
 template <typename II, typename FI>
 FI shift_right_digits (II b, II e, int n, FI x) {
-    // <your code>
+    int count = 0;
+    II b2 = b;
+    while (b != e) {
+        ++count;
+        ++b;
+    }
+    for (int i = 0; i < count-n; i++) {
+        *x = *b2;
+        ++b2;
+        ++x;
+    }
     return x;}
 
 // -----------
@@ -70,7 +86,42 @@ FI shift_right_digits (II b, II e, int n, FI x) {
  */
 template <typename II1, typename II2, typename FI>
 FI plus_digits (II1 b1, II1 e1, II2 b2, II2 e2, FI x) {
-    // <your code>
+    vector<int> vec1(0);
+    vector<int> vec2(0);
+    deque<int> sum(0);
+    while (b1 != e1) {
+        vec1.push_back(*b1);
+        ++b1;
+    }
+    while (b2 != e2) {
+        vec2.push_back(*b2);
+        ++b2;
+    }
+    int carry = 0;
+    while (!vec1.empty() || !vec2.empty()) {
+        if (vec1.empty()){
+            sum.push_front((vec2.back() + carry) % 10);
+            carry = (vec2.back()  + carry) / 10; // should be greater than one if we need to carry. 
+            vec2.pop_back();
+        }else if (vec2.empty()){
+            sum.push_front((vec1.back() + carry) % 10);
+            carry = (vec1.back()  + carry) / 10; // should be greater than one if we need to carry. 
+            vec1.pop_back();
+        }else{
+            sum.push_front((vec1.back()  + vec2.back() + carry) % 10);
+            carry = (vec1.back()  + vec2.back() + carry) / 10; // should be greater than one if we need to carry. 
+            vec1.pop_back();
+            vec2.pop_back();
+        }
+    }
+
+    if(carry != 0)
+        sum.push_front(carry);
+
+    for(int i : sum){
+        *x = i;
+        ++x;
+    }
     return x;}
 
 // ------------
@@ -90,7 +141,78 @@ FI plus_digits (II1 b1, II1 e1, II2 b2, II2 e2, FI x) {
  */
 template <typename II1, typename II2, typename FI>
 FI minus_digits (II1 b1, II1 e1, II2 b2, II2 e2, FI x) {
-    // <your code>
+    vector<int> vec1(0);
+    vector<int> vec2(0);
+    deque<int> dif(0);
+    vector<int>* bigP;
+    vector<int>* littleP;
+    while (b1 != e1) {
+        vec1.push_back(*b1);
+        ++b1;
+    }
+    while (b2 != e2) {
+        vec2.push_back(*b2);
+        ++b2;
+    }
+
+    //find out which is bigger.
+    if(vec1.size() > vec2.size()){
+        bigP = &vec1;
+        littleP = &vec2;
+    }else if(vec1.size() < vec2.size()){
+        //NEED TO ADD FLIP THE NEGATIVE FLAG!!!!!!!!!
+        bigP = &vec2;
+        littleP = &vec1;
+    }else{
+        for(int i = 0; i < vec1.size(); ++i){
+            if(vec1[i] > vec2[i]){
+                bigP = &vec1;
+                littleP = &vec2;
+                break;
+            }else if(vec1[i] < vec2[i]){
+                bigP = &vec2;
+                littleP = &vec1;
+                break;
+            }
+        }
+    }
+
+    vector<int>& big = *bigP;
+    vector<int>& little = *littleP;
+
+    //now we subtract
+    int borrow = 0;
+    while(!big.empty() || !little.empty()){
+
+        if (borrow) {
+            big.back() -= borrow;
+            borrow = 0;
+        }
+        if (little.empty()){
+            dif.push_front(big.back());
+            big.pop_back();
+        }else{
+            if(big.back() < little.back()){
+                //we borrow.
+                big.back() += 10;
+                borrow += 1;
+            }
+            dif.push_front(big.back()  - little.back());
+            big.pop_back();
+            little.pop_back();
+        }
+        cout << "Borrow is: " << borrow << endl;
+        cout << "Dif is: " << dif.front() << endl;
+    }
+
+    while (!dif.front())
+        dif.pop_front();
+
+    for(int i : dif){
+        *x = i;
+        ++x;
+    }
+
     return x;}
 
 // -----------------
@@ -110,7 +232,42 @@ FI minus_digits (II1 b1, II1 e1, II2 b2, II2 e2, FI x) {
  */
 template <typename II1, typename II2, typename FI>
 FI multiplies_digits (II1 b1, II1 e1, II2 b2, II2 e2, FI x) {
-    // <your code>
+    vector<int> vec1(0);
+    vector<int> vec2(0);
+    deque<int> product(0);
+    while (b1 != e1) {
+        vec1.push_back(*b1);
+        ++b1;
+    }
+    while (b2 != e2) {
+        vec2.push_back(*b2);
+        ++b2;
+    }
+    int carry = 0;
+    while (!vec1.empty() || !vec2.empty()) {
+        if (vec1.empty()){
+            sum.push_front((vec2.back() + carry) % 10);
+            carry = (vec2.back()  + carry) / 10; // should be greater than one if we need to carry. 
+            vec2.pop_back();
+        }else if (vec2.empty()){
+            sum.push_front((vec1.back() + carry) % 10);
+            carry = (vec1.back()  + carry) / 10; // should be greater than one if we need to carry. 
+            vec1.pop_back();
+        }else{
+            sum.push_front((vec1.back()  + vec2.back() + carry) % 10);
+            carry = (vec1.back()  + vec2.back() + carry) / 10; // should be greater than one if we need to carry. 
+            vec1.pop_back();
+            vec2.pop_back();
+        }
+    }
+
+    if(carry != 0)
+        sum.push_front(carry);
+
+    for(int i : sum){
+        *x = i;
+        ++x;
+    }
     return x;}
 
 // --------------
