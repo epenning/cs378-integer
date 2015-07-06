@@ -405,7 +405,9 @@ class Integer {
     // -----------
 
     /**
-     * <your documentation>
+     * @param lhs   Integer to be compared
+     * @param rhs   Integer to be compared
+     * @return      true if lhs equals rhs, false otherwise
      */
     friend bool operator == (const Integer& lhs, const Integer& rhs) {
         // <your code>
@@ -416,7 +418,9 @@ class Integer {
     // -----------
 
     /**
-     * <your documentation>
+     * @param lhs   Integer to be compared
+     * @param rhs   Integer to be compared
+     * @return      true if lhs does not equal rhs, false otherwise
      */
     friend bool operator != (const Integer& lhs, const Integer& rhs) {
         return !(lhs == rhs);}
@@ -426,7 +430,9 @@ class Integer {
     // ----------
 
     /**
-     * <your documentation>
+     * @param lhs   Integer to be compared
+     * @param rhs   Integer to be compared
+     * @return      true if lhs is less than rhs, false otherwise
      */
     friend bool operator < (const Integer& lhs, const Integer& rhs) {
         // <your code>
@@ -437,7 +443,9 @@ class Integer {
     // -----------
 
     /**
-     * <your documentation>
+     * @param lhs   Integer to be compared
+     * @param rhs   Integer to be compared
+     * @return      true if lhs is less than or equal to rhs, false otherwise
      */
     friend bool operator <= (const Integer& lhs, const Integer& rhs) {
         return !(rhs < lhs);}
@@ -447,7 +455,9 @@ class Integer {
     // ----------
 
     /**
-     * <your documentation>
+     * @param lhs   Integer to be compared
+     * @param rhs   Integer to be compared
+     * @return      true if lhs is greater than rhs, false otherwise
      */
     friend bool operator > (const Integer& lhs, const Integer& rhs) {
         return (rhs < lhs);}
@@ -457,7 +467,9 @@ class Integer {
     // -----------
 
     /**
-     * <your documentation>
+     * @param lhs   Integer to be compared
+     * @param rhs   Integer to be compared
+     * @return      true if lhs is greater than or equal to rhs, false otherwise
      */
     friend bool operator >= (const Integer& lhs, const Integer& rhs) {
         return !(lhs < rhs);}
@@ -467,7 +479,9 @@ class Integer {
     // ----------
 
     /**
-     * <your documentation>
+     * @param lhs   Integer to be compared
+     * @param rhs   Integer to be compared
+     * @return      Integer value of lhs + rhs
      */
     friend Integer operator + (Integer lhs, const Integer& rhs) {
         return lhs += rhs;}
@@ -477,7 +491,9 @@ class Integer {
     // ----------
 
     /**
-     * <your documentation>
+     * @param lhs   Integer to be compared
+     * @param rhs   Integer to be compared
+     * @return      Integer value of lhs - rhs
      */
     friend Integer operator - (Integer lhs, const Integer& rhs) {
         return lhs -= rhs;}
@@ -487,7 +503,9 @@ class Integer {
     // ----------
 
     /**
-     * <your documentation>
+     * @param lhs   Integer to be compared
+     * @param rhs   Integer to be compared
+     * @return      Integer value of lhs - rhs
      */
     friend Integer operator * (Integer lhs, const Integer& rhs) {
         return lhs *= rhs;}
@@ -497,7 +515,9 @@ class Integer {
     // ----------
 
     /**
-     * <your documentation>
+     * @param lhs   Integer to be compared
+     * @param rhs   Integer to be compared
+     * @return      true if lhs equals rhs, false otherwise
      * @throws invalid_argument if (rhs == 0)
      */
     friend Integer operator / (Integer lhs, const Integer& rhs) {
@@ -508,7 +528,9 @@ class Integer {
     // ----------
 
     /**
-     * <your documentation>
+     * @param lhs   Integer to be compared
+     * @param rhs   Integer to be compared
+     * @return      true if lhs equals rhs, false otherwise
      * @throws invalid_argument if (rhs <= 0)
      */
     friend Integer operator % (Integer lhs, const Integer& rhs) {
@@ -519,7 +541,9 @@ class Integer {
     // -----------
 
     /**
-     * <your documentation>
+     * @param lhs   Integer to be compared
+     * @param rhs   Integer to be compared
+     * @return      true if lhs equals rhs, false otherwise
      * @throws invalid_argument if (rhs < 0)
      */
     friend Integer operator << (Integer lhs, int rhs) {
@@ -530,7 +554,9 @@ class Integer {
     // -----------
 
     /**
-     * <your documentation>
+     * @param lhs   Integer to be compared
+     * @param rhs   Integer to be compared
+     * @return      true if lhs equals rhs, false otherwise
      * @throws invalid_argument if (rhs < 0)
      */
     friend Integer operator >> (Integer lhs, int rhs) {
@@ -541,7 +567,9 @@ class Integer {
     // -----------
 
     /**
-     * <your documentation>
+     * @param lhs   ostream to write to
+     * @param rhs   Integer to be written
+     * @return      true if lhs equals rhs, false otherwise
      */
     friend std::ostream& operator << (std::ostream& lhs, const Integer& rhs) {
         // <your code>
@@ -584,7 +612,13 @@ class Integer {
         // -----
 
         bool valid () const { // class invariant
-            // <your code>
+            // each digit should be in [0,9]
+            for (int digit : _x)
+                if (digit < 0 || digit > 9)
+                    return false;
+            // there should be no leading 0s
+            if (!(_x.front()))
+                return false;
             return true;}
 
     public:
