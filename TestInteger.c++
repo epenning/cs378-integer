@@ -314,3 +314,63 @@ TEST(IntegerFixture, divides_digits_5) {
 	vector<int>::iterator itr = divides_digits(vecOne.begin()+1, vecOne.end()-1, vecTwo.begin()+3, vecTwo.end()-2, out.begin());
 	ASSERT_TRUE(equal(out.begin(), itr, test.begin()));
 }
+
+TEST(IntegerFixture, equals_1) {
+
+}
+
+TEST(IntegerFixture, less_than_1) {
+
+}
+
+TEST(IntegerFixture, out_1) {
+
+}
+
+TEST(IntegerFixture, constructor_int_1) {
+
+}
+
+TEST(IntegerFixture, constructor_string_1) {
+
+}
+
+TEST(IntegerFixture, negation_1) {
+
+}
+
+TEST(IntegerFixture, plus_equal_1) {
+
+}
+
+TEST(IntegerFixture, minus_equal_1) {
+
+}
+
+TEST(IntegerFixture, multi_equal_1) {
+
+}
+
+TEST(IntegerFixture, divide_equal_1) {
+
+}
+
+TEST(IntegerFixture, mod_equal_1) {
+
+}
+
+TEST(IntegerFixture, left_shift_equal_1) {
+
+}
+
+TEST(IntegerFixture, right_shift_equal_1) {
+
+}
+
+TEST(IntegerFixture, abs_1) {
+
+}
+
+TEST(IntegerFixture, pow_1) {
+
+}
