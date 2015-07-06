@@ -226,7 +226,7 @@ TEST(IntegerFixture, multiplies_digits_2) {
 	vector<int> vecOne = {1,2,3,4,5};
     vector<int> vecTwo = {6,7,8,9,3};
 	vector<int> out(9);
-	vector<int>::iterator itr = minus_digits(vecOne.begin(), vecOne.end(), vecTwo.begin(), vecTwo.end(), out.begin());
+	vector<int>::iterator itr = multiplies_digits(vecOne.begin(), vecOne.end(), vecTwo.begin(), vecTwo.end(), out.begin());
 	ASSERT_EQ(itr, out.end());
 }
 
@@ -256,8 +256,8 @@ TEST(IntegerFixture, multiplies_digits_5) {
 	//add in middle
 	vector<int> vecOne = {1,2,3,4,5};
     vector<int> vecTwo = {6,7,8,9,3};
-    vector<int> out(5);
-    vector<int> test = {8,3,8,1,3,9,0,8,5}; 
+    vector<int> out(6);
+    vector<int> test = {1,8,4,6,2,6}; 
 	vector<int>::iterator itr = multiplies_digits(vecOne.begin()+1, vecOne.end()-1, vecTwo.begin()+1, vecTwo.end()-1, out.begin());
 	ASSERT_TRUE(equal(out.begin(), itr, test.begin()));
 }

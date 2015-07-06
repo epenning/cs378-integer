@@ -1,177 +1,241 @@
-==22142== Memcheck, a memory error detector
-==22142== Copyright (C) 2002-2013, and GNU GPL'd, by Julian Seward et al.
-==22142== Using Valgrind-3.10.0.SVN and LibVEX; rerun with -h for copyright info
-==22142== Command: ./TestInteger
-==22142== 
+==20626== Memcheck, a memory error detector
+==20626== Copyright (C) 2002-2013, and GNU GPL'd, by Julian Seward et al.
+==20626== Using Valgrind-3.10.0.SVN and LibVEX; rerun with -h for copyright info
+==20626== Command: ./TestInteger
+==20626== 
 Running main() from gtest_main.cc
 [==========] Running 26 tests from 1 test case.
 [----------] Global test environment set-up.
 [----------] 26 tests from IntegerFixture
 [ RUN      ] IntegerFixture.shift_left_1
-[       OK ] IntegerFixture.shift_left_1 (21 ms)
+[       OK ] IntegerFixture.shift_left_1 (33 ms)
 [ RUN      ] IntegerFixture.shift_left_2
-[       OK ] IntegerFixture.shift_left_2 (4 ms)
+[       OK ] IntegerFixture.shift_left_2 (6 ms)
 [ RUN      ] IntegerFixture.shift_left_3
-[       OK ] IntegerFixture.shift_left_3 (4 ms)
+[       OK ] IntegerFixture.shift_left_3 (7 ms)
 [ RUN      ] IntegerFixture.shift_right_1
-[       OK ] IntegerFixture.shift_right_1 (6 ms)
+[       OK ] IntegerFixture.shift_right_1 (8 ms)
 [ RUN      ] IntegerFixture.shift_right_2
-[       OK ] IntegerFixture.shift_right_2 (3 ms)
+[       OK ] IntegerFixture.shift_right_2 (5 ms)
 [ RUN      ] IntegerFixture.shift_right_3
-[       OK ] IntegerFixture.shift_right_3 (4 ms)
+[       OK ] IntegerFixture.shift_right_3 (7 ms)
 [ RUN      ] IntegerFixture.plus_digits_1
-[       OK ] IntegerFixture.plus_digits_1 (31 ms)
+[       OK ] IntegerFixture.plus_digits_1 (49 ms)
 [ RUN      ] IntegerFixture.plus_digits_2
-[       OK ] IntegerFixture.plus_digits_2 (4 ms)
+[       OK ] IntegerFixture.plus_digits_2 (7 ms)
 [ RUN      ] IntegerFixture.plus_digits_3
-[       OK ] IntegerFixture.plus_digits_3 (7 ms)
+[       OK ] IntegerFixture.plus_digits_3 (10 ms)
 [ RUN      ] IntegerFixture.plus_digits_4
-[       OK ] IntegerFixture.plus_digits_4 (6 ms)
+[       OK ] IntegerFixture.plus_digits_4 (10 ms)
 [ RUN      ] IntegerFixture.plus_digits_5
-[       OK ] IntegerFixture.plus_digits_5 (6 ms)
+[       OK ] IntegerFixture.plus_digits_5 (9 ms)
 [ RUN      ] IntegerFixture.minus_digits_1
-Borrow is: 1
-Dif is: 8
-Borrow is: 0
-Dif is: 4
-Borrow is: 0
-Dif is: 5
-Borrow is: 0
-Dif is: 5
-Borrow is: 0
-Dif is: 5
-[       OK ] IntegerFixture.minus_digits_1 (18 ms)
+[       OK ] IntegerFixture.minus_digits_1 (22 ms)
 [ RUN      ] IntegerFixture.minus_digits_2
-Borrow is: 1
-Dif is: 8
-Borrow is: 0
-Dif is: 4
-Borrow is: 0
-Dif is: 5
-Borrow is: 0
-Dif is: 5
-Borrow is: 0
-Dif is: 5
-[       OK ] IntegerFixture.minus_digits_2 (5 ms)
+[       OK ] IntegerFixture.minus_digits_2 (6 ms)
 [ RUN      ] IntegerFixture.minus_digits_3
-Borrow is: 1
-Dif is: 6
-Borrow is: 1
-Dif is: 5
-Borrow is: 1
-Dif is: 5
-Borrow is: 1
-Dif is: 5
-Borrow is: 0
-Dif is: 0
-[       OK ] IntegerFixture.minus_digits_3 (7 ms)
+[       OK ] IntegerFixture.minus_digits_3 (11 ms)
 [ RUN      ] IntegerFixture.minus_digits_4
-Borrow is: 0
-Dif is: 1
-Borrow is: 0
-Dif is: 6
-Borrow is: 0
-Dif is: 6
-Borrow is: 0
-Dif is: 6
-Borrow is: 0
-Dif is: 6
-[       OK ] IntegerFixture.minus_digits_4 (6 ms)
+[       OK ] IntegerFixture.minus_digits_4 (9 ms)
 [ RUN      ] IntegerFixture.minus_digits_5
-Borrow is: 0
-Dif is: 5
-Borrow is: 0
-Dif is: 5
-Borrow is: 0
-Dif is: 5
-[       OK ] IntegerFixture.minus_digits_5 (6 ms)
+[       OK ] IntegerFixture.minus_digits_5 (9 ms)
 [ RUN      ] IntegerFixture.multiplies_digits_1
-TestInteger.c++:221: Failure
-Value of: equal(out.begin(), out.end(), test.begin())
-  Actual: false
-Expected: true
-[  FAILED  ] IntegerFixture.multiplies_digits_1 (22 ms)
+Vec1: 1 2 3 4 5 
+Vec2: 6 7 8 9 3 
+i is: 5
+j is: 0
+j is: 1
+j is: 2
+j is: 3
+j is: 4
+i is: 4
+j is: 0
+j is: 1
+j is: 2
+j is: 3
+i is: 3
+j is: 0
+j is: 1
+j is: 2
+i is: 2
+j is: 0
+j is: 1
+i is: 1
+j is: 0
+Writing 8 to x
+Writing 3 to x
+Writing 8 to x
+Writing 1 to x
+Writing 3 to x
+Writing 9 to x
+Writing 0 to x
+Writing 8 to x
+Writing 5 to x
+Done storing into x
+[       OK ] IntegerFixture.multiplies_digits_1 (42 ms)
 [ RUN      ] IntegerFixture.multiplies_digits_2
-Borrow is: 1
-Dif is: 8
-Borrow is: 0
-Dif is: 4
-Borrow is: 0
-Dif is: 5
-Borrow is: 0
-Dif is: 5
-Borrow is: 0
-Dif is: 5
-TestInteger.c++:230: Failure
-Value of: out.end()
-  Actual: 8-byte object <94-B7 C5-05 00-00 00-00>
-Expected: itr
-Which is: 8-byte object <84-B7 C5-05 00-00 00-00>
-[  FAILED  ] IntegerFixture.multiplies_digits_2 (24 ms)
+Vec1: 1 2 3 4 5 
+Vec2: 6 7 8 9 3 
+i is: 5
+j is: 0
+j is: 1
+j is: 2
+j is: 3
+j is: 4
+i is: 4
+j is: 0
+j is: 1
+j is: 2
+j is: 3
+i is: 3
+j is: 0
+j is: 1
+j is: 2
+i is: 2
+j is: 0
+j is: 1
+i is: 1
+j is: 0
+Writing 8 to x
+Writing 3 to x
+Writing 8 to x
+Writing 1 to x
+Writing 3 to x
+Writing 9 to x
+Writing 0 to x
+Writing 8 to x
+Writing 5 to x
+Done storing into x
+[       OK ] IntegerFixture.multiplies_digits_2 (14 ms)
 [ RUN      ] IntegerFixture.multiplies_digits_3
-TestInteger.c++:240: Failure
-Value of: equal(out.begin(), out.end(), test.begin())
-  Actual: false
-Expected: true
-[  FAILED  ] IntegerFixture.multiplies_digits_3 (6 ms)
+Vec1: 1 2 3 4 5 
+Vec2: 6 7 8 9 
+i is: 5
+j is: 0
+j is: 1
+j is: 2
+j is: 3
+j is: 4
+i is: 4
+j is: 0
+j is: 1
+j is: 2
+j is: 3
+i is: 3
+j is: 0
+j is: 1
+j is: 2
+i is: 2
+j is: 0
+j is: 1
+i is: 1
+j is: 0
+Writing 8 to x
+Writing 3 to x
+Writing 8 to x
+Writing 1 to x
+Writing 0 to x
+Writing 2 to x
+Writing 0 to x
+Writing 5 to x
+Done storing into x
+[       OK ] IntegerFixture.multiplies_digits_3 (15 ms)
 [ RUN      ] IntegerFixture.multiplies_digits_4
-TestInteger.c++:251: Failure
-Value of: equal(out.begin(), out.end(), test.begin())
-  Actual: false
-Expected: true
-[  FAILED  ] IntegerFixture.multiplies_digits_4 (7 ms)
+Vec1: 1 2 3 4 
+Vec2: 6 7 8 9 5 
+i is: 4
+j is: 0
+j is: 1
+j is: 2
+j is: 3
+i is: 3
+j is: 0
+j is: 1
+j is: 2
+i is: 2
+j is: 0
+j is: 1
+i is: 1
+j is: 0
+Writing 8 to x
+Writing 3 to x
+Writing 7 to x
+Writing 8 to x
+Writing 2 to x
+Writing 4 to x
+Writing 3 to x
+Writing 0 to x
+Done storing into x
+[       OK ] IntegerFixture.multiplies_digits_4 (14 ms)
 [ RUN      ] IntegerFixture.multiplies_digits_5
-[       OK ] IntegerFixture.multiplies_digits_5 (5 ms)
+Vec1: 2 3 4 
+Vec2: 7 8 9 
+i is: 4
+j is: 0
+j is: 1
+j is: 2
+j is: 3
+i is: 3
+j is: 0
+j is: 1
+j is: 2
+i is: 2
+j is: 0
+j is: 1
+Writing 1 to x
+Writing 8 to x
+Writing 4 to x
+Writing 6 to x
+Writing 2 to x
+Writing 6 to x
+Done storing into x
+[       OK ] IntegerFixture.multiplies_digits_5 (12 ms)
 [ RUN      ] IntegerFixture.divides_digits_1
 TestInteger.c++:274: Failure
 Value of: equal(out.begin(), out.end(), test.begin())
   Actual: false
 Expected: true
-[  FAILED  ] IntegerFixture.divides_digits_1 (6 ms)
+[  FAILED  ] IntegerFixture.divides_digits_1 (34 ms)
 [ RUN      ] IntegerFixture.divides_digits_2
 TestInteger.c++:283: Failure
 Value of: out.end()
-  Actual: 8-byte object <C4-68 C6-05 00-00 00-00>
+  Actual: 8-byte object <F4-5B C8-05 00-00 00-00>
 Expected: itr
-Which is: 8-byte object <C0-68 C6-05 00-00 00-00>
-[  FAILED  ] IntegerFixture.divides_digits_2 (6 ms)
+Which is: 8-byte object <F0-5B C8-05 00-00 00-00>
+[  FAILED  ] IntegerFixture.divides_digits_2 (37 ms)
 [ RUN      ] IntegerFixture.divides_digits_3
 TestInteger.c++:293: Failure
 Value of: equal(out.begin(), out.end(), test.begin())
   Actual: false
 Expected: true
-[  FAILED  ] IntegerFixture.divides_digits_3 (6 ms)
+[  FAILED  ] IntegerFixture.divides_digits_3 (9 ms)
 [ RUN      ] IntegerFixture.divides_digits_4
 TestInteger.c++:305: Failure
 Value of: out.end()
-  Actual: 8-byte object <74-C1 C6-05 00-00 00-00>
+  Actual: 8-byte object <A4-B4 C8-05 00-00 00-00>
 Expected: itr
-Which is: 8-byte object <70-C1 C6-05 00-00 00-00>
-[  FAILED  ] IntegerFixture.divides_digits_4 (7 ms)
+Which is: 8-byte object <A0-B4 C8-05 00-00 00-00>
+[  FAILED  ] IntegerFixture.divides_digits_4 (11 ms)
 [ RUN      ] IntegerFixture.divides_digits_5
-[       OK ] IntegerFixture.divides_digits_5 (5 ms)
-[----------] 26 tests from IntegerFixture (239 ms total)
+[       OK ] IntegerFixture.divides_digits_5 (8 ms)
+[----------] 26 tests from IntegerFixture (418 ms total)
 
 [----------] Global test environment tear-down
-[==========] 26 tests from 1 test case ran. (268 ms total)
-[  PASSED  ] 18 tests.
-[  FAILED  ] 8 tests, listed below:
-[  FAILED  ] IntegerFixture.multiplies_digits_1
-[  FAILED  ] IntegerFixture.multiplies_digits_2
-[  FAILED  ] IntegerFixture.multiplies_digits_3
-[  FAILED  ] IntegerFixture.multiplies_digits_4
+[==========] 26 tests from 1 test case ran. (463 ms total)
+[  PASSED  ] 22 tests.
+[  FAILED  ] 4 tests, listed below:
 [  FAILED  ] IntegerFixture.divides_digits_1
 [  FAILED  ] IntegerFixture.divides_digits_2
 [  FAILED  ] IntegerFixture.divides_digits_3
 [  FAILED  ] IntegerFixture.divides_digits_4
 
- 8 FAILED TESTS
-==22142== 
-==22142== HEAP SUMMARY:
-==22142==     in use at exit: 0 bytes in 0 blocks
-==22142==   total heap usage: 1,061 allocs, 1,061 frees, 155,572 bytes allocated
-==22142== 
-==22142== All heap blocks were freed -- no leaks are possible
-==22142== 
-==22142== For counts of detected and suppressed errors, rerun with: -v
-==22142== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 0 from 0)
+ 4 FAILED TESTS
+==20626== 
+==20626== HEAP SUMMARY:
+==20626==     in use at exit: 0 bytes in 0 blocks
+==20626==   total heap usage: 1,825 allocs, 1,825 frees, 231,425 bytes allocated
+==20626== 
+==20626== All heap blocks were freed -- no leaks are possible
+==20626== 
+==20626== For counts of detected and suppressed errors, rerun with: -v
+==20626== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 0 from 0)
