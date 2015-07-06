@@ -173,6 +173,7 @@ FI minus_digits (II1 b1, II1 e1, II2 b2, II2 e2, FI x) {
             }else if(vec1[i] < vec2[i]){
                 bigP = &vec2;
                 littleP = &vec1;
+                // FLIP NEGATIVE FLAG
                 break;
             }
         }
@@ -234,25 +235,25 @@ FI multiplies_digits (II1 b1, II1 e1, II2 b2, II2 e2, FI x) {
     vector<int> vec1(b1, e1);
     vector<int> vec2(b2, e2);
     
-    cout << "Vec1: ";
+    //cout << "Vec1: ";
     for(int i : vec1){
-        cout << i << " ";
+        //cout << i << " ";
     }
-    cout << endl;
-    cout << "Vec2: ";
+    //cout << endl;
+    //cout << "Vec2: ";
     for(int i : vec2){
-        cout << i << " ";
+        //cout << i << " ";
     }
-    cout << endl;
+    //cout << endl;
     vector<int> total(vec1.size()+vec2.size());
     vector<int>::iterator totalEnd = total.begin() + 1;
     int shift = 0;
     for (int i = vec1.size()-1; i >= 0; --i) {
-        cout << "i is: " << vec1[i] << endl;
+        //cout << "i is: " << vec1[i] << endl;
         vector<int> product(vec2.size()+1);
         vector<int>::iterator productEnd = product.begin() + 1;
         for(int j = 0; j < vec1[i]; ++j){
-            cout << "j is: " << j << endl;
+            //cout << "j is: " << j << endl;
             productEnd = plus_digits(product.begin(), productEnd, vec2.begin(), vec2.end(), product.begin());
             vector<int>::iterator k = product.begin();
         }
@@ -264,12 +265,12 @@ FI multiplies_digits (II1 b1, II1 e1, II2 b2, II2 e2, FI x) {
     }
     vector<int>::iterator i = total.begin();
     while(i != totalEnd){
-        cout << "Writing " << *i << " to x" << endl;
+        //cout << "Writing " << *i << " to x" << endl;
         *x = *i;
         ++x;
         ++i;
     }
-    cout << "Done storing into x" << endl;
+    //cout << "Done storing into x" << endl;
     return x;
 
     /*cout << "Made vectors 1 and 2"<< endl;
@@ -392,6 +393,7 @@ FI divides_digits (II1 b1, II1 e1, II2 b2, II2 e2, FI x) {
     }
 
 
+
     return x;}
 
 // -------
@@ -410,8 +412,7 @@ class Integer {
      * @return      true if lhs equals rhs, false otherwise
      */
     friend bool operator == (const Integer& lhs, const Integer& rhs) {
-        // <your code>
-        return false;}
+        return !(lhs < rhs) && !(lhs > rhs);}
 
     // -----------
     // operator !=
@@ -435,7 +436,19 @@ class Integer {
      * @return      true if lhs is less than rhs, false otherwise
      */
     friend bool operator < (const Integer& lhs, const Integer& rhs) {
-        // <your code>
+        if(lhs._x.size() > rhs._x.size()){
+            return false;
+        }else if(lhs._x.size() < rhs._x.size()){
+            return true;
+        }else{
+            for(int i = 0; i < lhs._x.size(); ++i){
+                if(lhs._x[i] > rhs._x[i]){
+                    return false;
+                }else if(lhs._x[i] < rhs._x[i]){
+                    return true;
+                }
+            }
+        }
         return false;}
 
     // -----------
@@ -572,8 +585,10 @@ class Integer {
      * @return      true if lhs equals rhs, false otherwise
      */
     friend std::ostream& operator << (std::ostream& lhs, const Integer& rhs) {
-        // <your code>
-        return lhs << "0";}
+        for (int i : rhs._x) {
+            lhs << i;
+        }
+        return lhs;}
 
     // ---
     // abs
@@ -617,7 +632,7 @@ class Integer {
                 if (digit < 0 || digit > 9)
                     return false;
             // there should be no leading 0s
-            if (!(_x.front()))
+            if ((_x.size() != 1) && !(_x.front()))
                 return false;
             return true;}
 
@@ -630,7 +645,16 @@ class Integer {
          * <your documentation>
          */
         Integer (int value) {
-            // <your code>
+            
+            int i = 1000000000;
+            for (; i > 1; i/=10) {
+                if (value / i != 0)
+                    break;
+            }
+            for (; i>0; i/=10) {
+                _x.push_back(value/i);
+                value %= i;
+            }
             assert(valid());}
 
         /**

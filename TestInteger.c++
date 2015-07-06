@@ -316,7 +316,9 @@ TEST(IntegerFixture, divides_digits_5) {
 }
 
 TEST(IntegerFixture, equals_1) {
-
+	Integer<int> a = 12345;
+	Integer<int> b = 12345;
+	ASSERT_EQ(a, b);
 }
 
 TEST(IntegerFixture, less_than_1) {
@@ -327,8 +329,29 @@ TEST(IntegerFixture, out_1) {
 
 }
 
-TEST(IntegerFixture, constructor_int_1) {
+TEST(IntegerFixture, valid_1) {
 
+}
+
+TEST(IntegerFixture, constructor_int_1) {
+	Integer<int> a = 12345;
+	ostringstream output;
+	output << a;
+	ASSERT_EQ(output.str(), "12345");
+}
+
+TEST(IntegerFixture, constructor_int_2) {
+	Integer<int> a = 2147483647;
+	ostringstream output;
+	output << a;
+	ASSERT_EQ(output.str(), "2147483647");
+}
+
+TEST(IntegerFixture, constructor_int_3) {
+	Integer<int> a = 0;
+	ostringstream output;
+	output << a;
+	ASSERT_EQ(output.str(), "0");
 }
 
 TEST(IntegerFixture, constructor_string_1) {
