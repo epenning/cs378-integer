@@ -321,17 +321,61 @@ TEST(IntegerFixture, equals_1) {
 	ASSERT_EQ(a, b);
 }
 
+TEST(IntegerFixture, equals_2) {
+	Integer<int> a = 0;
+	Integer<int> b = 0;
+	ASSERT_EQ(a, b);
+}
+
+TEST(IntegerFixture, equals_3) {
+	Integer<int> a = 12345;
+	Integer<int> b = -12345;
+	ASSERT_NE(a, b);
+}
+
+TEST(IntegerFixture, equals_4) {
+	Integer<int> a = -12345;
+	Integer<int> b = -12345;
+	ASSERT_EQ(a, b);
+}
+
+TEST(IntegerFixture, equals_5) {
+	Integer<int> a = 12345;
+	Integer<int> b = 98765;
+	ASSERT_NE(a, b);
+}
+
 TEST(IntegerFixture, less_than_1) {
-
+	Integer<int> a = 12345;
+	Integer<int> b = 987;
+	ASSERT_TRUE(b < a);
 }
 
-TEST(IntegerFixture, out_1) {
-
+TEST(IntegerFixture, less_than_2) {
+	Integer<int> a = 12345;
+	Integer<int> b = 12345;
+	ASSERT_FALSE(b < a);
 }
 
-TEST(IntegerFixture, valid_1) {
-
+TEST(IntegerFixture, less_than_3) {
+	Integer<int> a = -12345;
+	Integer<int> b = 12345;
+	ASSERT_TRUE(a < b);
 }
+
+TEST(IntegerFixture, less_than_4) {
+	Integer<int> a = -12345;
+	Integer<int> b = -12345;
+	ASSERT_FALSE(a < b);
+}
+
+TEST(IntegerFixture, less_than_5) {
+	Integer<int> a = -12345;
+	Integer<int> b = -987;
+	ASSERT_TRUE(a < b);
+}
+
+// out is tested in constructor
 
 TEST(IntegerFixture, constructor_int_1) {
 	Integer<int> a = 12345;
@@ -371,7 +415,33 @@ TEST(IntegerFixture, minus_equal_1) {
 }
 
 TEST(IntegerFixture, multi_equal_1) {
+	Integer<int> a = 123;
+	Integer<int> b = 123;
+	ASSERT_EQ(a*b, 15129);
+}
 
+TEST(IntegerFixture, multi_equal_2) {
+	Integer<int> a = 123;
+	Integer<int> b = 1;
+	ASSERT_EQ(a*b, 123);
+}
+
+TEST(IntegerFixture, multi_equal_3) {
+	Integer<int> a = 123;
+	Integer<int> b = 0;
+	ASSERT_EQ(a*b, 0);
+}
+
+TEST(IntegerFixture, multi_equal_4) {
+	Integer<int> a = -123;
+	Integer<int> b = -123;
+	ASSERT_EQ(a*b, 15129);
+}
+
+TEST(IntegerFixture, multi_equal_5) {
+	Integer<int> a = 123;
+	Integer<int> b = -123;
+	ASSERT_EQ(a*b, -15129);
 }
 
 TEST(IntegerFixture, divide_equal_1) {

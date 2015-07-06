@@ -436,16 +436,23 @@ class Integer {
      * @return      true if lhs is less than rhs, false otherwise
      */
     friend bool operator < (const Integer& lhs, const Integer& rhs) {
-        if(lhs._x.size() > rhs._x.size()){
-            return false;
-        }else if(lhs._x.size() < rhs._x.size()){
+        if (lhs._n && !rhs._n)
             return true;
+        if (!lhs._n && rhs._n)
+            return false;
+        bool less = true;
+        if (lhs._n && rhs._n)
+            less = false;
+        if(lhs._x.size() > rhs._x.size()){
+            return !less;
+        }else if(lhs._x.size() < rhs._x.size()){
+            return less;
         }else{
             for(int i = 0; i < lhs._x.size(); ++i){
                 if(lhs._x[i] > rhs._x[i]){
-                    return false;
+                    return !less;
                 }else if(lhs._x[i] < rhs._x[i]){
-                    return true;
+                    return less;
                 }
             }
         }
@@ -619,7 +626,7 @@ class Integer {
         // ----
 
         C _x; // the backing container
-        // <your data>
+        bool _n;
 
     private:
         // -----
@@ -645,7 +652,12 @@ class Integer {
          * <your documentation>
          */
         Integer (int value) {
-            
+            if (value < 0)
+                _n = true;
+            else
+                _n = false;
+            value = std::abs(value);
+
             int i = 1000000000;
             for (; i > 1; i/=10) {
                 if (value / i != 0)

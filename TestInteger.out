@@ -1,12 +1,12 @@
-==1705== Memcheck, a memory error detector
-==1705== Copyright (C) 2002-2013, and GNU GPL'd, by Julian Seward et al.
-==1705== Using Valgrind-3.10.0.SVN and LibVEX; rerun with -h for copyright info
-==1705== Command: ./TestInteger
-==1705== 
+==2378== Memcheck, a memory error detector
+==2378== Copyright (C) 2002-2013, and GNU GPL'd, by Julian Seward et al.
+==2378== Using Valgrind-3.10.0.SVN and LibVEX; rerun with -h for copyright info
+==2378== Command: ./TestInteger
+==2378== 
 Running main() from gtest_main.cc
-[==========] Running 44 tests from 1 test case.
+[==========] Running 54 tests from 1 test case.
 [----------] Global test environment set-up.
-[----------] 44 tests from IntegerFixture
+[----------] 54 tests from IntegerFixture
 [ RUN      ] IntegerFixture.shift_left_1
 [       OK ] IntegerFixture.shift_left_1 (21 ms)
 [ RUN      ] IntegerFixture.shift_left_2
@@ -14,9 +14,9 @@ Running main() from gtest_main.cc
 [ RUN      ] IntegerFixture.shift_left_3
 [       OK ] IntegerFixture.shift_left_3 (4 ms)
 [ RUN      ] IntegerFixture.shift_right_1
-[       OK ] IntegerFixture.shift_right_1 (6 ms)
+[       OK ] IntegerFixture.shift_right_1 (5 ms)
 [ RUN      ] IntegerFixture.shift_right_2
-[       OK ] IntegerFixture.shift_right_2 (3 ms)
+[       OK ] IntegerFixture.shift_right_2 (4 ms)
 [ RUN      ] IntegerFixture.shift_right_3
 [       OK ] IntegerFixture.shift_right_3 (4 ms)
 [ RUN      ] IntegerFixture.plus_digits_1
@@ -24,9 +24,9 @@ Running main() from gtest_main.cc
 [ RUN      ] IntegerFixture.plus_digits_2
 [       OK ] IntegerFixture.plus_digits_2 (4 ms)
 [ RUN      ] IntegerFixture.plus_digits_3
-[       OK ] IntegerFixture.plus_digits_3 (7 ms)
+[       OK ] IntegerFixture.plus_digits_3 (6 ms)
 [ RUN      ] IntegerFixture.plus_digits_4
-[       OK ] IntegerFixture.plus_digits_4 (6 ms)
+[       OK ] IntegerFixture.plus_digits_4 (7 ms)
 [ RUN      ] IntegerFixture.plus_digits_5
 [       OK ] IntegerFixture.plus_digits_5 (6 ms)
 [ RUN      ] IntegerFixture.minus_digits_1
@@ -36,7 +36,7 @@ Running main() from gtest_main.cc
 [ RUN      ] IntegerFixture.minus_digits_3
 [       OK ] IntegerFixture.minus_digits_3 (6 ms)
 [ RUN      ] IntegerFixture.minus_digits_4
-[       OK ] IntegerFixture.minus_digits_4 (5 ms)
+[       OK ] IntegerFixture.minus_digits_4 (6 ms)
 [ RUN      ] IntegerFixture.minus_digits_5
 [       OK ] IntegerFixture.minus_digits_5 (6 ms)
 [ RUN      ] IntegerFixture.multiplies_digits_1
@@ -68,10 +68,10 @@ Writing 3 to x
 Writing 8 to x
 TestInteger.c++:283: Failure
 Value of: out.end()
-  Actual: 8-byte object <74-B6 C8-05 00-00 00-00>
+  Actual: 8-byte object <54-E2 C8-05 00-00 00-00>
 Expected: itr
-Which is: 8-byte object <70-B6 C8-05 00-00 00-00>
-[  FAILED  ] IntegerFixture.divides_digits_2 (24 ms)
+Which is: 8-byte object <50-E2 C8-05 00-00 00-00>
+[  FAILED  ] IntegerFixture.divides_digits_2 (25 ms)
 [ RUN      ] IntegerFixture.divides_digits_3
 Writing 1 to x
 Writing 2 to x
@@ -84,65 +84,65 @@ Value of: equal(out.begin(), out.end(), test.begin())
 Expected: true
 [  FAILED  ] IntegerFixture.divides_digits_3 (6 ms)
 [ RUN      ] IntegerFixture.divides_digits_4
-==1705== Invalid write of size 4
-==1705==    at 0x40F6BC: __gnu_cxx::__normal_iterator<int*, std::vector<int, std::allocator<int> > > minus_digits<__gnu_cxx::__normal_iterator<int*, std::vector<int, std::allocator<int> > >, __gnu_cxx::__normal_iterator<int*, std::vector<int, std::allocator<int> > >, __gnu_cxx::__normal_iterator<int*, std::vector<int, std::allocator<int> > > >(__gnu_cxx::__normal_iterator<int*, std::vector<int, std::allocator<int> > >, __gnu_cxx::__normal_iterator<int*, std::vector<int, std::allocator<int> > >, __gnu_cxx::__normal_iterator<int*, std::vector<int, std::allocator<int> > >, __gnu_cxx::__normal_iterator<int*, std::vector<int, std::allocator<int> > >, __gnu_cxx::__normal_iterator<int*, std::vector<int, std::allocator<int> > >) (in /v/filer4b/v38q001/epenning/CS_378/cs378-integer/TestInteger)
-==1705==    by 0x40FE61: __gnu_cxx::__normal_iterator<int*, std::vector<int, std::allocator<int> > > divides_digits<__gnu_cxx::__normal_iterator<int*, std::vector<int, std::allocator<int> > >, __gnu_cxx::__normal_iterator<int*, std::vector<int, std::allocator<int> > >, __gnu_cxx::__normal_iterator<int*, std::vector<int, std::allocator<int> > > >(__gnu_cxx::__normal_iterator<int*, std::vector<int, std::allocator<int> > >, __gnu_cxx::__normal_iterator<int*, std::vector<int, std::allocator<int> > >, __gnu_cxx::__normal_iterator<int*, std::vector<int, std::allocator<int> > >, __gnu_cxx::__normal_iterator<int*, std::vector<int, std::allocator<int> > >, __gnu_cxx::__normal_iterator<int*, std::vector<int, std::allocator<int> > >) (in /v/filer4b/v38q001/epenning/CS_378/cs378-integer/TestInteger)
-==1705==    by 0x40B706: IntegerFixture_divides_digits_4_Test::TestBody() (in /v/filer4b/v38q001/epenning/CS_378/cs378-integer/TestInteger)
-==1705==    by 0x436D22: void testing::internal::HandleExceptionsInMethodIfSupported<testing::Test, void>(testing::Test*, void (testing::Test::*)(), char const*) (in /v/filer4b/v38q001/epenning/CS_378/cs378-integer/TestInteger)
-==1705==    by 0x42973C: testing::Test::Run() (in /v/filer4b/v38q001/epenning/CS_378/cs378-integer/TestInteger)
-==1705==    by 0x4297D3: testing::TestInfo::Run() (in /v/filer4b/v38q001/epenning/CS_378/cs378-integer/TestInteger)
-==1705==    by 0x4298D4: testing::TestCase::Run() (in /v/filer4b/v38q001/epenning/CS_378/cs378-integer/TestInteger)
-==1705==    by 0x429B4C: testing::internal::UnitTestImpl::RunAllTests() (in /v/filer4b/v38q001/epenning/CS_378/cs378-integer/TestInteger)
-==1705==    by 0x429E2D: testing::UnitTest::Run() (in /v/filer4b/v38q001/epenning/CS_378/cs378-integer/TestInteger)
-==1705==    by 0x404AAF: main (in /v/filer4b/v38q001/epenning/CS_378/cs378-integer/TestInteger)
-==1705==  Address 0x5c91fd0 is 0 bytes after a block of size 16 alloc'd
-==1705==    at 0x4C2B0E0: operator new(unsigned long) (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
-==1705==    by 0x411F13: __gnu_cxx::new_allocator<int>::allocate(unsigned long, void const*) (in /v/filer4b/v38q001/epenning/CS_378/cs378-integer/TestInteger)
-==1705==    by 0x411200: std::_Vector_base<int, std::allocator<int> >::_M_allocate(unsigned long) (in /v/filer4b/v38q001/epenning/CS_378/cs378-integer/TestInteger)
-==1705==    by 0x4126A1: void std::vector<int, std::allocator<int> >::_M_range_initialize<__gnu_cxx::__normal_iterator<int*, std::vector<int, std::allocator<int> > > >(__gnu_cxx::__normal_iterator<int*, std::vector<int, std::allocator<int> > >, __gnu_cxx::__normal_iterator<int*, std::vector<int, std::allocator<int> > >, std::forward_iterator_tag) (in /v/filer4b/v38q001/epenning/CS_378/cs378-integer/TestInteger)
-==1705==    by 0x411BB6: void std::vector<int, std::allocator<int> >::_M_initialize_dispatch<__gnu_cxx::__normal_iterator<int*, std::vector<int, std::allocator<int> > > >(__gnu_cxx::__normal_iterator<int*, std::vector<int, std::allocator<int> > >, __gnu_cxx::__normal_iterator<int*, std::vector<int, std::allocator<int> > >, std::__false_type) (in /v/filer4b/v38q001/epenning/CS_378/cs378-integer/TestInteger)
-==1705==    by 0x410B7D: std::vector<int, std::allocator<int> >::vector<__gnu_cxx::__normal_iterator<int*, std::vector<int, std::allocator<int> > >, void>(__gnu_cxx::__normal_iterator<int*, std::vector<int, std::allocator<int> > >, __gnu_cxx::__normal_iterator<int*, std::vector<int, std::allocator<int> > >, std::allocator<int> const&) (in /v/filer4b/v38q001/epenning/CS_378/cs378-integer/TestInteger)
-==1705==    by 0x40FDC1: __gnu_cxx::__normal_iterator<int*, std::vector<int, std::allocator<int> > > divides_digits<__gnu_cxx::__normal_iterator<int*, std::vector<int, std::allocator<int> > >, __gnu_cxx::__normal_iterator<int*, std::vector<int, std::allocator<int> > >, __gnu_cxx::__normal_iterator<int*, std::vector<int, std::allocator<int> > > >(__gnu_cxx::__normal_iterator<int*, std::vector<int, std::allocator<int> > >, __gnu_cxx::__normal_iterator<int*, std::vector<int, std::allocator<int> > >, __gnu_cxx::__normal_iterator<int*, std::vector<int, std::allocator<int> > >, __gnu_cxx::__normal_iterator<int*, std::vector<int, std::allocator<int> > >, __gnu_cxx::__normal_iterator<int*, std::vector<int, std::allocator<int> > >) (in /v/filer4b/v38q001/epenning/CS_378/cs378-integer/TestInteger)
-==1705==    by 0x40B706: IntegerFixture_divides_digits_4_Test::TestBody() (in /v/filer4b/v38q001/epenning/CS_378/cs378-integer/TestInteger)
-==1705==    by 0x436D22: void testing::internal::HandleExceptionsInMethodIfSupported<testing::Test, void>(testing::Test*, void (testing::Test::*)(), char const*) (in /v/filer4b/v38q001/epenning/CS_378/cs378-integer/TestInteger)
-==1705==    by 0x42973C: testing::Test::Run() (in /v/filer4b/v38q001/epenning/CS_378/cs378-integer/TestInteger)
-==1705==    by 0x4297D3: testing::TestInfo::Run() (in /v/filer4b/v38q001/epenning/CS_378/cs378-integer/TestInteger)
-==1705==    by 0x4298D4: testing::TestCase::Run() (in /v/filer4b/v38q001/epenning/CS_378/cs378-integer/TestInteger)
-==1705== 
+==2378== Invalid write of size 4
+==2378==    at 0x411A68: __gnu_cxx::__normal_iterator<int*, std::vector<int, std::allocator<int> > > minus_digits<__gnu_cxx::__normal_iterator<int*, std::vector<int, std::allocator<int> > >, __gnu_cxx::__normal_iterator<int*, std::vector<int, std::allocator<int> > >, __gnu_cxx::__normal_iterator<int*, std::vector<int, std::allocator<int> > > >(__gnu_cxx::__normal_iterator<int*, std::vector<int, std::allocator<int> > >, __gnu_cxx::__normal_iterator<int*, std::vector<int, std::allocator<int> > >, __gnu_cxx::__normal_iterator<int*, std::vector<int, std::allocator<int> > >, __gnu_cxx::__normal_iterator<int*, std::vector<int, std::allocator<int> > >, __gnu_cxx::__normal_iterator<int*, std::vector<int, std::allocator<int> > >) (in /v/filer4b/v38q001/epenning/CS_378/cs378-integer/TestInteger)
+==2378==    by 0x41220D: __gnu_cxx::__normal_iterator<int*, std::vector<int, std::allocator<int> > > divides_digits<__gnu_cxx::__normal_iterator<int*, std::vector<int, std::allocator<int> > >, __gnu_cxx::__normal_iterator<int*, std::vector<int, std::allocator<int> > >, __gnu_cxx::__normal_iterator<int*, std::vector<int, std::allocator<int> > > >(__gnu_cxx::__normal_iterator<int*, std::vector<int, std::allocator<int> > >, __gnu_cxx::__normal_iterator<int*, std::vector<int, std::allocator<int> > >, __gnu_cxx::__normal_iterator<int*, std::vector<int, std::allocator<int> > >, __gnu_cxx::__normal_iterator<int*, std::vector<int, std::allocator<int> > >, __gnu_cxx::__normal_iterator<int*, std::vector<int, std::allocator<int> > >) (in /v/filer4b/v38q001/epenning/CS_378/cs378-integer/TestInteger)
+==2378==    by 0x40B836: IntegerFixture_divides_digits_4_Test::TestBody() (in /v/filer4b/v38q001/epenning/CS_378/cs378-integer/TestInteger)
+==2378==    by 0x43A0E2: void testing::internal::HandleExceptionsInMethodIfSupported<testing::Test, void>(testing::Test*, void (testing::Test::*)(), char const*) (in /v/filer4b/v38q001/epenning/CS_378/cs378-integer/TestInteger)
+==2378==    by 0x42D19C: testing::Test::Run() (in /v/filer4b/v38q001/epenning/CS_378/cs378-integer/TestInteger)
+==2378==    by 0x42D233: testing::TestInfo::Run() (in /v/filer4b/v38q001/epenning/CS_378/cs378-integer/TestInteger)
+==2378==    by 0x42D334: testing::TestCase::Run() (in /v/filer4b/v38q001/epenning/CS_378/cs378-integer/TestInteger)
+==2378==    by 0x42D5AC: testing::internal::UnitTestImpl::RunAllTests() (in /v/filer4b/v38q001/epenning/CS_378/cs378-integer/TestInteger)
+==2378==    by 0x42D88D: testing::UnitTest::Run() (in /v/filer4b/v38q001/epenning/CS_378/cs378-integer/TestInteger)
+==2378==    by 0x404BDF: main (in /v/filer4b/v38q001/epenning/CS_378/cs378-integer/TestInteger)
+==2378==  Address 0x5c94bb0 is 0 bytes after a block of size 16 alloc'd
+==2378==    at 0x4C2B0E0: operator new(unsigned long) (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==2378==    by 0x414D39: __gnu_cxx::new_allocator<int>::allocate(unsigned long, void const*) (in /v/filer4b/v38q001/epenning/CS_378/cs378-integer/TestInteger)
+==2378==    by 0x413EA2: std::_Vector_base<int, std::allocator<int> >::_M_allocate(unsigned long) (in /v/filer4b/v38q001/epenning/CS_378/cs378-integer/TestInteger)
+==2378==    by 0x4154C7: void std::vector<int, std::allocator<int> >::_M_range_initialize<__gnu_cxx::__normal_iterator<int*, std::vector<int, std::allocator<int> > > >(__gnu_cxx::__normal_iterator<int*, std::vector<int, std::allocator<int> > >, __gnu_cxx::__normal_iterator<int*, std::vector<int, std::allocator<int> > >, std::forward_iterator_tag) (in /v/filer4b/v38q001/epenning/CS_378/cs378-integer/TestInteger)
+==2378==    by 0x414858: void std::vector<int, std::allocator<int> >::_M_initialize_dispatch<__gnu_cxx::__normal_iterator<int*, std::vector<int, std::allocator<int> > > >(__gnu_cxx::__normal_iterator<int*, std::vector<int, std::allocator<int> > >, __gnu_cxx::__normal_iterator<int*, std::vector<int, std::allocator<int> > >, std::__false_type) (in /v/filer4b/v38q001/epenning/CS_378/cs378-integer/TestInteger)
+==2378==    by 0x4133BF: std::vector<int, std::allocator<int> >::vector<__gnu_cxx::__normal_iterator<int*, std::vector<int, std::allocator<int> > >, void>(__gnu_cxx::__normal_iterator<int*, std::vector<int, std::allocator<int> > >, __gnu_cxx::__normal_iterator<int*, std::vector<int, std::allocator<int> > >, std::allocator<int> const&) (in /v/filer4b/v38q001/epenning/CS_378/cs378-integer/TestInteger)
+==2378==    by 0x41216D: __gnu_cxx::__normal_iterator<int*, std::vector<int, std::allocator<int> > > divides_digits<__gnu_cxx::__normal_iterator<int*, std::vector<int, std::allocator<int> > >, __gnu_cxx::__normal_iterator<int*, std::vector<int, std::allocator<int> > >, __gnu_cxx::__normal_iterator<int*, std::vector<int, std::allocator<int> > > >(__gnu_cxx::__normal_iterator<int*, std::vector<int, std::allocator<int> > >, __gnu_cxx::__normal_iterator<int*, std::vector<int, std::allocator<int> > >, __gnu_cxx::__normal_iterator<int*, std::vector<int, std::allocator<int> > >, __gnu_cxx::__normal_iterator<int*, std::vector<int, std::allocator<int> > >, __gnu_cxx::__normal_iterator<int*, std::vector<int, std::allocator<int> > >) (in /v/filer4b/v38q001/epenning/CS_378/cs378-integer/TestInteger)
+==2378==    by 0x40B836: IntegerFixture_divides_digits_4_Test::TestBody() (in /v/filer4b/v38q001/epenning/CS_378/cs378-integer/TestInteger)
+==2378==    by 0x43A0E2: void testing::internal::HandleExceptionsInMethodIfSupported<testing::Test, void>(testing::Test*, void (testing::Test::*)(), char const*) (in /v/filer4b/v38q001/epenning/CS_378/cs378-integer/TestInteger)
+==2378==    by 0x42D19C: testing::Test::Run() (in /v/filer4b/v38q001/epenning/CS_378/cs378-integer/TestInteger)
+==2378==    by 0x42D233: testing::TestInfo::Run() (in /v/filer4b/v38q001/epenning/CS_378/cs378-integer/TestInteger)
+==2378==    by 0x42D334: testing::TestCase::Run() (in /v/filer4b/v38q001/epenning/CS_378/cs378-integer/TestInteger)
+==2378== 
 Writing 6 to x
 Writing 6 to x
 Writing 6 to x
 Writing 6 to x
-==1705== Invalid read of size 4
-==1705==    at 0x40FE84: __gnu_cxx::__normal_iterator<int*, std::vector<int, std::allocator<int> > > divides_digits<__gnu_cxx::__normal_iterator<int*, std::vector<int, std::allocator<int> > >, __gnu_cxx::__normal_iterator<int*, std::vector<int, std::allocator<int> > >, __gnu_cxx::__normal_iterator<int*, std::vector<int, std::allocator<int> > > >(__gnu_cxx::__normal_iterator<int*, std::vector<int, std::allocator<int> > >, __gnu_cxx::__normal_iterator<int*, std::vector<int, std::allocator<int> > >, __gnu_cxx::__normal_iterator<int*, std::vector<int, std::allocator<int> > >, __gnu_cxx::__normal_iterator<int*, std::vector<int, std::allocator<int> > >, __gnu_cxx::__normal_iterator<int*, std::vector<int, std::allocator<int> > >) (in /v/filer4b/v38q001/epenning/CS_378/cs378-integer/TestInteger)
-==1705==    by 0x40B706: IntegerFixture_divides_digits_4_Test::TestBody() (in /v/filer4b/v38q001/epenning/CS_378/cs378-integer/TestInteger)
-==1705==    by 0x436D22: void testing::internal::HandleExceptionsInMethodIfSupported<testing::Test, void>(testing::Test*, void (testing::Test::*)(), char const*) (in /v/filer4b/v38q001/epenning/CS_378/cs378-integer/TestInteger)
-==1705==    by 0x42973C: testing::Test::Run() (in /v/filer4b/v38q001/epenning/CS_378/cs378-integer/TestInteger)
-==1705==    by 0x4297D3: testing::TestInfo::Run() (in /v/filer4b/v38q001/epenning/CS_378/cs378-integer/TestInteger)
-==1705==    by 0x4298D4: testing::TestCase::Run() (in /v/filer4b/v38q001/epenning/CS_378/cs378-integer/TestInteger)
-==1705==    by 0x429B4C: testing::internal::UnitTestImpl::RunAllTests() (in /v/filer4b/v38q001/epenning/CS_378/cs378-integer/TestInteger)
-==1705==    by 0x429E2D: testing::UnitTest::Run() (in /v/filer4b/v38q001/epenning/CS_378/cs378-integer/TestInteger)
-==1705==    by 0x404AAF: main (in /v/filer4b/v38q001/epenning/CS_378/cs378-integer/TestInteger)
-==1705==  Address 0x5c91fd0 is 0 bytes after a block of size 16 alloc'd
-==1705==    at 0x4C2B0E0: operator new(unsigned long) (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
-==1705==    by 0x411F13: __gnu_cxx::new_allocator<int>::allocate(unsigned long, void const*) (in /v/filer4b/v38q001/epenning/CS_378/cs378-integer/TestInteger)
-==1705==    by 0x411200: std::_Vector_base<int, std::allocator<int> >::_M_allocate(unsigned long) (in /v/filer4b/v38q001/epenning/CS_378/cs378-integer/TestInteger)
-==1705==    by 0x4126A1: void std::vector<int, std::allocator<int> >::_M_range_initialize<__gnu_cxx::__normal_iterator<int*, std::vector<int, std::allocator<int> > > >(__gnu_cxx::__normal_iterator<int*, std::vector<int, std::allocator<int> > >, __gnu_cxx::__normal_iterator<int*, std::vector<int, std::allocator<int> > >, std::forward_iterator_tag) (in /v/filer4b/v38q001/epenning/CS_378/cs378-integer/TestInteger)
-==1705==    by 0x411BB6: void std::vector<int, std::allocator<int> >::_M_initialize_dispatch<__gnu_cxx::__normal_iterator<int*, std::vector<int, std::allocator<int> > > >(__gnu_cxx::__normal_iterator<int*, std::vector<int, std::allocator<int> > >, __gnu_cxx::__normal_iterator<int*, std::vector<int, std::allocator<int> > >, std::__false_type) (in /v/filer4b/v38q001/epenning/CS_378/cs378-integer/TestInteger)
-==1705==    by 0x410B7D: std::vector<int, std::allocator<int> >::vector<__gnu_cxx::__normal_iterator<int*, std::vector<int, std::allocator<int> > >, void>(__gnu_cxx::__normal_iterator<int*, std::vector<int, std::allocator<int> > >, __gnu_cxx::__normal_iterator<int*, std::vector<int, std::allocator<int> > >, std::allocator<int> const&) (in /v/filer4b/v38q001/epenning/CS_378/cs378-integer/TestInteger)
-==1705==    by 0x40FDC1: __gnu_cxx::__normal_iterator<int*, std::vector<int, std::allocator<int> > > divides_digits<__gnu_cxx::__normal_iterator<int*, std::vector<int, std::allocator<int> > >, __gnu_cxx::__normal_iterator<int*, std::vector<int, std::allocator<int> > >, __gnu_cxx::__normal_iterator<int*, std::vector<int, std::allocator<int> > > >(__gnu_cxx::__normal_iterator<int*, std::vector<int, std::allocator<int> > >, __gnu_cxx::__normal_iterator<int*, std::vector<int, std::allocator<int> > >, __gnu_cxx::__normal_iterator<int*, std::vector<int, std::allocator<int> > >, __gnu_cxx::__normal_iterator<int*, std::vector<int, std::allocator<int> > >, __gnu_cxx::__normal_iterator<int*, std::vector<int, std::allocator<int> > >) (in /v/filer4b/v38q001/epenning/CS_378/cs378-integer/TestInteger)
-==1705==    by 0x40B706: IntegerFixture_divides_digits_4_Test::TestBody() (in /v/filer4b/v38q001/epenning/CS_378/cs378-integer/TestInteger)
-==1705==    by 0x436D22: void testing::internal::HandleExceptionsInMethodIfSupported<testing::Test, void>(testing::Test*, void (testing::Test::*)(), char const*) (in /v/filer4b/v38q001/epenning/CS_378/cs378-integer/TestInteger)
-==1705==    by 0x42973C: testing::Test::Run() (in /v/filer4b/v38q001/epenning/CS_378/cs378-integer/TestInteger)
-==1705==    by 0x4297D3: testing::TestInfo::Run() (in /v/filer4b/v38q001/epenning/CS_378/cs378-integer/TestInteger)
-==1705==    by 0x4298D4: testing::TestCase::Run() (in /v/filer4b/v38q001/epenning/CS_378/cs378-integer/TestInteger)
-==1705== 
+==2378== Invalid read of size 4
+==2378==    at 0x412230: __gnu_cxx::__normal_iterator<int*, std::vector<int, std::allocator<int> > > divides_digits<__gnu_cxx::__normal_iterator<int*, std::vector<int, std::allocator<int> > >, __gnu_cxx::__normal_iterator<int*, std::vector<int, std::allocator<int> > >, __gnu_cxx::__normal_iterator<int*, std::vector<int, std::allocator<int> > > >(__gnu_cxx::__normal_iterator<int*, std::vector<int, std::allocator<int> > >, __gnu_cxx::__normal_iterator<int*, std::vector<int, std::allocator<int> > >, __gnu_cxx::__normal_iterator<int*, std::vector<int, std::allocator<int> > >, __gnu_cxx::__normal_iterator<int*, std::vector<int, std::allocator<int> > >, __gnu_cxx::__normal_iterator<int*, std::vector<int, std::allocator<int> > >) (in /v/filer4b/v38q001/epenning/CS_378/cs378-integer/TestInteger)
+==2378==    by 0x40B836: IntegerFixture_divides_digits_4_Test::TestBody() (in /v/filer4b/v38q001/epenning/CS_378/cs378-integer/TestInteger)
+==2378==    by 0x43A0E2: void testing::internal::HandleExceptionsInMethodIfSupported<testing::Test, void>(testing::Test*, void (testing::Test::*)(), char const*) (in /v/filer4b/v38q001/epenning/CS_378/cs378-integer/TestInteger)
+==2378==    by 0x42D19C: testing::Test::Run() (in /v/filer4b/v38q001/epenning/CS_378/cs378-integer/TestInteger)
+==2378==    by 0x42D233: testing::TestInfo::Run() (in /v/filer4b/v38q001/epenning/CS_378/cs378-integer/TestInteger)
+==2378==    by 0x42D334: testing::TestCase::Run() (in /v/filer4b/v38q001/epenning/CS_378/cs378-integer/TestInteger)
+==2378==    by 0x42D5AC: testing::internal::UnitTestImpl::RunAllTests() (in /v/filer4b/v38q001/epenning/CS_378/cs378-integer/TestInteger)
+==2378==    by 0x42D88D: testing::UnitTest::Run() (in /v/filer4b/v38q001/epenning/CS_378/cs378-integer/TestInteger)
+==2378==    by 0x404BDF: main (in /v/filer4b/v38q001/epenning/CS_378/cs378-integer/TestInteger)
+==2378==  Address 0x5c94bb0 is 0 bytes after a block of size 16 alloc'd
+==2378==    at 0x4C2B0E0: operator new(unsigned long) (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==2378==    by 0x414D39: __gnu_cxx::new_allocator<int>::allocate(unsigned long, void const*) (in /v/filer4b/v38q001/epenning/CS_378/cs378-integer/TestInteger)
+==2378==    by 0x413EA2: std::_Vector_base<int, std::allocator<int> >::_M_allocate(unsigned long) (in /v/filer4b/v38q001/epenning/CS_378/cs378-integer/TestInteger)
+==2378==    by 0x4154C7: void std::vector<int, std::allocator<int> >::_M_range_initialize<__gnu_cxx::__normal_iterator<int*, std::vector<int, std::allocator<int> > > >(__gnu_cxx::__normal_iterator<int*, std::vector<int, std::allocator<int> > >, __gnu_cxx::__normal_iterator<int*, std::vector<int, std::allocator<int> > >, std::forward_iterator_tag) (in /v/filer4b/v38q001/epenning/CS_378/cs378-integer/TestInteger)
+==2378==    by 0x414858: void std::vector<int, std::allocator<int> >::_M_initialize_dispatch<__gnu_cxx::__normal_iterator<int*, std::vector<int, std::allocator<int> > > >(__gnu_cxx::__normal_iterator<int*, std::vector<int, std::allocator<int> > >, __gnu_cxx::__normal_iterator<int*, std::vector<int, std::allocator<int> > >, std::__false_type) (in /v/filer4b/v38q001/epenning/CS_378/cs378-integer/TestInteger)
+==2378==    by 0x4133BF: std::vector<int, std::allocator<int> >::vector<__gnu_cxx::__normal_iterator<int*, std::vector<int, std::allocator<int> > >, void>(__gnu_cxx::__normal_iterator<int*, std::vector<int, std::allocator<int> > >, __gnu_cxx::__normal_iterator<int*, std::vector<int, std::allocator<int> > >, std::allocator<int> const&) (in /v/filer4b/v38q001/epenning/CS_378/cs378-integer/TestInteger)
+==2378==    by 0x41216D: __gnu_cxx::__normal_iterator<int*, std::vector<int, std::allocator<int> > > divides_digits<__gnu_cxx::__normal_iterator<int*, std::vector<int, std::allocator<int> > >, __gnu_cxx::__normal_iterator<int*, std::vector<int, std::allocator<int> > >, __gnu_cxx::__normal_iterator<int*, std::vector<int, std::allocator<int> > > >(__gnu_cxx::__normal_iterator<int*, std::vector<int, std::allocator<int> > >, __gnu_cxx::__normal_iterator<int*, std::vector<int, std::allocator<int> > >, __gnu_cxx::__normal_iterator<int*, std::vector<int, std::allocator<int> > >, __gnu_cxx::__normal_iterator<int*, std::vector<int, std::allocator<int> > >, __gnu_cxx::__normal_iterator<int*, std::vector<int, std::allocator<int> > >) (in /v/filer4b/v38q001/epenning/CS_378/cs378-integer/TestInteger)
+==2378==    by 0x40B836: IntegerFixture_divides_digits_4_Test::TestBody() (in /v/filer4b/v38q001/epenning/CS_378/cs378-integer/TestInteger)
+==2378==    by 0x43A0E2: void testing::internal::HandleExceptionsInMethodIfSupported<testing::Test, void>(testing::Test*, void (testing::Test::*)(), char const*) (in /v/filer4b/v38q001/epenning/CS_378/cs378-integer/TestInteger)
+==2378==    by 0x42D19C: testing::Test::Run() (in /v/filer4b/v38q001/epenning/CS_378/cs378-integer/TestInteger)
+==2378==    by 0x42D233: testing::TestInfo::Run() (in /v/filer4b/v38q001/epenning/CS_378/cs378-integer/TestInteger)
+==2378==    by 0x42D334: testing::TestCase::Run() (in /v/filer4b/v38q001/epenning/CS_378/cs378-integer/TestInteger)
+==2378== 
 Writing 1 to x
 TestInteger.c++:305: Failure
 Value of: out.end()
-  Actual: 8-byte object <24-1F C9-05 00-00 00-00>
+  Actual: 8-byte object <04-4B C9-05 00-00 00-00>
 Expected: itr
-Which is: 8-byte object <20-1F C9-05 00-00 00-00>
+Which is: 8-byte object <00-4B C9-05 00-00 00-00>
 [  FAILED  ] IntegerFixture.divides_digits_4 (8 ms)
 [ RUN      ] IntegerFixture.divides_digits_5
 Writing 9 to x
@@ -154,29 +154,65 @@ Writing 0 to x
 Writing 3 to x
 [       OK ] IntegerFixture.divides_digits_5 (6 ms)
 [ RUN      ] IntegerFixture.equals_1
-[       OK ] IntegerFixture.equals_1 (11 ms)
+[       OK ] IntegerFixture.equals_1 (12 ms)
+[ RUN      ] IntegerFixture.equals_2
+[       OK ] IntegerFixture.equals_2 (2 ms)
+[ RUN      ] IntegerFixture.equals_3
+[       OK ] IntegerFixture.equals_3 (3 ms)
+[ RUN      ] IntegerFixture.equals_4
+[       OK ] IntegerFixture.equals_4 (2 ms)
+[ RUN      ] IntegerFixture.equals_5
+[       OK ] IntegerFixture.equals_5 (2 ms)
 [ RUN      ] IntegerFixture.less_than_1
-[       OK ] IntegerFixture.less_than_1 (1 ms)
-[ RUN      ] IntegerFixture.out_1
-[       OK ] IntegerFixture.out_1 (1 ms)
-[ RUN      ] IntegerFixture.valid_1
-[       OK ] IntegerFixture.valid_1 (1 ms)
+[       OK ] IntegerFixture.less_than_1 (3 ms)
+[ RUN      ] IntegerFixture.less_than_2
+[       OK ] IntegerFixture.less_than_2 (2 ms)
+[ RUN      ] IntegerFixture.less_than_3
+[       OK ] IntegerFixture.less_than_3 (2 ms)
+[ RUN      ] IntegerFixture.less_than_4
+[       OK ] IntegerFixture.less_than_4 (2 ms)
+[ RUN      ] IntegerFixture.less_than_5
+[       OK ] IntegerFixture.less_than_5 (2 ms)
 [ RUN      ] IntegerFixture.constructor_int_1
 [       OK ] IntegerFixture.constructor_int_1 (5 ms)
 [ RUN      ] IntegerFixture.constructor_int_2
-[       OK ] IntegerFixture.constructor_int_2 (3 ms)
+[       OK ] IntegerFixture.constructor_int_2 (2 ms)
 [ RUN      ] IntegerFixture.constructor_int_3
-[       OK ] IntegerFixture.constructor_int_3 (2 ms)
+[       OK ] IntegerFixture.constructor_int_3 (3 ms)
 [ RUN      ] IntegerFixture.constructor_string_1
-[       OK ] IntegerFixture.constructor_string_1 (0 ms)
+[       OK ] IntegerFixture.constructor_string_1 (1 ms)
 [ RUN      ] IntegerFixture.negation_1
-[       OK ] IntegerFixture.negation_1 (0 ms)
+[       OK ] IntegerFixture.negation_1 (1 ms)
 [ RUN      ] IntegerFixture.plus_equal_1
 [       OK ] IntegerFixture.plus_equal_1 (0 ms)
 [ RUN      ] IntegerFixture.minus_equal_1
 [       OK ] IntegerFixture.minus_equal_1 (1 ms)
 [ RUN      ] IntegerFixture.multi_equal_1
-[       OK ] IntegerFixture.multi_equal_1 (1 ms)
+TestInteger.c++:420: Failure
+Value of: 15129
+Expected: a*b
+Which is: 123
+[  FAILED  ] IntegerFixture.multi_equal_1 (12 ms)
+[ RUN      ] IntegerFixture.multi_equal_2
+[       OK ] IntegerFixture.multi_equal_2 (3 ms)
+[ RUN      ] IntegerFixture.multi_equal_3
+TestInteger.c++:432: Failure
+Value of: 0
+Expected: a*b
+Which is: 123
+[  FAILED  ] IntegerFixture.multi_equal_3 (4 ms)
+[ RUN      ] IntegerFixture.multi_equal_4
+TestInteger.c++:438: Failure
+Value of: 15129
+Expected: a*b
+Which is: 123
+[  FAILED  ] IntegerFixture.multi_equal_4 (4 ms)
+[ RUN      ] IntegerFixture.multi_equal_5
+TestInteger.c++:444: Failure
+Value of: -15129
+Expected: a*b
+Which is: 123
+[  FAILED  ] IntegerFixture.multi_equal_5 (4 ms)
 [ RUN      ] IntegerFixture.divide_equal_1
 [       OK ] IntegerFixture.divide_equal_1 (1 ms)
 [ RUN      ] IntegerFixture.mod_equal_1
@@ -184,29 +220,33 @@ Writing 3 to x
 [ RUN      ] IntegerFixture.left_shift_equal_1
 [       OK ] IntegerFixture.left_shift_equal_1 (1 ms)
 [ RUN      ] IntegerFixture.right_shift_equal_1
-[       OK ] IntegerFixture.right_shift_equal_1 (1 ms)
+[       OK ] IntegerFixture.right_shift_equal_1 (0 ms)
 [ RUN      ] IntegerFixture.abs_1
-[       OK ] IntegerFixture.abs_1 (1 ms)
+[       OK ] IntegerFixture.abs_1 (0 ms)
 [ RUN      ] IntegerFixture.pow_1
-[       OK ] IntegerFixture.pow_1 (1 ms)
-[----------] 44 tests from IntegerFixture (300 ms total)
+[       OK ] IntegerFixture.pow_1 (0 ms)
+[----------] 54 tests from IntegerFixture (348 ms total)
 
 [----------] Global test environment tear-down
-[==========] 44 tests from 1 test case ran. (329 ms total)
-[  PASSED  ] 40 tests.
-[  FAILED  ] 4 tests, listed below:
+[==========] 54 tests from 1 test case ran. (376 ms total)
+[  PASSED  ] 46 tests.
+[  FAILED  ] 8 tests, listed below:
 [  FAILED  ] IntegerFixture.divides_digits_1
 [  FAILED  ] IntegerFixture.divides_digits_2
 [  FAILED  ] IntegerFixture.divides_digits_3
 [  FAILED  ] IntegerFixture.divides_digits_4
+[  FAILED  ] IntegerFixture.multi_equal_1
+[  FAILED  ] IntegerFixture.multi_equal_3
+[  FAILED  ] IntegerFixture.multi_equal_4
+[  FAILED  ] IntegerFixture.multi_equal_5
 
- 4 FAILED TESTS
-==1705== 
-==1705== HEAP SUMMARY:
-==1705==     in use at exit: 0 bytes in 0 blocks
-==1705==   total heap usage: 2,182 allocs, 2,182 frees, 268,222 bytes allocated
-==1705== 
-==1705== All heap blocks were freed -- no leaks are possible
-==1705== 
-==1705== For counts of detected and suppressed errors, rerun with: -v
-==1705== ERROR SUMMARY: 2 errors from 2 contexts (suppressed: 0 from 0)
+ 8 FAILED TESTS
+==2378== 
+==2378== HEAP SUMMARY:
+==2378==     in use at exit: 0 bytes in 0 blocks
+==2378==   total heap usage: 2,600 allocs, 2,600 frees, 315,036 bytes allocated
+==2378== 
+==2378== All heap blocks were freed -- no leaks are possible
+==2378== 
+==2378== For counts of detected and suppressed errors, rerun with: -v
+==2378== ERROR SUMMARY: 2 errors from 2 contexts (suppressed: 0 from 0)
