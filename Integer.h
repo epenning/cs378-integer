@@ -234,17 +234,7 @@ template <typename II1, typename II2, typename FI>
 FI multiplies_digits (II1 b1, II1 e1, II2 b2, II2 e2, FI x) {
     vector<int> vec1(b1, e1);
     vector<int> vec2(b2, e2);
-    
-    //cout << "Vec1: ";
-    for(int i : vec1){
-        //cout << i << " ";
-    }
-    //cout << endl;
-    //cout << "Vec2: ";
-    for(int i : vec2){
-        //cout << i << " ";
-    }
-    //cout << endl;
+
     vector<int> total(vec1.size()+vec2.size());
     vector<int>::iterator totalEnd = total.begin() + 1;
     int shift = 0;
@@ -257,11 +247,15 @@ FI multiplies_digits (II1 b1, II1 e1, II2 b2, II2 e2, FI x) {
             productEnd = plus_digits(product.begin(), productEnd, vec2.begin(), vec2.end(), product.begin());
             vector<int>::iterator k = product.begin();
         }
-        vector<int> temp(product.size() + shift);
-        vector<int>::iterator tempEnd = shift_left_digits(product.begin(), productEnd, shift, temp.begin());
+        if(product.front() != 0){
+            vector<int> temp(product.size() + shift);
+            vector<int>::iterator tempEnd = shift_left_digits(product.begin(), productEnd, shift, temp.begin());
+            totalEnd = plus_digits(total.begin(), totalEnd, temp.begin(), tempEnd, total.begin());
+        }
+        else
+            totalEnd = plus_digits(total.begin(), totalEnd, product.begin(), productEnd, total.begin());
+        
         ++shift;
-        totalEnd = plus_digits(total.begin(), totalEnd, temp.begin(), tempEnd, total.begin());
-
     }
     vector<int>::iterator i = total.begin();
     while(i != totalEnd){
@@ -762,7 +756,16 @@ class Integer {
          * <your documentation>
          */
         Integer& operator *= (const Integer& rhs) {
-            // <your code>
+            // check for negativity of answer
+            if ((_n && !rhs._n) || (!_n && rhs._n))
+                _n = true;
+            else
+                _n = false;
+
+            C product(_x.size()+rhs._x.size());
+            typename C::iterator productEnd = multiplies_digits(_x.begin(), _x.end(), rhs._x.begin(), rhs._x.end(), product.begin()); 
+            _x = C(product.begin(), productEnd);
+
             return *this;}
 
         // -----------
