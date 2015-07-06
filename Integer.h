@@ -380,7 +380,18 @@ FI multiplies_digits (II1 b1, II1 e1, II2 b2, II2 e2, FI x) {
  */
 template <typename II1, typename II2, typename FI>
 FI divides_digits (II1 b1, II1 e1, II2 b2, II2 e2, FI x) {
-    // <your code>
+    //simpile solution is to use subtraction 
+    vector<int> numerator(b1, e1);
+    vector<int> denominator(b2, e2);
+    vector<int>::iterator numEnd = numerator.end();
+    numEnd = minus_digits(numerator.begin(), numEnd, denominator.begin(), denominator.end(), numerator.begin());
+    vector<int>::iterator i = numerator.begin();
+    while(i != numEnd){
+        cout << "Writing " << *i << " to x" << endl;
+        ++i;
+    }
+
+
     return x;}
 
 // -------
