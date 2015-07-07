@@ -17,6 +17,7 @@
 #include <string>    // string
 #include <vector>    // vector
 #include <math.h>
+#include <algorithm>    // std::reverse
 
 using namespace std;
 
@@ -521,7 +522,7 @@ class Integer {
         }else if(lhs._x.size() < rhs._x.size()){
             return less;
         }else{
-            for(int i = 0; i < lhs._x.size(); ++i){
+            for(int i = lhs._x.size()-1; i > 0; --i){
                 if(lhs._x[i] > rhs._x[i]){
                     return !less;
                 }else if(lhs._x[i] < rhs._x[i]){
@@ -699,7 +700,7 @@ class Integer {
         // ----
 
         C _x; // the backing container
-        bool _n;
+        bool _n; //for negativity. 
 
     private:
         // -----
@@ -740,6 +741,7 @@ class Integer {
                 _x.push_back(value/i);
                 value %= i;
             }
+            reverse(_x.begin(), _x.end());
             assert(valid());
         }
 
@@ -757,6 +759,7 @@ class Integer {
             }
             for(char c : s)
                 _x.push_back(int(c-'0'));
+            reverse(_x.begin(), _x.end());
             if (!valid())
                 throw std::invalid_argument("Integer::Integer()");
         }
@@ -776,8 +779,9 @@ class Integer {
          * <your documentation>
          */
         Integer operator - () const {
-            // <your code>
-            return Integer(0);}
+            Integer x = *this;
+            x._n = !x._n;
+            return x;}
 
         // -----------
         // operator ++
@@ -825,7 +829,12 @@ class Integer {
          * <your documentation>
          */
         Integer& operator += (const Integer& rhs) {
-            // <your code>
+            _x.push_back(0);
+            typename C::iterator addEnd = plus_digits(_x.begin(), _x.end()-1, rhs._x.begin(), rhs.end(), _x.begin());
+            if(x.end() != addEnd){
+                //if so we did not use the last place.
+                _x.pop_back();
+            }
             return *this;}
 
         // -----------
@@ -836,7 +845,11 @@ class Integer {
          * <your documentation>
          */
         Integer& operator -= (const Integer& rhs) {
-            // <your code>
+            typename C::iterator minusEnd = minus_digits(_x.begin(), _x.end(), rhs._x.begin(), rhs.end(), _x.begin());
+            //remove the empty space if there is one. 
+            if(*minusEnd == 0){
+                _x.pop_back();
+            }
             return *this;}
 
         // -----------
@@ -902,7 +915,7 @@ class Integer {
          * <your documentation>
          */
         Integer& operator >>= (int n) {
-            // <your code>
+            
             return *this;}
 
         // ---
