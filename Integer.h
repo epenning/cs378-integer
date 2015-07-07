@@ -35,14 +35,16 @@ using namespace std;
  */
 template <typename II, typename FI>
 FI shift_left_digits (II b, II e, int n, FI x) {
-    x = copy(b, e, x);
     if (*b == 0) {
-        return x;
-    }
-    for (int i=0; i<n; i++) {
         *x = 0;
         ++x;
+        return x;
     }
+    while (n != 0) {
+        ++b;
+        --n;
+    }
+    x = copy(b, e, x);
     return x;}
 
 // ------------------
@@ -60,18 +62,18 @@ FI shift_left_digits (II b, II e, int n, FI x) {
  */
 template <typename II, typename FI>
 FI shift_right_digits (II b, II e, int n, FI x) {
-    int count = 0;
-    II b2 = b;
-    while (b != e) {
-        ++count;
-        ++b;
+    if (*b == 0) {
+        *x = 0;
+        ++x;
+        return x;
     }
-    for (int i = 0; i < count-n; i++) {
-        *x = *b2;
-        ++b2;
+    for (int i=0; i<n; i++) {
+        *x = 0;
         ++x;
     }
+    x = copy(b, e, x);
     return x;}
+
 
 // -----------
 // plus_digits
@@ -359,7 +361,7 @@ FI multiplies_digits (II1 b1, II1 e1, II2 b2, II2 e2, FI x) {
     FI z2e = multiplies_digits(high1B, high1E, high2B, high2E, z2.begin());
     cout << "done with z2" << endl;
     vector<int> partOne(2*m);
-    FI partOneEnd = shift_left_digits (z2.begin(), z2e, 2*m2, partOne.begin());
+    FI partOneEnd = shift_right_digits (z2.begin(), z2e, 2*m2, partOne.begin());
     
     i = partOne.begin();
     cout << "partOne: ";
@@ -376,7 +378,7 @@ FI multiplies_digits (II1 b1, II1 e1, II2 b2, II2 e2, FI x) {
     cout << "Halfway through part two" <<endl;
     FI subTwoEnd = minus_digits (subOne.begin(), subOneEnd, z0.begin(), z0e, subTwo.begin());
     vector<int> partTwo(subTwo.size() + m2);
-    FI partTwoEnd = shift_left_digits (subTwo.begin(), subTwoEnd, m2, partTwo.begin());
+    FI partTwoEnd = shift_right_digits (subTwo.begin(), subTwoEnd, m2, partTwo.begin());
     cout << "Finished part two" << endl;
     vector<int> addOne(partOne.size());
     FI addOneEnd = plus_digits(partOne.begin(), partOneEnd, partTwo.begin(), partTwoEnd, addOne.begin());
