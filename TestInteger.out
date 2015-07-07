@@ -1,14 +1,14 @@
-==2668== Memcheck, a memory error detector
-==2668== Copyright (C) 2002-2013, and GNU GPL'd, by Julian Seward et al.
-==2668== Using Valgrind-3.10.0.SVN and LibVEX; rerun with -h for copyright info
-==2668== Command: ./TestInteger
-==2668== 
+==5596== Memcheck, a memory error detector
+==5596== Copyright (C) 2002-2013, and GNU GPL'd, by Julian Seward et al.
+==5596== Using Valgrind-3.10.0.SVN and LibVEX; rerun with -h for copyright info
+==5596== Command: ./TestInteger
+==5596== 
 Running main() from gtest_main.cc
-[==========] Running 54 tests from 1 test case.
+[==========] Running 62 tests from 1 test case.
 [----------] Global test environment set-up.
-[----------] 54 tests from IntegerFixture
+[----------] 62 tests from IntegerFixture
 [ RUN      ] IntegerFixture.shift_left_1
-[       OK ] IntegerFixture.shift_left_1 (20 ms)
+[       OK ] IntegerFixture.shift_left_1 (21 ms)
 [ RUN      ] IntegerFixture.shift_left_2
 [       OK ] IntegerFixture.shift_left_2 (4 ms)
 [ RUN      ] IntegerFixture.shift_left_3
@@ -20,7 +20,7 @@ Running main() from gtest_main.cc
 [ RUN      ] IntegerFixture.shift_right_3
 [       OK ] IntegerFixture.shift_right_3 (4 ms)
 [ RUN      ] IntegerFixture.plus_digits_1
-[       OK ] IntegerFixture.plus_digits_1 (31 ms)
+[       OK ] IntegerFixture.plus_digits_1 (29 ms)
 [ RUN      ] IntegerFixture.plus_digits_2
 [       OK ] IntegerFixture.plus_digits_2 (4 ms)
 [ RUN      ] IntegerFixture.plus_digits_3
@@ -28,122 +28,1392 @@ Running main() from gtest_main.cc
 [ RUN      ] IntegerFixture.plus_digits_4
 [       OK ] IntegerFixture.plus_digits_4 (6 ms)
 [ RUN      ] IntegerFixture.plus_digits_5
-[       OK ] IntegerFixture.plus_digits_5 (6 ms)
+[       OK ] IntegerFixture.plus_digits_5 (8 ms)
 [ RUN      ] IntegerFixture.minus_digits_1
-[       OK ] IntegerFixture.minus_digits_1 (13 ms)
+[       OK ] IntegerFixture.minus_digits_1 (20 ms)
 [ RUN      ] IntegerFixture.minus_digits_2
 [       OK ] IntegerFixture.minus_digits_2 (4 ms)
 [ RUN      ] IntegerFixture.minus_digits_3
-[       OK ] IntegerFixture.minus_digits_3 (7 ms)
+[       OK ] IntegerFixture.minus_digits_3 (6 ms)
 [ RUN      ] IntegerFixture.minus_digits_4
-[       OK ] IntegerFixture.minus_digits_4 (5 ms)
+[       OK ] IntegerFixture.minus_digits_4 (6 ms)
 [ RUN      ] IntegerFixture.minus_digits_5
 [       OK ] IntegerFixture.minus_digits_5 (5 ms)
+[ RUN      ] IntegerFixture.multiplies_digits_0
+vec1: 1 2 3 
+vec2: 6 7 8 
+Made vectors 1 and 2
+m2: 2 m: 3
+Calcualted m and m2
+set up half iterators
+vec1: 2 3 
+vec2: 7 8 
+Made vectors 1 and 2
+m2: 1 m: 2
+Calcualted m and m2
+set up half iterators
+vec1: 3 
+vec2: 8 
+Made vectors 1 and 2
+Size vec1: 1 Size vec2: 1
+Writing 2 to x
+Writing 4 to x
+Done storing into x
+done with z0
+multi1: 5 
+multi2: 1 5 
+vec1: 5 
+vec2: 1 5 
+Made vectors 1 and 2
+Size vec1: 1 Size vec2: 2
+Writing 7 to x
+Writing 5 to x
+Done storing into x
+done with z1
+vec1: 2 
+vec2: 7 
+Made vectors 1 and 2
+Size vec1: 1 Size vec2: 1
+Writing 1 to x
+Writing 4 to x
+Done storing into x
+done with z2
+partOne: 1 4 0 0 
+Finished part one
+Halfway through part two
+Finished part two
+about to return at end
+addOne: 1 7 7 0 z0: 2 4 
+done with z0
+multi1: 2 4 
+multi2: 8 4 
+vec1: 2 4 
+vec2: 8 4 
+Made vectors 1 and 2
+m2: 1 m: 2
+Calcualted m and m2
+set up half iterators
+vec1: 4 
+vec2: 4 
+Made vectors 1 and 2
+Size vec1: 1 Size vec2: 1
+Writing 1 to x
+Writing 6 to x
+Done storing into x
+done with z0
+multi1: 6 
+multi2: 1 2 
+vec1: 6 
+vec2: 1 2 
+Made vectors 1 and 2
+Size vec1: 1 Size vec2: 2
+Writing 7 to x
+Writing 2 to x
+Done storing into x
+done with z1
+vec1: 2 
+vec2: 8 
+Made vectors 1 and 2
+Size vec1: 1 Size vec2: 1
+Writing 1 to x
+Writing 6 to x
+Done storing into x
+done with z2
+partOne: 1 6 0 0 
+Finished part one
+Halfway through part two
+Finished part two
+about to return at end
+addOne: 2 0 0 0 z0: 1 6 
+done with z1
+vec1: 1 
+vec2: 6 
+Made vectors 1 and 2
+Size vec1: 1 Size vec2: 1
+Writing 6 to x
+Done storing into x
+done with z2
+partOne: 6 0 0 0 0 
+Finished part one
+Halfway through part two
+Finished part two
+about to return at end
+addOne: 8 1 6 0 0 z0: 1 7 9 4 
+[       OK ] IntegerFixture.multiplies_digits_0 (55 ms)
 [ RUN      ] IntegerFixture.multiplies_digits_1
-[       OK ] IntegerFixture.multiplies_digits_1 (20 ms)
+vec1: 1 2 3 4 5 
+vec2: 6 7 8 9 3 
+Made vectors 1 and 2
+m2: 3 m: 5
+Calcualted m and m2
+set up half iterators
+vec1: 3 4 5 
+vec2: 8 9 3 
+Made vectors 1 and 2
+m2: 2 m: 3
+Calcualted m and m2
+set up half iterators
+vec1: 4 5 
+vec2: 9 3 
+Made vectors 1 and 2
+m2: 1 m: 2
+Calcualted m and m2
+set up half iterators
+vec1: 5 
+vec2: 3 
+Made vectors 1 and 2
+Size vec1: 1 Size vec2: 1
+Writing 1 to x
+Writing 5 to x
+Done storing into x
+done with z0
+multi1: 9 
+multi2: 1 2 
+vec1: 9 
+vec2: 1 2 
+Made vectors 1 and 2
+Size vec1: 1 Size vec2: 2
+Writing 1 to x
+Writing 0 to x
+Writing 8 to x
+Done storing into x
+done with z1
+vec1: 4 
+vec2: 9 
+Made vectors 1 and 2
+Size vec1: 1 Size vec2: 1
+Writing 3 to x
+Writing 6 to x
+Done storing into x
+done with z2
+partOne: 3 6 0 0 
+Finished part one
+Halfway through part two
+Finished part two
+about to return at end
+addOne: 4 1 7 0 z0: 1 5 
+done with z0
+multi1: 4 8 
+multi2: 1 0 1 
+vec1: 4 8 
+vec2: 1 0 1 
+Made vectors 1 and 2
+m2: 1 m: 3
+Calcualted m and m2
+set up half iterators
+vec1: 8 
+vec2: 1 
+Made vectors 1 and 2
+Size vec1: 1 Size vec2: 1
+Writing 8 to x
+Done storing into x
+done with z0
+multi1: 1 2 
+multi2: 1 1 
+vec1: 1 2 
+vec2: 1 1 
+Made vectors 1 and 2
+m2: 1 m: 2
+Calcualted m and m2
+set up half iterators
+vec1: 2 
+vec2: 1 
+Made vectors 1 and 2
+Size vec1: 1 Size vec2: 1
+Writing 2 to x
+Done storing into x
+done with z0
+multi1: 3 
+multi2: 2 
+vec1: 3 
+vec2: 2 
+Made vectors 1 and 2
+Size vec1: 1 Size vec2: 1
+Writing 6 to x
+Done storing into x
+done with z1
+vec1: 1 
+vec2: 1 
+Made vectors 1 and 2
+Size vec1: 1 Size vec2: 1
+Writing 1 to x
+Done storing into x
+done with z2
+partOne: 1 0 0 
+Finished part one
+Halfway through part two
+Finished part two
+about to return at end
+addOne: 1 3 0 z0: 2 
+done with z1
+vec1: 4 
+vec2: 1 0 
+Made vectors 1 and 2
+Size vec1: 1 Size vec2: 2
+Writing 4 to x
+Writing 0 to x
+Done storing into x
+done with z2
+partOne: 4 0 0 0 
+Finished part one
+Halfway through part two
+Finished part two
+about to return at end
+addOne: 4 8 4 0 z0: 8 
+done with z1
+vec1: 3 
+vec2: 8 
+Made vectors 1 and 2
+Size vec1: 1 Size vec2: 1
+Writing 2 to x
+Writing 4 to x
+Done storing into x
+done with z2
+partOne: 2 4 0 0 0 0 
+Finished part one
+Halfway through part two
+Finished part two
+about to return at end
+addOne: 3 0 3 9 0 0 z0: 4 1 8 5 
+done with z0
+multi1: 3 5 7 
+multi2: 9 6 0 
+vec1: 3 5 7 
+vec2: 9 6 0 
+Made vectors 1 and 2
+m2: 2 m: 3
+Calcualted m and m2
+set up half iterators
+vec1: 5 7 
+vec2: 6 0 
+Made vectors 1 and 2
+m2: 1 m: 2
+Calcualted m and m2
+set up half iterators
+vec1: 7 
+vec2: 0 
+Made vectors 1 and 2
+Size vec1: 1 Size vec2: 1
+Writing 0 to x
+Done storing into x
+done with z0
+multi1: 1 2 
+multi2: 6 
+vec1: 1 2 
+vec2: 6 
+Made vectors 1 and 2
+Size vec1: 2 Size vec2: 1
+Writing 7 to x
+Writing 2 to x
+Done storing into x
+done with z1
+vec1: 5 
+vec2: 6 
+Made vectors 1 and 2
+Size vec1: 1 Size vec2: 1
+Writing 3 to x
+Writing 0 to x
+Done storing into x
+done with z2
+partOne: 3 0 0 0 
+Finished part one
+Halfway through part two
+Finished part two
+about to return at end
+addOne: 3 4 2 0 z0: 0 
+done with z0
+multi1: 6 0 
+multi2: 6 9 
+vec1: 6 0 
+vec2: 6 9 
+Made vectors 1 and 2
+m2: 1 m: 2
+Calcualted m and m2
+set up half iterators
+vec1: 0 
+vec2: 9 
+Made vectors 1 and 2
+Size vec1: 1 Size vec2: 1
+Writing 0 to x
+Done storing into x
+done with z0
+multi1: 6 
+multi2: 1 5 
+vec1: 6 
+vec2: 1 5 
+Made vectors 1 and 2
+Size vec1: 1 Size vec2: 2
+Writing 9 to x
+Writing 0 to x
+Done storing into x
+done with z1
+vec1: 6 
+vec2: 6 
+Made vectors 1 and 2
+Size vec1: 1 Size vec2: 1
+Writing 3 to x
+Writing 6 to x
+Done storing into x
+done with z2
+partOne: 3 6 0 0 
+Finished part one
+Halfway through part two
+Finished part two
+about to return at end
+addOne: 4 1 4 0 z0: 0 
+done with z1
+vec1: 3 
+vec2: 9 
+Made vectors 1 and 2
+Size vec1: 1 Size vec2: 1
+Writing 2 to x
+Writing 7 to x
+Done storing into x
+done with z2
+partOne: 2 7 0 0 0 0 
+Finished part one
+Halfway through part two
+Finished part two
+about to return at end
+addOne: 3 3 9 3 0 0 z0: 3 4 2 0 
+done with z1
+vec1: 1 2 
+vec2: 6 7 
+Made vectors 1 and 2
+m2: 1 m: 2
+Calcualted m and m2
+set up half iterators
+vec1: 2 
+vec2: 7 
+Made vectors 1 and 2
+Size vec1: 1 Size vec2: 1
+Writing 1 to x
+Writing 4 to x
+Done storing into x
+done with z0
+multi1: 3 
+multi2: 1 3 
+vec1: 3 
+vec2: 1 3 
+Made vectors 1 and 2
+Size vec1: 1 Size vec2: 2
+Writing 3 to x
+Writing 9 to x
+Done storing into x
+done with z1
+vec1: 1 
+vec2: 6 
+Made vectors 1 and 2
+Size vec1: 1 Size vec2: 1
+Writing 6 to x
+Done storing into x
+done with z2
+partOne: 6 0 0 
+Finished part one
+Halfway through part two
+Finished part two
+about to return at end
+addOne: 7 9 0 z0: 1 4 
+done with z2
+partOne: 8 0 4 0 0 0 0 0 0 
+Finished part one
+Halfway through part two
+Finished part two
+about to return at end
+addOne: 8 3 7 8 3 1 0 0 0 z0: 3 0 8 0 8 5 
+[       OK ] IntegerFixture.multiplies_digits_1 (28 ms)
 [ RUN      ] IntegerFixture.multiplies_digits_2
-[       OK ] IntegerFixture.multiplies_digits_2 (8 ms)
+vec1: 1 2 3 4 5 
+vec2: 6 7 8 9 3 
+Made vectors 1 and 2
+m2: 3 m: 5
+Calcualted m and m2
+set up half iterators
+vec1: 3 4 5 
+vec2: 8 9 3 
+Made vectors 1 and 2
+m2: 2 m: 3
+Calcualted m and m2
+set up half iterators
+vec1: 4 5 
+vec2: 9 3 
+Made vectors 1 and 2
+m2: 1 m: 2
+Calcualted m and m2
+set up half iterators
+vec1: 5 
+vec2: 3 
+Made vectors 1 and 2
+Size vec1: 1 Size vec2: 1
+Writing 1 to x
+Writing 5 to x
+Done storing into x
+done with z0
+multi1: 9 
+multi2: 1 2 
+vec1: 9 
+vec2: 1 2 
+Made vectors 1 and 2
+Size vec1: 1 Size vec2: 2
+Writing 1 to x
+Writing 0 to x
+Writing 8 to x
+Done storing into x
+done with z1
+vec1: 4 
+vec2: 9 
+Made vectors 1 and 2
+Size vec1: 1 Size vec2: 1
+Writing 3 to x
+Writing 6 to x
+Done storing into x
+done with z2
+partOne: 3 6 0 0 
+Finished part one
+Halfway through part two
+Finished part two
+about to return at end
+addOne: 4 1 7 0 z0: 1 5 
+done with z0
+multi1: 4 8 
+multi2: 1 0 1 
+vec1: 4 8 
+vec2: 1 0 1 
+Made vectors 1 and 2
+m2: 1 m: 3
+Calcualted m and m2
+set up half iterators
+vec1: 8 
+vec2: 1 
+Made vectors 1 and 2
+Size vec1: 1 Size vec2: 1
+Writing 8 to x
+Done storing into x
+done with z0
+multi1: 1 2 
+multi2: 1 1 
+vec1: 1 2 
+vec2: 1 1 
+Made vectors 1 and 2
+m2: 1 m: 2
+Calcualted m and m2
+set up half iterators
+vec1: 2 
+vec2: 1 
+Made vectors 1 and 2
+Size vec1: 1 Size vec2: 1
+Writing 2 to x
+Done storing into x
+done with z0
+multi1: 3 
+multi2: 2 
+vec1: 3 
+vec2: 2 
+Made vectors 1 and 2
+Size vec1: 1 Size vec2: 1
+Writing 6 to x
+Done storing into x
+done with z1
+vec1: 1 
+vec2: 1 
+Made vectors 1 and 2
+Size vec1: 1 Size vec2: 1
+Writing 1 to x
+Done storing into x
+done with z2
+partOne: 1 0 0 
+Finished part one
+Halfway through part two
+Finished part two
+about to return at end
+addOne: 1 3 0 z0: 2 
+done with z1
+vec1: 4 
+vec2: 1 0 
+Made vectors 1 and 2
+Size vec1: 1 Size vec2: 2
+Writing 4 to x
+Writing 0 to x
+Done storing into x
+done with z2
+partOne: 4 0 0 0 
+Finished part one
+Halfway through part two
+Finished part two
+about to return at end
+addOne: 4 8 4 0 z0: 8 
+done with z1
+vec1: 3 
+vec2: 8 
+Made vectors 1 and 2
+Size vec1: 1 Size vec2: 1
+Writing 2 to x
+Writing 4 to x
+Done storing into x
+done with z2
+partOne: 2 4 0 0 0 0 
+Finished part one
+Halfway through part two
+Finished part two
+about to return at end
+addOne: 3 0 3 9 0 0 z0: 4 1 8 5 
+done with z0
+multi1: 3 5 7 
+multi2: 9 6 0 
+vec1: 3 5 7 
+vec2: 9 6 0 
+Made vectors 1 and 2
+m2: 2 m: 3
+Calcualted m and m2
+set up half iterators
+vec1: 5 7 
+vec2: 6 0 
+Made vectors 1 and 2
+m2: 1 m: 2
+Calcualted m and m2
+set up half iterators
+vec1: 7 
+vec2: 0 
+Made vectors 1 and 2
+Size vec1: 1 Size vec2: 1
+Writing 0 to x
+Done storing into x
+done with z0
+multi1: 1 2 
+multi2: 6 
+vec1: 1 2 
+vec2: 6 
+Made vectors 1 and 2
+Size vec1: 2 Size vec2: 1
+Writing 7 to x
+Writing 2 to x
+Done storing into x
+done with z1
+vec1: 5 
+vec2: 6 
+Made vectors 1 and 2
+Size vec1: 1 Size vec2: 1
+Writing 3 to x
+Writing 0 to x
+Done storing into x
+done with z2
+partOne: 3 0 0 0 
+Finished part one
+Halfway through part two
+Finished part two
+about to return at end
+addOne: 3 4 2 0 z0: 0 
+done with z0
+multi1: 6 0 
+multi2: 6 9 
+vec1: 6 0 
+vec2: 6 9 
+Made vectors 1 and 2
+m2: 1 m: 2
+Calcualted m and m2
+set up half iterators
+vec1: 0 
+vec2: 9 
+Made vectors 1 and 2
+Size vec1: 1 Size vec2: 1
+Writing 0 to x
+Done storing into x
+done with z0
+multi1: 6 
+multi2: 1 5 
+vec1: 6 
+vec2: 1 5 
+Made vectors 1 and 2
+Size vec1: 1 Size vec2: 2
+Writing 9 to x
+Writing 0 to x
+Done storing into x
+done with z1
+vec1: 6 
+vec2: 6 
+Made vectors 1 and 2
+Size vec1: 1 Size vec2: 1
+Writing 3 to x
+Writing 6 to x
+Done storing into x
+done with z2
+partOne: 3 6 0 0 
+Finished part one
+Halfway through part two
+Finished part two
+about to return at end
+addOne: 4 1 4 0 z0: 0 
+done with z1
+vec1: 3 
+vec2: 9 
+Made vectors 1 and 2
+Size vec1: 1 Size vec2: 1
+Writing 2 to x
+Writing 7 to x
+Done storing into x
+done with z2
+partOne: 2 7 0 0 0 0 
+Finished part one
+Halfway through part two
+Finished part two
+about to return at end
+addOne: 3 3 9 3 0 0 z0: 3 4 2 0 
+done with z1
+vec1: 1 2 
+vec2: 6 7 
+Made vectors 1 and 2
+m2: 1 m: 2
+Calcualted m and m2
+set up half iterators
+vec1: 2 
+vec2: 7 
+Made vectors 1 and 2
+Size vec1: 1 Size vec2: 1
+Writing 1 to x
+Writing 4 to x
+Done storing into x
+done with z0
+multi1: 3 
+multi2: 1 3 
+vec1: 3 
+vec2: 1 3 
+Made vectors 1 and 2
+Size vec1: 1 Size vec2: 2
+Writing 3 to x
+Writing 9 to x
+Done storing into x
+done with z1
+vec1: 1 
+vec2: 6 
+Made vectors 1 and 2
+Size vec1: 1 Size vec2: 1
+Writing 6 to x
+Done storing into x
+done with z2
+partOne: 6 0 0 
+Finished part one
+Halfway through part two
+Finished part two
+about to return at end
+addOne: 7 9 0 z0: 1 4 
+done with z2
+partOne: 8 0 4 0 0 0 0 0 0 
+Finished part one
+Halfway through part two
+Finished part two
+about to return at end
+addOne: 8 3 7 8 3 1 0 0 0 z0: 3 0 8 0 8 5 
+[       OK ] IntegerFixture.multiplies_digits_2 (25 ms)
 [ RUN      ] IntegerFixture.multiplies_digits_3
-[       OK ] IntegerFixture.multiplies_digits_3 (9 ms)
+vec1: 1 2 3 4 5 
+vec2: 6 7 8 9 
+Made vectors 1 and 2
+m2: 3 m: 5
+Calcualted m and m2
+set up half iterators
+vec1: 3 4 5 
+vec2: 7 8 9 
+Made vectors 1 and 2
+m2: 2 m: 3
+Calcualted m and m2
+set up half iterators
+vec1: 4 5 
+vec2: 8 9 
+Made vectors 1 and 2
+m2: 1 m: 2
+Calcualted m and m2
+set up half iterators
+vec1: 5 
+vec2: 9 
+Made vectors 1 and 2
+Size vec1: 1 Size vec2: 1
+Writing 4 to x
+Writing 5 to x
+Done storing into x
+done with z0
+multi1: 9 
+multi2: 1 7 
+vec1: 9 
+vec2: 1 7 
+Made vectors 1 and 2
+Size vec1: 1 Size vec2: 2
+Writing 1 to x
+Writing 5 to x
+Writing 3 to x
+Done storing into x
+done with z1
+vec1: 4 
+vec2: 8 
+Made vectors 1 and 2
+Size vec1: 1 Size vec2: 1
+Writing 3 to x
+Writing 2 to x
+Done storing into x
+done with z2
+partOne: 3 2 0 0 
+Finished part one
+Halfway through part two
+Finished part two
+about to return at end
+addOne: 3 9 6 0 z0: 4 5 
+done with z0
+multi1: 4 8 
+multi2: 9 6 
+vec1: 4 8 
+vec2: 9 6 
+Made vectors 1 and 2
+m2: 1 m: 2
+Calcualted m and m2
+set up half iterators
+vec1: 8 
+vec2: 6 
+Made vectors 1 and 2
+Size vec1: 1 Size vec2: 1
+Writing 4 to x
+Writing 8 to x
+Done storing into x
+done with z0
+multi1: 1 2 
+multi2: 1 5 
+vec1: 1 2 
+vec2: 1 5 
+Made vectors 1 and 2
+m2: 1 m: 2
+Calcualted m and m2
+set up half iterators
+vec1: 2 
+vec2: 5 
+Made vectors 1 and 2
+Size vec1: 1 Size vec2: 1
+Writing 1 to x
+Writing 0 to x
+Done storing into x
+done with z0
+multi1: 3 
+multi2: 6 
+vec1: 3 
+vec2: 6 
+Made vectors 1 and 2
+Size vec1: 1 Size vec2: 1
+Writing 1 to x
+Writing 8 to x
+Done storing into x
+done with z1
+vec1: 1 
+vec2: 1 
+Made vectors 1 and 2
+Size vec1: 1 Size vec2: 1
+Writing 1 to x
+Done storing into x
+done with z2
+partOne: 1 0 0 
+Finished part one
+Halfway through part two
+Finished part two
+about to return at end
+addOne: 1 7 0 z0: 1 0 
+done with z1
+vec1: 4 
+vec2: 9 
+Made vectors 1 and 2
+Size vec1: 1 Size vec2: 1
+Writing 3 to x
+Writing 6 to x
+Done storing into x
+done with z2
+partOne: 3 6 0 0 
+Finished part one
+Halfway through part two
+Finished part two
+about to return at end
+addOne: 4 5 6 0 z0: 4 8 
+done with z1
+vec1: 3 
+vec2: 7 
+Made vectors 1 and 2
+Size vec1: 1 Size vec2: 1
+Writing 2 to x
+Writing 1 to x
+Done storing into x
+done with z2
+partOne: 2 1 0 0 0 0 
+Finished part one
+Halfway through part two
+Finished part two
+about to return at end
+addOne: 2 6 8 2 0 0 z0: 4 0 0 5 
+done with z0
+multi1: 3 5 7 
+multi2: 7 9 5 
+vec1: 3 5 7 
+vec2: 7 9 5 
+Made vectors 1 and 2
+m2: 2 m: 3
+Calcualted m and m2
+set up half iterators
+vec1: 5 7 
+vec2: 9 5 
+Made vectors 1 and 2
+m2: 1 m: 2
+Calcualted m and m2
+set up half iterators
+vec1: 7 
+vec2: 5 
+Made vectors 1 and 2
+Size vec1: 1 Size vec2: 1
+Writing 3 to x
+Writing 5 to x
+Done storing into x
+done with z0
+multi1: 1 2 
+multi2: 1 4 
+vec1: 1 2 
+vec2: 1 4 
+Made vectors 1 and 2
+m2: 1 m: 2
+Calcualted m and m2
+set up half iterators
+vec1: 2 
+vec2: 4 
+Made vectors 1 and 2
+Size vec1: 1 Size vec2: 1
+Writing 8 to x
+Done storing into x
+done with z0
+multi1: 3 
+multi2: 5 
+vec1: 3 
+vec2: 5 
+Made vectors 1 and 2
+Size vec1: 1 Size vec2: 1
+Writing 1 to x
+Writing 5 to x
+Done storing into x
+done with z1
+vec1: 1 
+vec2: 1 
+Made vectors 1 and 2
+Size vec1: 1 Size vec2: 1
+Writing 1 to x
+Done storing into x
+done with z2
+partOne: 1 0 0 
+Finished part one
+Halfway through part two
+Finished part two
+about to return at end
+addOne: 1 6 0 z0: 8 
+done with z1
+vec1: 5 
+vec2: 9 
+Made vectors 1 and 2
+Size vec1: 1 Size vec2: 1
+Writing 4 to x
+Writing 5 to x
+Done storing into x
+done with z2
+partOne: 4 5 0 0 
+Finished part one
+Halfway through part two
+Finished part two
+about to return at end
+addOne: 5 3 8 0 z0: 3 5 
+done with z0
+multi1: 6 0 
+multi2: 1 0 2 
+vec1: 6 0 
+vec2: 1 0 2 
+Made vectors 1 and 2
+m2: 1 m: 3
+Calcualted m and m2
+set up half iterators
+vec1: 0 
+vec2: 2 
+Made vectors 1 and 2
+Size vec1: 1 Size vec2: 1
+Writing 0 to x
+Done storing into x
+done with z0
+multi1: 6 
+multi2: 1 2 
+vec1: 6 
+vec2: 1 2 
+Made vectors 1 and 2
+Size vec1: 1 Size vec2: 2
+Writing 7 to x
+Writing 2 to x
+Done storing into x
+done with z1
+vec1: 6 
+vec2: 1 0 
+Made vectors 1 and 2
+Size vec1: 1 Size vec2: 2
+Writing 6 to x
+Writing 0 to x
+Done storing into x
+done with z2
+partOne: 6 0 0 0 
+Finished part one
+Halfway through part two
+Finished part two
+about to return at end
+addOne: 6 1 2 0 z0: 0 
+done with z1
+vec1: 3 
+vec2: 7 
+Made vectors 1 and 2
+Size vec1: 1 Size vec2: 1
+Writing 2 to x
+Writing 1 to x
+Done storing into x
+done with z2
+partOne: 2 1 0 0 0 0 
+Finished part one
+Halfway through part two
+Finished part two
+about to return at end
+addOne: 2 7 8 4 0 0 z0: 5 4 1 5 
+done with z1
+vec1: 1 2 
+vec2: 6 
+Made vectors 1 and 2
+Size vec1: 2 Size vec2: 1
+Writing 7 to x
+Writing 2 to x
+Done storing into x
+done with z2
+partOne: 7 2 0 0 0 0 0 0 
+Finished part one
+Halfway through part two
+Finished part two
+about to return at end
+addOne: 8 3 5 3 8 0 0 0 z0: 2 7 2 2 0 5 
+[       OK ] IntegerFixture.multiplies_digits_3 (26 ms)
 [ RUN      ] IntegerFixture.multiplies_digits_4
-[       OK ] IntegerFixture.multiplies_digits_4 (8 ms)
+vec1: 1 2 3 4 
+vec2: 6 7 8 9 5 
+Made vectors 1 and 2
+m2: 3 m: 5
+Calcualted m and m2
+set up half iterators
+vec1: 2 3 4 
+vec2: 8 9 5 
+Made vectors 1 and 2
+m2: 2 m: 3
+Calcualted m and m2
+set up half iterators
+vec1: 3 4 
+vec2: 9 5 
+Made vectors 1 and 2
+m2: 1 m: 2
+Calcualted m and m2
+set up half iterators
+vec1: 4 
+vec2: 5 
+Made vectors 1 and 2
+Size vec1: 1 Size vec2: 1
+Writing 2 to x
+Writing 0 to x
+Done storing into x
+done with z0
+multi1: 7 
+multi2: 1 4 
+vec1: 7 
+vec2: 1 4 
+Made vectors 1 and 2
+Size vec1: 1 Size vec2: 2
+Writing 9 to x
+Writing 8 to x
+Done storing into x
+done with z1
+vec1: 3 
+vec2: 9 
+Made vectors 1 and 2
+Size vec1: 1 Size vec2: 1
+Writing 2 to x
+Writing 7 to x
+Done storing into x
+done with z2
+partOne: 2 7 0 0 
+Finished part one
+Halfway through part two
+Finished part two
+about to return at end
+addOne: 3 2 1 0 z0: 2 0 
+done with z0
+multi1: 3 6 
+multi2: 1 0 3 
+vec1: 3 6 
+vec2: 1 0 3 
+Made vectors 1 and 2
+m2: 1 m: 3
+Calcualted m and m2
+set up half iterators
+vec1: 6 
+vec2: 3 
+Made vectors 1 and 2
+Size vec1: 1 Size vec2: 1
+Writing 1 to x
+Writing 8 to x
+Done storing into x
+done with z0
+multi1: 9 
+multi2: 1 3 
+vec1: 9 
+vec2: 1 3 
+Made vectors 1 and 2
+Size vec1: 1 Size vec2: 2
+Writing 1 to x
+Writing 1 to x
+Writing 7 to x
+Done storing into x
+done with z1
+vec1: 3 
+vec2: 1 0 
+Made vectors 1 and 2
+Size vec1: 1 Size vec2: 2
+Writing 3 to x
+Writing 0 to x
+Done storing into x
+done with z2
+partOne: 3 0 0 0 
+Finished part one
+Halfway through part two
+Finished part two
+about to return at end
+addOne: 3 6 9 0 z0: 1 8 
+done with z1
+vec1: 2 
+vec2: 8 
+Made vectors 1 and 2
+Size vec1: 1 Size vec2: 1
+Writing 1 to x
+Writing 6 to x
+Done storing into x
+done with z2
+partOne: 1 6 0 0 0 0 
+Finished part one
+Halfway through part two
+Finished part two
+about to return at end
+addOne: 2 0 6 2 0 0 z0: 3 2 3 0 
+done with z0
+multi1: 2 3 5 
+multi2: 9 6 2 
+vec1: 2 3 5 
+vec2: 9 6 2 
+Made vectors 1 and 2
+m2: 2 m: 3
+Calcualted m and m2
+set up half iterators
+vec1: 3 5 
+vec2: 6 2 
+Made vectors 1 and 2
+m2: 1 m: 2
+Calcualted m and m2
+set up half iterators
+vec1: 5 
+vec2: 2 
+Made vectors 1 and 2
+Size vec1: 1 Size vec2: 1
+Writing 1 to x
+Writing 0 to x
+Done storing into x
+done with z0
+multi1: 8 
+multi2: 8 
+vec1: 8 
+vec2: 8 
+Made vectors 1 and 2
+Size vec1: 1 Size vec2: 1
+Writing 6 to x
+Writing 4 to x
+Done storing into x
+done with z1
+vec1: 3 
+vec2: 6 
+Made vectors 1 and 2
+Size vec1: 1 Size vec2: 1
+Writing 1 to x
+Writing 8 to x
+Done storing into x
+done with z2
+partOne: 1 8 0 0 
+Finished part one
+Halfway through part two
+Finished part two
+about to return at end
+addOne: 2 1 6 0 z0: 1 0 
+done with z0
+multi1: 3 7 
+multi2: 7 1 
+vec1: 3 7 
+vec2: 7 1 
+Made vectors 1 and 2
+m2: 1 m: 2
+Calcualted m and m2
+set up half iterators
+vec1: 7 
+vec2: 1 
+Made vectors 1 and 2
+Size vec1: 1 Size vec2: 1
+Writing 7 to x
+Done storing into x
+done with z0
+multi1: 1 0 
+multi2: 8 
+vec1: 1 0 
+vec2: 8 
+Made vectors 1 and 2
+Size vec1: 2 Size vec2: 1
+Writing 8 to x
+Writing 0 to x
+Done storing into x
+done with z1
+vec1: 3 
+vec2: 7 
+Made vectors 1 and 2
+Size vec1: 1 Size vec2: 1
+Writing 2 to x
+Writing 1 to x
+Done storing into x
+done with z2
+partOne: 2 1 0 0 
+Finished part one
+Halfway through part two
+Finished part two
+about to return at end
+addOne: 2 6 2 0 z0: 7 
+done with z1
+vec1: 2 
+vec2: 9 
+Made vectors 1 and 2
+Size vec1: 1 Size vec2: 1
+Writing 1 to x
+Writing 8 to x
+Done storing into x
+done with z2
+partOne: 1 8 0 0 0 0 
+Finished part one
+Halfway through part two
+Finished part two
+about to return at end
+addOne: 2 2 3 9 0 0 z0: 2 1 7 0 
+done with z1
+vec1: 1 
+vec2: 6 7 
+Made vectors 1 and 2
+Size vec1: 1 Size vec2: 2
+Writing 6 to x
+Writing 7 to x
+Done storing into x
+done with z2
+partOne: 6 7 0 0 0 0 0 0 
+Finished part one
+Halfway through part two
+Finished part two
+about to return at end
+addOne: 8 3 5 7 3 0 0 0 z0: 2 0 9 4 3 0 
+[       OK ] IntegerFixture.multiplies_digits_4 (23 ms)
 [ RUN      ] IntegerFixture.multiplies_digits_5
-[       OK ] IntegerFixture.multiplies_digits_5 (7 ms)
+vec1: 2 3 4 
+vec2: 7 8 9 
+Made vectors 1 and 2
+m2: 2 m: 3
+Calcualted m and m2
+set up half iterators
+vec1: 3 4 
+vec2: 8 9 
+Made vectors 1 and 2
+m2: 1 m: 2
+Calcualted m and m2
+set up half iterators
+vec1: 4 
+vec2: 9 
+Made vectors 1 and 2
+Size vec1: 1 Size vec2: 1
+Writing 3 to x
+Writing 6 to x
+Done storing into x
+done with z0
+multi1: 7 
+multi2: 1 7 
+vec1: 7 
+vec2: 1 7 
+Made vectors 1 and 2
+Size vec1: 1 Size vec2: 2
+Writing 1 to x
+Writing 1 to x
+Writing 9 to x
+Done storing into x
+done with z1
+vec1: 3 
+vec2: 8 
+Made vectors 1 and 2
+Size vec1: 1 Size vec2: 1
+Writing 2 to x
+Writing 4 to x
+Done storing into x
+done with z2
+partOne: 2 4 0 0 
+Finished part one
+Halfway through part two
+Finished part two
+about to return at end
+addOne: 2 9 9 0 z0: 3 6 
+done with z0
+multi1: 3 6 
+multi2: 9 6 
+vec1: 3 6 
+vec2: 9 6 
+Made vectors 1 and 2
+m2: 1 m: 2
+Calcualted m and m2
+set up half iterators
+vec1: 6 
+vec2: 6 
+Made vectors 1 and 2
+Size vec1: 1 Size vec2: 1
+Writing 3 to x
+Writing 6 to x
+Done storing into x
+done with z0
+multi1: 9 
+multi2: 1 5 
+vec1: 9 
+vec2: 1 5 
+Made vectors 1 and 2
+Size vec1: 1 Size vec2: 2
+Writing 1 to x
+Writing 3 to x
+Writing 5 to x
+Done storing into x
+done with z1
+vec1: 3 
+vec2: 9 
+Made vectors 1 and 2
+Size vec1: 1 Size vec2: 1
+Writing 2 to x
+Writing 7 to x
+Done storing into x
+done with z2
+partOne: 2 7 0 0 
+Finished part one
+Halfway through part two
+Finished part two
+about to return at end
+addOne: 3 4 2 0 z0: 3 6 
+done with z1
+vec1: 2 
+vec2: 7 
+Made vectors 1 and 2
+Size vec1: 1 Size vec2: 1
+Writing 1 to x
+Writing 4 to x
+Done storing into x
+done with z2
+partOne: 1 4 0 0 0 0 
+Finished part one
+Halfway through part two
+Finished part two
+about to return at end
+addOne: 1 8 1 6 0 0 z0: 3 0 2 6 
+[       OK ] IntegerFixture.multiplies_digits_5 (14 ms)
 [ RUN      ] IntegerFixture.divides_digits_1
 Writing 8 to x
 Writing 7 to x
 Writing 6 to x
 Writing 3 to x
 Writing 8 to x
-TestInteger.c++:274: Failure
+TestInteger.c++:284: Failure
 Value of: equal(out.begin(), out.end(), test.begin())
   Actual: false
 Expected: true
-[  FAILED  ] IntegerFixture.divides_digits_1 (28 ms)
+[  FAILED  ] IntegerFixture.divides_digits_1 (24 ms)
 [ RUN      ] IntegerFixture.divides_digits_2
 Writing 8 to x
 Writing 7 to x
 Writing 6 to x
 Writing 3 to x
 Writing 8 to x
-TestInteger.c++:283: Failure
+TestInteger.c++:293: Failure
 Value of: out.end()
-  Actual: 8-byte object <54-E2 C8-05 00-00 00-00>
+  Actual: 8-byte object <A4-E7 D7-05 00-00 00-00>
 Expected: itr
-Which is: 8-byte object <50-E2 C8-05 00-00 00-00>
-[  FAILED  ] IntegerFixture.divides_digits_2 (25 ms)
+Which is: 8-byte object <A0-E7 D7-05 00-00 00-00>
+[  FAILED  ] IntegerFixture.divides_digits_2 (23 ms)
 [ RUN      ] IntegerFixture.divides_digits_3
 Writing 1 to x
 Writing 2 to x
 Writing 2 to x
 Writing 7 to x
 Writing 8 to x
-TestInteger.c++:293: Failure
+TestInteger.c++:303: Failure
 Value of: equal(out.begin(), out.end(), test.begin())
   Actual: false
 Expected: true
-[  FAILED  ] IntegerFixture.divides_digits_3 (6 ms)
+[  FAILED  ] IntegerFixture.divides_digits_3 (7 ms)
 [ RUN      ] IntegerFixture.divides_digits_4
-==2668== Invalid write of size 4
-==2668==    at 0x411A68: __gnu_cxx::__normal_iterator<int*, std::vector<int, std::allocator<int> > > minus_digits<__gnu_cxx::__normal_iterator<int*, std::vector<int, std::allocator<int> > >, __gnu_cxx::__normal_iterator<int*, std::vector<int, std::allocator<int> > >, __gnu_cxx::__normal_iterator<int*, std::vector<int, std::allocator<int> > > >(__gnu_cxx::__normal_iterator<int*, std::vector<int, std::allocator<int> > >, __gnu_cxx::__normal_iterator<int*, std::vector<int, std::allocator<int> > >, __gnu_cxx::__normal_iterator<int*, std::vector<int, std::allocator<int> > >, __gnu_cxx::__normal_iterator<int*, std::vector<int, std::allocator<int> > >, __gnu_cxx::__normal_iterator<int*, std::vector<int, std::allocator<int> > >) (in /v/filer4b/v38q001/epenning/CS_378/cs378-integer/TestInteger)
-==2668==    by 0x41219B: __gnu_cxx::__normal_iterator<int*, std::vector<int, std::allocator<int> > > divides_digits<__gnu_cxx::__normal_iterator<int*, std::vector<int, std::allocator<int> > >, __gnu_cxx::__normal_iterator<int*, std::vector<int, std::allocator<int> > >, __gnu_cxx::__normal_iterator<int*, std::vector<int, std::allocator<int> > > >(__gnu_cxx::__normal_iterator<int*, std::vector<int, std::allocator<int> > >, __gnu_cxx::__normal_iterator<int*, std::vector<int, std::allocator<int> > >, __gnu_cxx::__normal_iterator<int*, std::vector<int, std::allocator<int> > >, __gnu_cxx::__normal_iterator<int*, std::vector<int, std::allocator<int> > >, __gnu_cxx::__normal_iterator<int*, std::vector<int, std::allocator<int> > >) (in /v/filer4b/v38q001/epenning/CS_378/cs378-integer/TestInteger)
-==2668==    by 0x40B836: IntegerFixture_divides_digits_4_Test::TestBody() (in /v/filer4b/v38q001/epenning/CS_378/cs378-integer/TestInteger)
-==2668==    by 0x43AC12: void testing::internal::HandleExceptionsInMethodIfSupported<testing::Test, void>(testing::Test*, void (testing::Test::*)(), char const*) (in /v/filer4b/v38q001/epenning/CS_378/cs378-integer/TestInteger)
-==2668==    by 0x42DCCC: testing::Test::Run() (in /v/filer4b/v38q001/epenning/CS_378/cs378-integer/TestInteger)
-==2668==    by 0x42DD63: testing::TestInfo::Run() (in /v/filer4b/v38q001/epenning/CS_378/cs378-integer/TestInteger)
-==2668==    by 0x42DE64: testing::TestCase::Run() (in /v/filer4b/v38q001/epenning/CS_378/cs378-integer/TestInteger)
-==2668==    by 0x42E0DC: testing::internal::UnitTestImpl::RunAllTests() (in /v/filer4b/v38q001/epenning/CS_378/cs378-integer/TestInteger)
-==2668==    by 0x42E3BD: testing::UnitTest::Run() (in /v/filer4b/v38q001/epenning/CS_378/cs378-integer/TestInteger)
-==2668==    by 0x404BDF: main (in /v/filer4b/v38q001/epenning/CS_378/cs378-integer/TestInteger)
-==2668==  Address 0x5c94bb0 is 0 bytes after a block of size 16 alloc'd
-==2668==    at 0x4C2B0E0: operator new(unsigned long) (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
-==2668==    by 0x4154EB: __gnu_cxx::new_allocator<int>::allocate(unsigned long, void const*) (in /v/filer4b/v38q001/epenning/CS_378/cs378-integer/TestInteger)
-==2668==    by 0x414068: std::_Vector_base<int, std::allocator<int> >::_M_allocate(unsigned long) (in /v/filer4b/v38q001/epenning/CS_378/cs378-integer/TestInteger)
-==2668==    by 0x415C79: void std::vector<int, std::allocator<int> >::_M_range_initialize<__gnu_cxx::__normal_iterator<int*, std::vector<int, std::allocator<int> > > >(__gnu_cxx::__normal_iterator<int*, std::vector<int, std::allocator<int> > >, __gnu_cxx::__normal_iterator<int*, std::vector<int, std::allocator<int> > >, std::forward_iterator_tag) (in /v/filer4b/v38q001/epenning/CS_378/cs378-integer/TestInteger)
-==2668==    by 0x414A1E: void std::vector<int, std::allocator<int> >::_M_initialize_dispatch<__gnu_cxx::__normal_iterator<int*, std::vector<int, std::allocator<int> > > >(__gnu_cxx::__normal_iterator<int*, std::vector<int, std::allocator<int> > >, __gnu_cxx::__normal_iterator<int*, std::vector<int, std::allocator<int> > >, std::__false_type) (in /v/filer4b/v38q001/epenning/CS_378/cs378-integer/TestInteger)
-==2668==    by 0x41335B: std::vector<int, std::allocator<int> >::vector<__gnu_cxx::__normal_iterator<int*, std::vector<int, std::allocator<int> > >, void>(__gnu_cxx::__normal_iterator<int*, std::vector<int, std::allocator<int> > >, __gnu_cxx::__normal_iterator<int*, std::vector<int, std::allocator<int> > >, std::allocator<int> const&) (in /v/filer4b/v38q001/epenning/CS_378/cs378-integer/TestInteger)
-==2668==    by 0x4120FB: __gnu_cxx::__normal_iterator<int*, std::vector<int, std::allocator<int> > > divides_digits<__gnu_cxx::__normal_iterator<int*, std::vector<int, std::allocator<int> > >, __gnu_cxx::__normal_iterator<int*, std::vector<int, std::allocator<int> > >, __gnu_cxx::__normal_iterator<int*, std::vector<int, std::allocator<int> > > >(__gnu_cxx::__normal_iterator<int*, std::vector<int, std::allocator<int> > >, __gnu_cxx::__normal_iterator<int*, std::vector<int, std::allocator<int> > >, __gnu_cxx::__normal_iterator<int*, std::vector<int, std::allocator<int> > >, __gnu_cxx::__normal_iterator<int*, std::vector<int, std::allocator<int> > >, __gnu_cxx::__normal_iterator<int*, std::vector<int, std::allocator<int> > >) (in /v/filer4b/v38q001/epenning/CS_378/cs378-integer/TestInteger)
-==2668==    by 0x40B836: IntegerFixture_divides_digits_4_Test::TestBody() (in /v/filer4b/v38q001/epenning/CS_378/cs378-integer/TestInteger)
-==2668==    by 0x43AC12: void testing::internal::HandleExceptionsInMethodIfSupported<testing::Test, void>(testing::Test*, void (testing::Test::*)(), char const*) (in /v/filer4b/v38q001/epenning/CS_378/cs378-integer/TestInteger)
-==2668==    by 0x42DCCC: testing::Test::Run() (in /v/filer4b/v38q001/epenning/CS_378/cs378-integer/TestInteger)
-==2668==    by 0x42DD63: testing::TestInfo::Run() (in /v/filer4b/v38q001/epenning/CS_378/cs378-integer/TestInteger)
-==2668==    by 0x42DE64: testing::TestCase::Run() (in /v/filer4b/v38q001/epenning/CS_378/cs378-integer/TestInteger)
-==2668== 
+==5596== Invalid write of size 4
+==5596==    at 0x413890: __gnu_cxx::__normal_iterator<int*, std::vector<int, std::allocator<int> > > minus_digits<__gnu_cxx::__normal_iterator<int*, std::vector<int, std::allocator<int> > >, __gnu_cxx::__normal_iterator<int*, std::vector<int, std::allocator<int> > >, __gnu_cxx::__normal_iterator<int*, std::vector<int, std::allocator<int> > > >(__gnu_cxx::__normal_iterator<int*, std::vector<int, std::allocator<int> > >, __gnu_cxx::__normal_iterator<int*, std::vector<int, std::allocator<int> > >, __gnu_cxx::__normal_iterator<int*, std::vector<int, std::allocator<int> > >, __gnu_cxx::__normal_iterator<int*, std::vector<int, std::allocator<int> > >, __gnu_cxx::__normal_iterator<int*, std::vector<int, std::allocator<int> > >) (in /v/filer4b/v38q001/epenning/CS_378/cs378-integer/TestInteger)
+==5596==    by 0x414FEB: __gnu_cxx::__normal_iterator<int*, std::vector<int, std::allocator<int> > > divides_digits<__gnu_cxx::__normal_iterator<int*, std::vector<int, std::allocator<int> > >, __gnu_cxx::__normal_iterator<int*, std::vector<int, std::allocator<int> > >, __gnu_cxx::__normal_iterator<int*, std::vector<int, std::allocator<int> > > >(__gnu_cxx::__normal_iterator<int*, std::vector<int, std::allocator<int> > >, __gnu_cxx::__normal_iterator<int*, std::vector<int, std::allocator<int> > >, __gnu_cxx::__normal_iterator<int*, std::vector<int, std::allocator<int> > >, __gnu_cxx::__normal_iterator<int*, std::vector<int, std::allocator<int> > >, __gnu_cxx::__normal_iterator<int*, std::vector<int, std::allocator<int> > >) (in /v/filer4b/v38q001/epenning/CS_378/cs378-integer/TestInteger)
+==5596==    by 0x40C004: IntegerFixture_divides_digits_4_Test::TestBody() (in /v/filer4b/v38q001/epenning/CS_378/cs378-integer/TestInteger)
+==5596==    by 0x440702: void testing::internal::HandleExceptionsInMethodIfSupported<testing::Test, void>(testing::Test*, void (testing::Test::*)(), char const*) (in /v/filer4b/v38q001/epenning/CS_378/cs378-integer/TestInteger)
+==5596==    by 0x4337BC: testing::Test::Run() (in /v/filer4b/v38q001/epenning/CS_378/cs378-integer/TestInteger)
+==5596==    by 0x433853: testing::TestInfo::Run() (in /v/filer4b/v38q001/epenning/CS_378/cs378-integer/TestInteger)
+==5596==    by 0x433954: testing::TestCase::Run() (in /v/filer4b/v38q001/epenning/CS_378/cs378-integer/TestInteger)
+==5596==    by 0x433BCC: testing::internal::UnitTestImpl::RunAllTests() (in /v/filer4b/v38q001/epenning/CS_378/cs378-integer/TestInteger)
+==5596==    by 0x433EAD: testing::UnitTest::Run() (in /v/filer4b/v38q001/epenning/CS_378/cs378-integer/TestInteger)
+==5596==    by 0x404F4F: main (in /v/filer4b/v38q001/epenning/CS_378/cs378-integer/TestInteger)
+==5596==  Address 0x5d85100 is 0 bytes after a block of size 16 alloc'd
+==5596==    at 0x4C2B0E0: operator new(unsigned long) (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==5596==    by 0x41A471: __gnu_cxx::new_allocator<int>::allocate(unsigned long, void const*) (in /v/filer4b/v38q001/epenning/CS_378/cs378-integer/TestInteger)
+==5596==    by 0x41792E: std::_Vector_base<int, std::allocator<int> >::_M_allocate(unsigned long) (in /v/filer4b/v38q001/epenning/CS_378/cs378-integer/TestInteger)
+==5596==    by 0x41A579: void std::vector<int, std::allocator<int> >::_M_range_initialize<__gnu_cxx::__normal_iterator<int*, std::vector<int, std::allocator<int> > > >(__gnu_cxx::__normal_iterator<int*, std::vector<int, std::allocator<int> > >, __gnu_cxx::__normal_iterator<int*, std::vector<int, std::allocator<int> > >, std::forward_iterator_tag) (in /v/filer4b/v38q001/epenning/CS_378/cs378-integer/TestInteger)
+==5596==    by 0x417BA4: void std::vector<int, std::allocator<int> >::_M_initialize_dispatch<__gnu_cxx::__normal_iterator<int*, std::vector<int, std::allocator<int> > > >(__gnu_cxx::__normal_iterator<int*, std::vector<int, std::allocator<int> > >, __gnu_cxx::__normal_iterator<int*, std::vector<int, std::allocator<int> > >, std::__false_type) (in /v/filer4b/v38q001/epenning/CS_378/cs378-integer/TestInteger)
+==5596==    by 0x416103: std::vector<int, std::allocator<int> >::vector<__gnu_cxx::__normal_iterator<int*, std::vector<int, std::allocator<int> > >, void>(__gnu_cxx::__normal_iterator<int*, std::vector<int, std::allocator<int> > >, __gnu_cxx::__normal_iterator<int*, std::vector<int, std::allocator<int> > >, std::allocator<int> const&) (in /v/filer4b/v38q001/epenning/CS_378/cs378-integer/TestInteger)
+==5596==    by 0x414F4B: __gnu_cxx::__normal_iterator<int*, std::vector<int, std::allocator<int> > > divides_digits<__gnu_cxx::__normal_iterator<int*, std::vector<int, std::allocator<int> > >, __gnu_cxx::__normal_iterator<int*, std::vector<int, std::allocator<int> > >, __gnu_cxx::__normal_iterator<int*, std::vector<int, std::allocator<int> > > >(__gnu_cxx::__normal_iterator<int*, std::vector<int, std::allocator<int> > >, __gnu_cxx::__normal_iterator<int*, std::vector<int, std::allocator<int> > >, __gnu_cxx::__normal_iterator<int*, std::vector<int, std::allocator<int> > >, __gnu_cxx::__normal_iterator<int*, std::vector<int, std::allocator<int> > >, __gnu_cxx::__normal_iterator<int*, std::vector<int, std::allocator<int> > >) (in /v/filer4b/v38q001/epenning/CS_378/cs378-integer/TestInteger)
+==5596==    by 0x40C004: IntegerFixture_divides_digits_4_Test::TestBody() (in /v/filer4b/v38q001/epenning/CS_378/cs378-integer/TestInteger)
+==5596==    by 0x440702: void testing::internal::HandleExceptionsInMethodIfSupported<testing::Test, void>(testing::Test*, void (testing::Test::*)(), char const*) (in /v/filer4b/v38q001/epenning/CS_378/cs378-integer/TestInteger)
+==5596==    by 0x4337BC: testing::Test::Run() (in /v/filer4b/v38q001/epenning/CS_378/cs378-integer/TestInteger)
+==5596==    by 0x433853: testing::TestInfo::Run() (in /v/filer4b/v38q001/epenning/CS_378/cs378-integer/TestInteger)
+==5596==    by 0x433954: testing::TestCase::Run() (in /v/filer4b/v38q001/epenning/CS_378/cs378-integer/TestInteger)
+==5596== 
 Writing 6 to x
 Writing 6 to x
 Writing 6 to x
 Writing 6 to x
-==2668== Invalid read of size 4
-==2668==    at 0x4121BE: __gnu_cxx::__normal_iterator<int*, std::vector<int, std::allocator<int> > > divides_digits<__gnu_cxx::__normal_iterator<int*, std::vector<int, std::allocator<int> > >, __gnu_cxx::__normal_iterator<int*, std::vector<int, std::allocator<int> > >, __gnu_cxx::__normal_iterator<int*, std::vector<int, std::allocator<int> > > >(__gnu_cxx::__normal_iterator<int*, std::vector<int, std::allocator<int> > >, __gnu_cxx::__normal_iterator<int*, std::vector<int, std::allocator<int> > >, __gnu_cxx::__normal_iterator<int*, std::vector<int, std::allocator<int> > >, __gnu_cxx::__normal_iterator<int*, std::vector<int, std::allocator<int> > >, __gnu_cxx::__normal_iterator<int*, std::vector<int, std::allocator<int> > >) (in /v/filer4b/v38q001/epenning/CS_378/cs378-integer/TestInteger)
-==2668==    by 0x40B836: IntegerFixture_divides_digits_4_Test::TestBody() (in /v/filer4b/v38q001/epenning/CS_378/cs378-integer/TestInteger)
-==2668==    by 0x43AC12: void testing::internal::HandleExceptionsInMethodIfSupported<testing::Test, void>(testing::Test*, void (testing::Test::*)(), char const*) (in /v/filer4b/v38q001/epenning/CS_378/cs378-integer/TestInteger)
-==2668==    by 0x42DCCC: testing::Test::Run() (in /v/filer4b/v38q001/epenning/CS_378/cs378-integer/TestInteger)
-==2668==    by 0x42DD63: testing::TestInfo::Run() (in /v/filer4b/v38q001/epenning/CS_378/cs378-integer/TestInteger)
-==2668==    by 0x42DE64: testing::TestCase::Run() (in /v/filer4b/v38q001/epenning/CS_378/cs378-integer/TestInteger)
-==2668==    by 0x42E0DC: testing::internal::UnitTestImpl::RunAllTests() (in /v/filer4b/v38q001/epenning/CS_378/cs378-integer/TestInteger)
-==2668==    by 0x42E3BD: testing::UnitTest::Run() (in /v/filer4b/v38q001/epenning/CS_378/cs378-integer/TestInteger)
-==2668==    by 0x404BDF: main (in /v/filer4b/v38q001/epenning/CS_378/cs378-integer/TestInteger)
-==2668==  Address 0x5c94bb0 is 0 bytes after a block of size 16 alloc'd
-==2668==    at 0x4C2B0E0: operator new(unsigned long) (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
-==2668==    by 0x4154EB: __gnu_cxx::new_allocator<int>::allocate(unsigned long, void const*) (in /v/filer4b/v38q001/epenning/CS_378/cs378-integer/TestInteger)
-==2668==    by 0x414068: std::_Vector_base<int, std::allocator<int> >::_M_allocate(unsigned long) (in /v/filer4b/v38q001/epenning/CS_378/cs378-integer/TestInteger)
-==2668==    by 0x415C79: void std::vector<int, std::allocator<int> >::_M_range_initialize<__gnu_cxx::__normal_iterator<int*, std::vector<int, std::allocator<int> > > >(__gnu_cxx::__normal_iterator<int*, std::vector<int, std::allocator<int> > >, __gnu_cxx::__normal_iterator<int*, std::vector<int, std::allocator<int> > >, std::forward_iterator_tag) (in /v/filer4b/v38q001/epenning/CS_378/cs378-integer/TestInteger)
-==2668==    by 0x414A1E: void std::vector<int, std::allocator<int> >::_M_initialize_dispatch<__gnu_cxx::__normal_iterator<int*, std::vector<int, std::allocator<int> > > >(__gnu_cxx::__normal_iterator<int*, std::vector<int, std::allocator<int> > >, __gnu_cxx::__normal_iterator<int*, std::vector<int, std::allocator<int> > >, std::__false_type) (in /v/filer4b/v38q001/epenning/CS_378/cs378-integer/TestInteger)
-==2668==    by 0x41335B: std::vector<int, std::allocator<int> >::vector<__gnu_cxx::__normal_iterator<int*, std::vector<int, std::allocator<int> > >, void>(__gnu_cxx::__normal_iterator<int*, std::vector<int, std::allocator<int> > >, __gnu_cxx::__normal_iterator<int*, std::vector<int, std::allocator<int> > >, std::allocator<int> const&) (in /v/filer4b/v38q001/epenning/CS_378/cs378-integer/TestInteger)
-==2668==    by 0x4120FB: __gnu_cxx::__normal_iterator<int*, std::vector<int, std::allocator<int> > > divides_digits<__gnu_cxx::__normal_iterator<int*, std::vector<int, std::allocator<int> > >, __gnu_cxx::__normal_iterator<int*, std::vector<int, std::allocator<int> > >, __gnu_cxx::__normal_iterator<int*, std::vector<int, std::allocator<int> > > >(__gnu_cxx::__normal_iterator<int*, std::vector<int, std::allocator<int> > >, __gnu_cxx::__normal_iterator<int*, std::vector<int, std::allocator<int> > >, __gnu_cxx::__normal_iterator<int*, std::vector<int, std::allocator<int> > >, __gnu_cxx::__normal_iterator<int*, std::vector<int, std::allocator<int> > >, __gnu_cxx::__normal_iterator<int*, std::vector<int, std::allocator<int> > >) (in /v/filer4b/v38q001/epenning/CS_378/cs378-integer/TestInteger)
-==2668==    by 0x40B836: IntegerFixture_divides_digits_4_Test::TestBody() (in /v/filer4b/v38q001/epenning/CS_378/cs378-integer/TestInteger)
-==2668==    by 0x43AC12: void testing::internal::HandleExceptionsInMethodIfSupported<testing::Test, void>(testing::Test*, void (testing::Test::*)(), char const*) (in /v/filer4b/v38q001/epenning/CS_378/cs378-integer/TestInteger)
-==2668==    by 0x42DCCC: testing::Test::Run() (in /v/filer4b/v38q001/epenning/CS_378/cs378-integer/TestInteger)
-==2668==    by 0x42DD63: testing::TestInfo::Run() (in /v/filer4b/v38q001/epenning/CS_378/cs378-integer/TestInteger)
-==2668==    by 0x42DE64: testing::TestCase::Run() (in /v/filer4b/v38q001/epenning/CS_378/cs378-integer/TestInteger)
-==2668== 
+==5596== Invalid read of size 4
+==5596==    at 0x41500E: __gnu_cxx::__normal_iterator<int*, std::vector<int, std::allocator<int> > > divides_digits<__gnu_cxx::__normal_iterator<int*, std::vector<int, std::allocator<int> > >, __gnu_cxx::__normal_iterator<int*, std::vector<int, std::allocator<int> > >, __gnu_cxx::__normal_iterator<int*, std::vector<int, std::allocator<int> > > >(__gnu_cxx::__normal_iterator<int*, std::vector<int, std::allocator<int> > >, __gnu_cxx::__normal_iterator<int*, std::vector<int, std::allocator<int> > >, __gnu_cxx::__normal_iterator<int*, std::vector<int, std::allocator<int> > >, __gnu_cxx::__normal_iterator<int*, std::vector<int, std::allocator<int> > >, __gnu_cxx::__normal_iterator<int*, std::vector<int, std::allocator<int> > >) (in /v/filer4b/v38q001/epenning/CS_378/cs378-integer/TestInteger)
+==5596==    by 0x40C004: IntegerFixture_divides_digits_4_Test::TestBody() (in /v/filer4b/v38q001/epenning/CS_378/cs378-integer/TestInteger)
+==5596==    by 0x440702: void testing::internal::HandleExceptionsInMethodIfSupported<testing::Test, void>(testing::Test*, void (testing::Test::*)(), char const*) (in /v/filer4b/v38q001/epenning/CS_378/cs378-integer/TestInteger)
+==5596==    by 0x4337BC: testing::Test::Run() (in /v/filer4b/v38q001/epenning/CS_378/cs378-integer/TestInteger)
+==5596==    by 0x433853: testing::TestInfo::Run() (in /v/filer4b/v38q001/epenning/CS_378/cs378-integer/TestInteger)
+==5596==    by 0x433954: testing::TestCase::Run() (in /v/filer4b/v38q001/epenning/CS_378/cs378-integer/TestInteger)
+==5596==    by 0x433BCC: testing::internal::UnitTestImpl::RunAllTests() (in /v/filer4b/v38q001/epenning/CS_378/cs378-integer/TestInteger)
+==5596==    by 0x433EAD: testing::UnitTest::Run() (in /v/filer4b/v38q001/epenning/CS_378/cs378-integer/TestInteger)
+==5596==    by 0x404F4F: main (in /v/filer4b/v38q001/epenning/CS_378/cs378-integer/TestInteger)
+==5596==  Address 0x5d85100 is 0 bytes after a block of size 16 alloc'd
+==5596==    at 0x4C2B0E0: operator new(unsigned long) (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==5596==    by 0x41A471: __gnu_cxx::new_allocator<int>::allocate(unsigned long, void const*) (in /v/filer4b/v38q001/epenning/CS_378/cs378-integer/TestInteger)
+==5596==    by 0x41792E: std::_Vector_base<int, std::allocator<int> >::_M_allocate(unsigned long) (in /v/filer4b/v38q001/epenning/CS_378/cs378-integer/TestInteger)
+==5596==    by 0x41A579: void std::vector<int, std::allocator<int> >::_M_range_initialize<__gnu_cxx::__normal_iterator<int*, std::vector<int, std::allocator<int> > > >(__gnu_cxx::__normal_iterator<int*, std::vector<int, std::allocator<int> > >, __gnu_cxx::__normal_iterator<int*, std::vector<int, std::allocator<int> > >, std::forward_iterator_tag) (in /v/filer4b/v38q001/epenning/CS_378/cs378-integer/TestInteger)
+==5596==    by 0x417BA4: void std::vector<int, std::allocator<int> >::_M_initialize_dispatch<__gnu_cxx::__normal_iterator<int*, std::vector<int, std::allocator<int> > > >(__gnu_cxx::__normal_iterator<int*, std::vector<int, std::allocator<int> > >, __gnu_cxx::__normal_iterator<int*, std::vector<int, std::allocator<int> > >, std::__false_type) (in /v/filer4b/v38q001/epenning/CS_378/cs378-integer/TestInteger)
+==5596==    by 0x416103: std::vector<int, std::allocator<int> >::vector<__gnu_cxx::__normal_iterator<int*, std::vector<int, std::allocator<int> > >, void>(__gnu_cxx::__normal_iterator<int*, std::vector<int, std::allocator<int> > >, __gnu_cxx::__normal_iterator<int*, std::vector<int, std::allocator<int> > >, std::allocator<int> const&) (in /v/filer4b/v38q001/epenning/CS_378/cs378-integer/TestInteger)
+==5596==    by 0x414F4B: __gnu_cxx::__normal_iterator<int*, std::vector<int, std::allocator<int> > > divides_digits<__gnu_cxx::__normal_iterator<int*, std::vector<int, std::allocator<int> > >, __gnu_cxx::__normal_iterator<int*, std::vector<int, std::allocator<int> > >, __gnu_cxx::__normal_iterator<int*, std::vector<int, std::allocator<int> > > >(__gnu_cxx::__normal_iterator<int*, std::vector<int, std::allocator<int> > >, __gnu_cxx::__normal_iterator<int*, std::vector<int, std::allocator<int> > >, __gnu_cxx::__normal_iterator<int*, std::vector<int, std::allocator<int> > >, __gnu_cxx::__normal_iterator<int*, std::vector<int, std::allocator<int> > >, __gnu_cxx::__normal_iterator<int*, std::vector<int, std::allocator<int> > >) (in /v/filer4b/v38q001/epenning/CS_378/cs378-integer/TestInteger)
+==5596==    by 0x40C004: IntegerFixture_divides_digits_4_Test::TestBody() (in /v/filer4b/v38q001/epenning/CS_378/cs378-integer/TestInteger)
+==5596==    by 0x440702: void testing::internal::HandleExceptionsInMethodIfSupported<testing::Test, void>(testing::Test*, void (testing::Test::*)(), char const*) (in /v/filer4b/v38q001/epenning/CS_378/cs378-integer/TestInteger)
+==5596==    by 0x4337BC: testing::Test::Run() (in /v/filer4b/v38q001/epenning/CS_378/cs378-integer/TestInteger)
+==5596==    by 0x433853: testing::TestInfo::Run() (in /v/filer4b/v38q001/epenning/CS_378/cs378-integer/TestInteger)
+==5596==    by 0x433954: testing::TestCase::Run() (in /v/filer4b/v38q001/epenning/CS_378/cs378-integer/TestInteger)
+==5596== 
 Writing 1 to x
-TestInteger.c++:305: Failure
+TestInteger.c++:315: Failure
 Value of: out.end()
-  Actual: 8-byte object <04-4B C9-05 00-00 00-00>
+  Actual: 8-byte object <54-50 D8-05 00-00 00-00>
 Expected: itr
-Which is: 8-byte object <00-4B C9-05 00-00 00-00>
-[  FAILED  ] IntegerFixture.divides_digits_4 (8 ms)
+Which is: 8-byte object <50-50 D8-05 00-00 00-00>
+[  FAILED  ] IntegerFixture.divides_digits_4 (7 ms)
 [ RUN      ] IntegerFixture.divides_digits_5
 Writing 9 to x
 Writing 9 to x
@@ -152,9 +1422,9 @@ Writing 6 to x
 Writing 2 to x
 Writing 0 to x
 Writing 3 to x
-[       OK ] IntegerFixture.divides_digits_5 (6 ms)
+[       OK ] IntegerFixture.divides_digits_5 (5 ms)
 [ RUN      ] IntegerFixture.equals_1
-[       OK ] IntegerFixture.equals_1 (11 ms)
+[       OK ] IntegerFixture.equals_1 (12 ms)
 [ RUN      ] IntegerFixture.equals_2
 [       OK ] IntegerFixture.equals_2 (2 ms)
 [ RUN      ] IntegerFixture.equals_3
@@ -162,58 +1432,904 @@ Writing 3 to x
 [ RUN      ] IntegerFixture.equals_4
 [       OK ] IntegerFixture.equals_4 (2 ms)
 [ RUN      ] IntegerFixture.equals_5
-[       OK ] IntegerFixture.equals_5 (2 ms)
+[       OK ] IntegerFixture.equals_5 (3 ms)
 [ RUN      ] IntegerFixture.less_than_1
-[       OK ] IntegerFixture.less_than_1 (3 ms)
+[       OK ] IntegerFixture.less_than_1 (2 ms)
 [ RUN      ] IntegerFixture.less_than_2
 [       OK ] IntegerFixture.less_than_2 (2 ms)
 [ RUN      ] IntegerFixture.less_than_3
-[       OK ] IntegerFixture.less_than_3 (2 ms)
+[       OK ] IntegerFixture.less_than_3 (3 ms)
 [ RUN      ] IntegerFixture.less_than_4
 [       OK ] IntegerFixture.less_than_4 (2 ms)
 [ RUN      ] IntegerFixture.less_than_5
 [       OK ] IntegerFixture.less_than_5 (2 ms)
 [ RUN      ] IntegerFixture.constructor_int_1
-[       OK ] IntegerFixture.constructor_int_1 (5 ms)
+[       OK ] IntegerFixture.constructor_int_1 (6 ms)
 [ RUN      ] IntegerFixture.constructor_int_2
 [       OK ] IntegerFixture.constructor_int_2 (2 ms)
 [ RUN      ] IntegerFixture.constructor_int_3
 [       OK ] IntegerFixture.constructor_int_3 (3 ms)
 [ RUN      ] IntegerFixture.constructor_string_1
-[       OK ] IntegerFixture.constructor_string_1 (1 ms)
+[       OK ] IntegerFixture.constructor_string_1 (5 ms)
+[ RUN      ] IntegerFixture.constructor_string_2
+[       OK ] IntegerFixture.constructor_string_2 (2 ms)
+[ RUN      ] IntegerFixture.constructor_string_3
+[       OK ] IntegerFixture.constructor_string_3 (2 ms)
+[ RUN      ] IntegerFixture.constructor_string_int_1
+[       OK ] IntegerFixture.constructor_string_int_1 (3 ms)
 [ RUN      ] IntegerFixture.negation_1
 [       OK ] IntegerFixture.negation_1 (1 ms)
 [ RUN      ] IntegerFixture.plus_equal_1
 [       OK ] IntegerFixture.plus_equal_1 (1 ms)
 [ RUN      ] IntegerFixture.minus_equal_1
-[       OK ] IntegerFixture.minus_equal_1 (0 ms)
+[       OK ] IntegerFixture.minus_equal_1 (1 ms)
 [ RUN      ] IntegerFixture.multi_equal_1
-[       OK ] IntegerFixture.multi_equal_1 (24 ms)
+vec1: 1 2 3 
+vec2: 1 2 3 
+Made vectors 1 and 2
+m2: 2 m: 3
+Calcualted m and m2
+set up half iterators
+vec1: 2 3 
+vec2: 2 3 
+Made vectors 1 and 2
+m2: 1 m: 2
+Calcualted m and m2
+set up half iterators
+vec1: 3 
+vec2: 3 
+Made vectors 1 and 2
+Size vec1: 1 Size vec2: 1
+Writing 9 to x
+Done storing into x
+done with z0
+multi1: 5 
+multi2: 5 
+vec1: 5 
+vec2: 5 
+Made vectors 1 and 2
+Size vec1: 1 Size vec2: 1
+Writing 2 to x
+Writing 5 to x
+Done storing into x
+done with z1
+vec1: 2 
+vec2: 2 
+Made vectors 1 and 2
+Size vec1: 1 Size vec2: 1
+Writing 4 to x
+Done storing into x
+done with z2
+partOne: 4 0 0 
+Finished part one
+Halfway through part two
+Finished part two
+about to return at end
+addOne: 5 2 0 z0: 9 
+done with z0
+multi1: 2 4 
+multi2: 2 4 
+vec1: 2 4 
+vec2: 2 4 
+Made vectors 1 and 2
+m2: 1 m: 2
+Calcualted m and m2
+set up half iterators
+vec1: 4 
+vec2: 4 
+Made vectors 1 and 2
+Size vec1: 1 Size vec2: 1
+Writing 1 to x
+Writing 6 to x
+Done storing into x
+done with z0
+multi1: 6 
+multi2: 6 
+vec1: 6 
+vec2: 6 
+Made vectors 1 and 2
+Size vec1: 1 Size vec2: 1
+Writing 3 to x
+Writing 6 to x
+Done storing into x
+done with z1
+vec1: 2 
+vec2: 2 
+Made vectors 1 and 2
+Size vec1: 1 Size vec2: 1
+Writing 4 to x
+Done storing into x
+done with z2
+partOne: 4 0 0 
+Finished part one
+Halfway through part two
+Finished part two
+about to return at end
+addOne: 5 6 0 z0: 1 6 
+done with z1
+vec1: 1 
+vec2: 1 
+Made vectors 1 and 2
+Size vec1: 1 Size vec2: 1
+Writing 1 to x
+Done storing into x
+done with z2
+partOne: 1 0 0 0 0 
+Finished part one
+Halfway through part two
+Finished part two
+about to return at end
+addOne: 1 4 6 0 0 z0: 5 2 9 
+[       OK ] IntegerFixture.multi_equal_1 (46 ms)
 [ RUN      ] IntegerFixture.multi_equal_2
-[       OK ] IntegerFixture.multi_equal_2 (4 ms)
+vec1: 1 2 3 
+vec2: 1 
+Made vectors 1 and 2
+Size vec1: 3 Size vec2: 1
+Writing 1 to x
+Writing 2 to x
+Writing 3 to x
+Done storing into x
+[       OK ] IntegerFixture.multi_equal_2 (9 ms)
 [ RUN      ] IntegerFixture.multi_equal_3
-[       OK ] IntegerFixture.multi_equal_3 (4 ms)
+vec1: 1 2 3 
+vec2: 0 
+Made vectors 1 and 2
+Size vec1: 3 Size vec2: 1
+Writing 0 to x
+Done storing into x
+[       OK ] IntegerFixture.multi_equal_3 (3 ms)
 [ RUN      ] IntegerFixture.multi_equal_4
-[       OK ] IntegerFixture.multi_equal_4 (4 ms)
+vec1: 1 2 3 
+vec2: 1 2 3 
+Made vectors 1 and 2
+m2: 2 m: 3
+Calcualted m and m2
+set up half iterators
+vec1: 2 3 
+vec2: 2 3 
+Made vectors 1 and 2
+m2: 1 m: 2
+Calcualted m and m2
+set up half iterators
+vec1: 3 
+vec2: 3 
+Made vectors 1 and 2
+Size vec1: 1 Size vec2: 1
+Writing 9 to x
+Done storing into x
+done with z0
+multi1: 5 
+multi2: 5 
+vec1: 5 
+vec2: 5 
+Made vectors 1 and 2
+Size vec1: 1 Size vec2: 1
+Writing 2 to x
+Writing 5 to x
+Done storing into x
+done with z1
+vec1: 2 
+vec2: 2 
+Made vectors 1 and 2
+Size vec1: 1 Size vec2: 1
+Writing 4 to x
+Done storing into x
+done with z2
+partOne: 4 0 0 
+Finished part one
+Halfway through part two
+Finished part two
+about to return at end
+addOne: 5 2 0 z0: 9 
+done with z0
+multi1: 2 4 
+multi2: 2 4 
+vec1: 2 4 
+vec2: 2 4 
+Made vectors 1 and 2
+m2: 1 m: 2
+Calcualted m and m2
+set up half iterators
+vec1: 4 
+vec2: 4 
+Made vectors 1 and 2
+Size vec1: 1 Size vec2: 1
+Writing 1 to x
+Writing 6 to x
+Done storing into x
+done with z0
+multi1: 6 
+multi2: 6 
+vec1: 6 
+vec2: 6 
+Made vectors 1 and 2
+Size vec1: 1 Size vec2: 1
+Writing 3 to x
+Writing 6 to x
+Done storing into x
+done with z1
+vec1: 2 
+vec2: 2 
+Made vectors 1 and 2
+Size vec1: 1 Size vec2: 1
+Writing 4 to x
+Done storing into x
+done with z2
+partOne: 4 0 0 
+Finished part one
+Halfway through part two
+Finished part two
+about to return at end
+addOne: 5 6 0 z0: 1 6 
+done with z1
+vec1: 1 
+vec2: 1 
+Made vectors 1 and 2
+Size vec1: 1 Size vec2: 1
+Writing 1 to x
+Done storing into x
+done with z2
+partOne: 1 0 0 0 0 
+Finished part one
+Halfway through part two
+Finished part two
+about to return at end
+addOne: 1 4 6 0 0 z0: 5 2 9 
+[       OK ] IntegerFixture.multi_equal_4 (9 ms)
 [ RUN      ] IntegerFixture.multi_equal_5
-[       OK ] IntegerFixture.multi_equal_5 (4 ms)
+vec1: 1 2 3 
+vec2: 1 2 3 
+Made vectors 1 and 2
+m2: 2 m: 3
+Calcualted m and m2
+set up half iterators
+vec1: 2 3 
+vec2: 2 3 
+Made vectors 1 and 2
+m2: 1 m: 2
+Calcualted m and m2
+set up half iterators
+vec1: 3 
+vec2: 3 
+Made vectors 1 and 2
+Size vec1: 1 Size vec2: 1
+Writing 9 to x
+Done storing into x
+done with z0
+multi1: 5 
+multi2: 5 
+vec1: 5 
+vec2: 5 
+Made vectors 1 and 2
+Size vec1: 1 Size vec2: 1
+Writing 2 to x
+Writing 5 to x
+Done storing into x
+done with z1
+vec1: 2 
+vec2: 2 
+Made vectors 1 and 2
+Size vec1: 1 Size vec2: 1
+Writing 4 to x
+Done storing into x
+done with z2
+partOne: 4 0 0 
+Finished part one
+Halfway through part two
+Finished part two
+about to return at end
+addOne: 5 2 0 z0: 9 
+done with z0
+multi1: 2 4 
+multi2: 2 4 
+vec1: 2 4 
+vec2: 2 4 
+Made vectors 1 and 2
+m2: 1 m: 2
+Calcualted m and m2
+set up half iterators
+vec1: 4 
+vec2: 4 
+Made vectors 1 and 2
+Size vec1: 1 Size vec2: 1
+Writing 1 to x
+Writing 6 to x
+Done storing into x
+done with z0
+multi1: 6 
+multi2: 6 
+vec1: 6 
+vec2: 6 
+Made vectors 1 and 2
+Size vec1: 1 Size vec2: 1
+Writing 3 to x
+Writing 6 to x
+Done storing into x
+done with z1
+vec1: 2 
+vec2: 2 
+Made vectors 1 and 2
+Size vec1: 1 Size vec2: 1
+Writing 4 to x
+Done storing into x
+done with z2
+partOne: 4 0 0 
+Finished part one
+Halfway through part two
+Finished part two
+about to return at end
+addOne: 5 6 0 z0: 1 6 
+done with z1
+vec1: 1 
+vec2: 1 
+Made vectors 1 and 2
+Size vec1: 1 Size vec2: 1
+Writing 1 to x
+Done storing into x
+done with z2
+partOne: 1 0 0 0 0 
+Finished part one
+Halfway through part two
+Finished part two
+about to return at end
+addOne: 1 4 6 0 0 z0: 5 2 9 
+[       OK ] IntegerFixture.multi_equal_5 (9 ms)
 [ RUN      ] IntegerFixture.divide_equal_1
-[       OK ] IntegerFixture.divide_equal_1 (0 ms)
+[       OK ] IntegerFixture.divide_equal_1 (1 ms)
 [ RUN      ] IntegerFixture.mod_equal_1
 [       OK ] IntegerFixture.mod_equal_1 (1 ms)
 [ RUN      ] IntegerFixture.left_shift_equal_1
 [       OK ] IntegerFixture.left_shift_equal_1 (1 ms)
 [ RUN      ] IntegerFixture.right_shift_equal_1
-[       OK ] IntegerFixture.right_shift_equal_1 (1 ms)
+[       OK ] IntegerFixture.right_shift_equal_1 (0 ms)
 [ RUN      ] IntegerFixture.abs_1
 [       OK ] IntegerFixture.abs_1 (1 ms)
 [ RUN      ] IntegerFixture.pow_1
-[       OK ] IntegerFixture.pow_1 (1 ms)
-[----------] 54 tests from IntegerFixture (358 ms total)
+vec1: 1 
+vec2: 1 2 
+Made vectors 1 and 2
+Size vec1: 1 Size vec2: 2
+Writing 1 to x
+Writing 2 to x
+Done storing into x
+vec1: 1 2 
+vec2: 1 2 
+Made vectors 1 and 2
+m2: 1 m: 2
+Calcualted m and m2
+set up half iterators
+vec1: 2 
+vec2: 2 
+Made vectors 1 and 2
+Size vec1: 1 Size vec2: 1
+Writing 4 to x
+Done storing into x
+done with z0
+multi1: 3 
+multi2: 3 
+vec1: 3 
+vec2: 3 
+Made vectors 1 and 2
+Size vec1: 1 Size vec2: 1
+Writing 9 to x
+Done storing into x
+done with z1
+vec1: 1 
+vec2: 1 
+Made vectors 1 and 2
+Size vec1: 1 Size vec2: 1
+Writing 1 to x
+Done storing into x
+done with z2
+partOne: 1 0 0 
+Finished part one
+Halfway through part two
+Finished part two
+about to return at end
+addOne: 1 4 0 z0: 4 
+[       OK ] IntegerFixture.pow_1 (7 ms)
+[ RUN      ] IntegerFixture.pow_2
+vec1: 1 
+vec2: 1 2 
+Made vectors 1 and 2
+Size vec1: 1 Size vec2: 2
+Writing 1 to x
+Writing 2 to x
+Done storing into x
+vec1: 1 2 
+vec2: 1 2 
+Made vectors 1 and 2
+m2: 1 m: 2
+Calcualted m and m2
+set up half iterators
+vec1: 2 
+vec2: 2 
+Made vectors 1 and 2
+Size vec1: 1 Size vec2: 1
+Writing 4 to x
+Done storing into x
+done with z0
+multi1: 3 
+multi2: 3 
+vec1: 3 
+vec2: 3 
+Made vectors 1 and 2
+Size vec1: 1 Size vec2: 1
+Writing 9 to x
+Done storing into x
+done with z1
+vec1: 1 
+vec2: 1 
+Made vectors 1 and 2
+Size vec1: 1 Size vec2: 1
+Writing 1 to x
+Done storing into x
+done with z2
+partOne: 1 0 0 
+Finished part one
+Halfway through part two
+Finished part two
+about to return at end
+addOne: 1 4 0 z0: 4 
+[       OK ] IntegerFixture.pow_2 (4 ms)
+[ RUN      ] IntegerFixture.pow_3
+vec1: 1 
+vec2: 1 2 
+Made vectors 1 and 2
+Size vec1: 1 Size vec2: 2
+Writing 1 to x
+Writing 2 to x
+Done storing into x
+vec1: 1 2 
+vec2: 1 2 
+Made vectors 1 and 2
+m2: 1 m: 2
+Calcualted m and m2
+set up half iterators
+vec1: 2 
+vec2: 2 
+Made vectors 1 and 2
+Size vec1: 1 Size vec2: 1
+Writing 4 to x
+Done storing into x
+done with z0
+multi1: 3 
+multi2: 3 
+vec1: 3 
+vec2: 3 
+Made vectors 1 and 2
+Size vec1: 1 Size vec2: 1
+Writing 9 to x
+Done storing into x
+done with z1
+vec1: 1 
+vec2: 1 
+Made vectors 1 and 2
+Size vec1: 1 Size vec2: 1
+Writing 1 to x
+Done storing into x
+done with z2
+partOne: 1 0 0 
+Finished part one
+Halfway through part two
+Finished part two
+about to return at end
+addOne: 1 4 0 z0: 4 
+vec1: 1 4 4 
+vec2: 1 2 
+Made vectors 1 and 2
+m2: 1 m: 3
+Calcualted m and m2
+set up half iterators
+vec1: 4 
+vec2: 2 
+Made vectors 1 and 2
+Size vec1: 1 Size vec2: 1
+Writing 8 to x
+Done storing into x
+done with z0
+multi1: 1 8 
+multi2: 3 
+vec1: 1 8 
+vec2: 3 
+Made vectors 1 and 2
+Size vec1: 2 Size vec2: 1
+Writing 5 to x
+Writing 4 to x
+Done storing into x
+done with z1
+vec1: 1 4 
+vec2: 1 
+Made vectors 1 and 2
+Size vec1: 2 Size vec2: 1
+Writing 1 to x
+Writing 4 to x
+Done storing into x
+done with z2
+partOne: 1 4 0 0 
+Finished part one
+Halfway through part two
+Finished part two
+about to return at end
+addOne: 1 7 2 0 z0: 8 
+[       OK ] IntegerFixture.pow_3 (7 ms)
+[ RUN      ] IntegerFixture.pow_4
+[       OK ] IntegerFixture.pow_4 (4 ms)
+[ RUN      ] IntegerFixture.pow_5
+vec1: 1 
+vec2: 2 
+Made vectors 1 and 2
+Size vec1: 1 Size vec2: 1
+Writing 2 to x
+Done storing into x
+vec1: 2 
+vec2: 2 
+Made vectors 1 and 2
+Size vec1: 1 Size vec2: 1
+Writing 4 to x
+Done storing into x
+vec1: 4 
+vec2: 2 
+Made vectors 1 and 2
+Size vec1: 1 Size vec2: 1
+Writing 8 to x
+Done storing into x
+vec1: 8 
+vec2: 2 
+Made vectors 1 and 2
+Size vec1: 1 Size vec2: 1
+Writing 1 to x
+Writing 6 to x
+Done storing into x
+vec1: 1 6 
+vec2: 2 
+Made vectors 1 and 2
+Size vec1: 2 Size vec2: 1
+Writing 3 to x
+Writing 2 to x
+Done storing into x
+vec1: 3 2 
+vec2: 2 
+Made vectors 1 and 2
+Size vec1: 2 Size vec2: 1
+Writing 6 to x
+Writing 4 to x
+Done storing into x
+vec1: 6 4 
+vec2: 2 
+Made vectors 1 and 2
+Size vec1: 2 Size vec2: 1
+Writing 1 to x
+Writing 2 to x
+Writing 8 to x
+Done storing into x
+vec1: 1 2 8 
+vec2: 2 
+Made vectors 1 and 2
+Size vec1: 3 Size vec2: 1
+Writing 2 to x
+Writing 5 to x
+Writing 6 to x
+Done storing into x
+vec1: 2 5 6 
+vec2: 2 
+Made vectors 1 and 2
+Size vec1: 3 Size vec2: 1
+Writing 5 to x
+Writing 1 to x
+Writing 2 to x
+Done storing into x
+vec1: 5 1 2 
+vec2: 2 
+Made vectors 1 and 2
+Size vec1: 3 Size vec2: 1
+Writing 1 to x
+Writing 0 to x
+Writing 2 to x
+Writing 4 to x
+Done storing into x
+vec1: 1 0 2 4 
+vec2: 2 
+Made vectors 1 and 2
+Size vec1: 4 Size vec2: 1
+Writing 2 to x
+Writing 0 to x
+Writing 4 to x
+Writing 8 to x
+Done storing into x
+vec1: 2 0 4 8 
+vec2: 2 
+Made vectors 1 and 2
+Size vec1: 4 Size vec2: 1
+Writing 4 to x
+Writing 0 to x
+Writing 9 to x
+Writing 6 to x
+Done storing into x
+vec1: 4 0 9 6 
+vec2: 2 
+Made vectors 1 and 2
+Size vec1: 4 Size vec2: 1
+Writing 8 to x
+Writing 1 to x
+Writing 9 to x
+Writing 2 to x
+Done storing into x
+vec1: 8 1 9 2 
+vec2: 2 
+Made vectors 1 and 2
+Size vec1: 4 Size vec2: 1
+Writing 1 to x
+Writing 6 to x
+Writing 3 to x
+Writing 8 to x
+Writing 4 to x
+Done storing into x
+vec1: 1 6 3 8 4 
+vec2: 2 
+Made vectors 1 and 2
+Size vec1: 5 Size vec2: 1
+Writing 3 to x
+Writing 2 to x
+Writing 7 to x
+Writing 6 to x
+Writing 8 to x
+Done storing into x
+vec1: 3 2 7 6 8 
+vec2: 2 
+Made vectors 1 and 2
+Size vec1: 5 Size vec2: 1
+Writing 6 to x
+Writing 5 to x
+Writing 5 to x
+Writing 3 to x
+Writing 6 to x
+Done storing into x
+vec1: 6 5 5 3 6 
+vec2: 2 
+Made vectors 1 and 2
+Size vec1: 5 Size vec2: 1
+Writing 1 to x
+Writing 3 to x
+Writing 1 to x
+Writing 0 to x
+Writing 7 to x
+Writing 2 to x
+Done storing into x
+vec1: 1 3 1 0 7 2 
+vec2: 2 
+Made vectors 1 and 2
+Size vec1: 6 Size vec2: 1
+Writing 2 to x
+Writing 6 to x
+Writing 2 to x
+Writing 1 to x
+Writing 4 to x
+Writing 4 to x
+Done storing into x
+vec1: 2 6 2 1 4 4 
+vec2: 2 
+Made vectors 1 and 2
+Size vec1: 6 Size vec2: 1
+Writing 5 to x
+Writing 2 to x
+Writing 4 to x
+Writing 2 to x
+Writing 8 to x
+Writing 8 to x
+Done storing into x
+vec1: 5 2 4 2 8 8 
+vec2: 2 
+Made vectors 1 and 2
+Size vec1: 6 Size vec2: 1
+Writing 1 to x
+Writing 0 to x
+Writing 4 to x
+Writing 8 to x
+Writing 5 to x
+Writing 7 to x
+Writing 6 to x
+Done storing into x
+vec1: 1 0 4 8 5 7 6 
+vec2: 2 
+Made vectors 1 and 2
+Size vec1: 7 Size vec2: 1
+Writing 2 to x
+Writing 0 to x
+Writing 9 to x
+Writing 7 to x
+Writing 1 to x
+Writing 5 to x
+Writing 2 to x
+Done storing into x
+vec1: 2 0 9 7 1 5 2 
+vec2: 2 
+Made vectors 1 and 2
+Size vec1: 7 Size vec2: 1
+Writing 4 to x
+Writing 1 to x
+Writing 9 to x
+Writing 4 to x
+Writing 3 to x
+Writing 0 to x
+Writing 4 to x
+Done storing into x
+vec1: 4 1 9 4 3 0 4 
+vec2: 2 
+Made vectors 1 and 2
+Size vec1: 7 Size vec2: 1
+Writing 8 to x
+Writing 3 to x
+Writing 8 to x
+Writing 8 to x
+Writing 6 to x
+Writing 0 to x
+Writing 8 to x
+Done storing into x
+vec1: 8 3 8 8 6 0 8 
+vec2: 2 
+Made vectors 1 and 2
+Size vec1: 7 Size vec2: 1
+Writing 1 to x
+Writing 6 to x
+Writing 7 to x
+Writing 7 to x
+Writing 7 to x
+Writing 2 to x
+Writing 1 to x
+Writing 6 to x
+Done storing into x
+vec1: 1 6 7 7 7 2 1 6 
+vec2: 2 
+Made vectors 1 and 2
+Size vec1: 8 Size vec2: 1
+Writing 3 to x
+Writing 3 to x
+Writing 5 to x
+Writing 5 to x
+Writing 4 to x
+Writing 4 to x
+Writing 3 to x
+Writing 2 to x
+Done storing into x
+vec1: 3 3 5 5 4 4 3 2 
+vec2: 2 
+Made vectors 1 and 2
+Size vec1: 8 Size vec2: 1
+Writing 6 to x
+Writing 7 to x
+Writing 1 to x
+Writing 0 to x
+Writing 8 to x
+Writing 8 to x
+Writing 6 to x
+Writing 4 to x
+Done storing into x
+vec1: 6 7 1 0 8 8 6 4 
+vec2: 2 
+Made vectors 1 and 2
+Size vec1: 8 Size vec2: 1
+Writing 1 to x
+Writing 3 to x
+Writing 4 to x
+Writing 2 to x
+Writing 1 to x
+Writing 7 to x
+Writing 7 to x
+Writing 2 to x
+Writing 8 to x
+Done storing into x
+vec1: 1 3 4 2 1 7 7 2 8 
+vec2: 2 
+Made vectors 1 and 2
+Size vec1: 9 Size vec2: 1
+Writing 2 to x
+Writing 6 to x
+Writing 8 to x
+Writing 4 to x
+Writing 3 to x
+Writing 5 to x
+Writing 4 to x
+Writing 5 to x
+Writing 6 to x
+Done storing into x
+vec1: 2 6 8 4 3 5 4 5 6 
+vec2: 2 
+Made vectors 1 and 2
+Size vec1: 9 Size vec2: 1
+Writing 5 to x
+Writing 3 to x
+Writing 6 to x
+Writing 8 to x
+Writing 7 to x
+Writing 0 to x
+Writing 9 to x
+Writing 1 to x
+Writing 2 to x
+Done storing into x
+vec1: 5 3 6 8 7 0 9 1 2 
+vec2: 2 
+Made vectors 1 and 2
+Size vec1: 9 Size vec2: 1
+Writing 1 to x
+Writing 0 to x
+Writing 7 to x
+Writing 3 to x
+Writing 7 to x
+Writing 4 to x
+Writing 1 to x
+Writing 8 to x
+Writing 2 to x
+Writing 4 to x
+Done storing into x
+vec1: 1 0 7 3 7 4 1 8 2 4 
+vec2: 2 
+Made vectors 1 and 2
+Size vec1: 10 Size vec2: 1
+Writing 2 to x
+Writing 1 to x
+Writing 4 to x
+Writing 7 to x
+Writing 4 to x
+Writing 8 to x
+Writing 3 to x
+Writing 6 to x
+Writing 4 to x
+Writing 8 to x
+Done storing into x
+vec1: 2 1 4 7 4 8 3 6 4 8 
+vec2: 2 
+Made vectors 1 and 2
+Size vec1: 10 Size vec2: 1
+Writing 4 to x
+Writing 2 to x
+Writing 9 to x
+Writing 4 to x
+Writing 9 to x
+Writing 6 to x
+Writing 7 to x
+Writing 2 to x
+Writing 9 to x
+Writing 6 to x
+Done storing into x
+vec1: 4 2 9 4 9 6 7 2 9 6 
+vec2: 2 
+Made vectors 1 and 2
+Size vec1: 10 Size vec2: 1
+Writing 8 to x
+Writing 5 to x
+Writing 8 to x
+Writing 9 to x
+Writing 9 to x
+Writing 3 to x
+Writing 4 to x
+Writing 5 to x
+Writing 9 to x
+Writing 2 to x
+Done storing into x
+vec1: 8 5 8 9 9 3 4 5 9 2 
+vec2: 2 
+Made vectors 1 and 2
+Size vec1: 10 Size vec2: 1
+Writing 1 to x
+Writing 7 to x
+Writing 1 to x
+Writing 7 to x
+Writing 9 to x
+Writing 8 to x
+Writing 6 to x
+Writing 9 to x
+Writing 1 to x
+Writing 8 to x
+Writing 4 to x
+Done storing into x
+[       OK ] IntegerFixture.pow_5 (19 ms)
+[----------] 62 tests from IntegerFixture (571 ms total)
 
 [----------] Global test environment tear-down
-[==========] 54 tests from 1 test case ran. (386 ms total)
-[  PASSED  ] 50 tests.
+[==========] 62 tests from 1 test case ran. (599 ms total)
+[  PASSED  ] 58 tests.
 [  FAILED  ] 4 tests, listed below:
 [  FAILED  ] IntegerFixture.divides_digits_1
 [  FAILED  ] IntegerFixture.divides_digits_2
@@ -221,12 +2337,12 @@ Writing 3 to x
 [  FAILED  ] IntegerFixture.divides_digits_4
 
  4 FAILED TESTS
-==2668== 
-==2668== HEAP SUMMARY:
-==2668==     in use at exit: 0 bytes in 0 blocks
-==2668==   total heap usage: 2,816 allocs, 2,816 frees, 336,407 bytes allocated
-==2668== 
-==2668== All heap blocks were freed -- no leaks are possible
-==2668== 
-==2668== For counts of detected and suppressed errors, rerun with: -v
-==2668== ERROR SUMMARY: 2 errors from 2 contexts (suppressed: 0 from 0)
+==5596== 
+==5596== HEAP SUMMARY:
+==5596==     in use at exit: 0 bytes in 0 blocks
+==5596==   total heap usage: 8,222 allocs, 8,222 frees, 1,291,765 bytes allocated
+==5596== 
+==5596== All heap blocks were freed -- no leaks are possible
+==5596== 
+==5596== For counts of detected and suppressed errors, rerun with: -v
+==5596== ERROR SUMMARY: 2 errors from 2 contexts (suppressed: 0 from 0)

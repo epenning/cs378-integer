@@ -36,6 +36,9 @@ using namespace std;
 template <typename II, typename FI>
 FI shift_left_digits (II b, II e, int n, FI x) {
     x = copy(b, e, x);
+    if (*b == 0) {
+        return x;
+    }
     for (int i=0; i<n; i++) {
         *x = 0;
         ++x;
@@ -87,17 +90,16 @@ FI shift_right_digits (II b, II e, int n, FI x) {
  */
 template <typename II1, typename II2, typename FI>
 FI plus_digits (II1 b1, II1 e1, II2 b2, II2 e2, FI x) {
-    vector<int> vec1(0);
-    vector<int> vec2(0);
+    vector<int> vec1(b1, e1);
+    vector<int> vec2(b2, e2);
     deque<int> sum(0);
-    while (b1 != e1) {
-        vec1.push_back(*b1);
-        ++b1;
+
+    if(vec1.empty()){
+        return copy(vec2.begin(), vec2.end(), x);
+    }else if(vec2.empty()){
+        return copy(vec1.begin(), vec1.end(), x);
     }
-    while (b2 != e2) {
-        vec2.push_back(*b2);
-        ++b2;
-    }
+    
     int carry = 0;
     while (!vec1.empty() || !vec2.empty()) {
         if (vec1.empty()){
@@ -118,12 +120,8 @@ FI plus_digits (II1 b1, II1 e1, II2 b2, II2 e2, FI x) {
 
     if(carry != 0)
         sum.push_front(carry);
-
-    for(int i : sum){
-        *x = i;
-        ++x;
-    }
-    return x;}
+    return copy(sum.begin(), sum.end(), x);
+}
 
 // ------------
 // minus_digits
@@ -235,9 +233,20 @@ FI multiplies_digits (II1 b1, II1 e1, II2 b2, II2 e2, FI x) {
     vector<int> vec1(b1, e1);
     vector<int> vec2(b2, e2);
 
+    cout << "vec1: ";
+    for(int i : vec1){
+        cout << i << " ";
+    }
+    cout << endl;
+    cout << "vec2: ";
+    for(int i : vec2){
+        cout << i << " ";
+    }
+    cout << endl;
+
     vector<int> total(vec1.size()+vec2.size());
     vector<int>::iterator totalEnd = total.begin() + 1;
-    int shift = 0;
+    /*int shift = 0;
     for (int i = vec1.size()-1; i >= 0; --i) {
         //cout << "i is: " << vec1[i] << endl;
         vector<int> product(vec2.size()+1);
@@ -265,24 +274,34 @@ FI multiplies_digits (II1 b1, II1 e1, II2 b2, II2 e2, FI x) {
         ++i;
     }
     //cout << "Done storing into x" << endl;
-    return x;
+    return x;*/
 
-    /*cout << "Made vectors 1 and 2"<< endl;
+    cout << "Made vectors 1 and 2"<< endl;
     if(vec1.size() < 2 || vec2.size() < 2){
         cout << "Size vec1: " << vec1.size() << " Size vec2: " << vec2.size() << endl;
         vector<int> product(0);
         vector<int>::iterator productEnd;
         if(vec1.size() < vec2.size()){
-            product.resize(vec2.size() + 1);
-            productEnd = product.begin() + 1;
-            for(int i = 0; i < vec1[0]; ++i){
-                productEnd = plus_digits(product.begin(), productEnd, vec2.begin(), vec2.end(), product.begin());
+            if(vec1.size() == 0){
+                product = vec2;
+                productEnd = product.end();
+            }else{
+                product.resize(vec2.size() + 1);
+                productEnd = product.begin() + 1;
+                for(int i = 0; i < vec1[0]; ++i){
+                    productEnd = plus_digits(product.begin(), productEnd, vec2.begin(), vec2.end(), product.begin());
+                }
             }
         }else{
-            product.resize(vec1.size() + 1);
-            productEnd = product.begin() + 1;
-            for(int i = 0; i < vec2[0]; ++i){
-                productEnd = plus_digits(product.begin(), productEnd, vec1.begin(), vec1.end(), product.begin());
+            if(vec2.size() == 0){
+                product = vec1;
+                productEnd = product.end();
+            }else{
+                product.resize(vec1.size() + 1);
+                productEnd = product.begin() + 1;
+                for(int i = 0; i < vec2[0]; ++i){
+                    productEnd = plus_digits(product.begin(), productEnd, vec1.begin(), vec1.end(), product.begin());
+                }
             }
         }
         vector<int>::iterator i = product.begin();
@@ -294,35 +313,55 @@ FI multiplies_digits (II1 b1, II1 e1, II2 b2, II2 e2, FI x) {
         }
         cout << "Done storing into x" << endl;
         return x;
-    }*/
+    }
         
-    /*int m = max(vec1.size(), vec2.size());
-    int m2 = m/2;
+    int m = max(vec1.size(), vec2.size());
+    int m2 = ceil(m/2.0);
+    if(min(vec1.size(), vec2.size()) <= m2){
+        m2 = min(vec1.size(), vec2.size()) - 1; 
+    }
+    cout << "m2: " << m2 << " m: " << m << endl;
     cout << "Calcualted m and m2" << endl;
-    vector<int>::iterator low1B  = vec1.begin();
-    vector<int>::iterator low1E  = vec1.begin() + m2;
-    vector<int>::iterator high1B  = vec1.begin() + m2;
-    vector<int>::iterator high1E  = vec1.end();
-    vector<int>::iterator low2B  = vec2.begin();
-    vector<int>::iterator low2E  = vec2.begin() + m2;
-    vector<int>::iterator high2B  = vec2.begin() + m2;
-    vector<int>::iterator high2E  = vec2.end();
+    vector<int>::iterator high1B  = vec1.begin();
+    vector<int>::iterator high1E  = vec1.end() - m2;
+    vector<int>::iterator low1B  = vec1.end() - m2;
+    vector<int>::iterator low1E  = vec1.end();
+    vector<int>::iterator high2B  = vec2.begin();
+    vector<int>::iterator high2E  = vec2.end() - m2;
+    vector<int>::iterator low2B  = vec2.end() - m2;
+    vector<int>::iterator low2E  = vec2.end();
     cout << "set up half iterators" << endl;
-    vector<int> z0(2*m2);
+    vector<int> z0(2*m);
     FI z0e = multiplies_digits(low1B, low1E, low2B, low2E, z0.begin());
-    vector<int> z1(2*m2+1);
-    vector<int> multi1(m2+2);
-    vector<int> multi2(m2+2);
+    cout << "done with z0" << endl;
+    vector<int> z1(2*m+1);
+    vector<int> multi1(m+2);
+    vector<int> multi2(m+2);
     FI one = plus_digits (low1B, low1E, high1B, high1E, multi1.begin());
+    vector<int>::iterator i = multi1.begin();
+    cout << "multi1: ";
+    while(i != one){
+        cout << *i << " ";
+        ++i;
+    }
+    cout << endl;
     FI two = plus_digits (low2B, low2E, high2B, high2E, multi2.begin());
+    i = multi2.begin();
+    cout << "multi2: ";
+    while(i != two){
+        cout << *i << " ";
+        ++i;
+    }
+    cout << endl;
     FI z1e = multiplies_digits(multi1.begin(), one, multi2.begin(), two, z1.begin());
-    vector<int> z2(2*m2);
+    cout << "done with z1" << endl;
+    vector<int> z2(2*m);
     FI z2e = multiplies_digits(high1B, high1E, high2B, high2E, z2.begin());
-    cout << "Done with z0, z1, z2" << endl;
+    cout << "done with z2" << endl;
     vector<int> partOne(2*m);
     FI partOneEnd = shift_left_digits (z2.begin(), z2e, 2*m2, partOne.begin());
     
-    vector<int>::iterator i = partOne.begin();
+    i = partOne.begin();
     cout << "partOne: ";
     while(i != partOneEnd){
         cout << *i << " ";
@@ -330,10 +369,10 @@ FI multiplies_digits (II1 b1, II1 e1, II2 b2, II2 e2, FI x) {
     }
     cout << endl;
 
-    vector<int> subOne(2*m2);
+    vector<int> subOne(2*m);
     cout << "Finished part one" <<endl;
     FI subOneEnd = minus_digits (z1.begin(), z1e, z2.begin(), z2e, subOne.begin());
-    vector<int> subTwo(2*m2);
+    vector<int> subTwo(2*m);
     cout << "Halfway through part two" <<endl;
     FI subTwoEnd = minus_digits (subOne.begin(), subOneEnd, z0.begin(), z0e, subTwo.begin());
     vector<int> partTwo(subTwo.size() + m2);
@@ -355,7 +394,7 @@ FI multiplies_digits (II1 b1, II1 e1, II2 b2, II2 e2, FI x) {
         ++i;
     }
     cout << endl;
-    return plus_digits(addOne.begin(), addOneEnd, z0.begin(), z0e, x);*/
+    return plus_digits(addOne.begin(), addOneEnd, z0.begin(), z0e, x);
 }
 
 // --------------
@@ -661,16 +700,28 @@ class Integer {
                 _x.push_back(value/i);
                 value %= i;
             }
-            assert(valid());}
+            assert(valid());
+        }
 
         /**
          * <your documentation>
          * @throws invalid_argument if value is not a valid representation of an Integer
          */
         explicit Integer (const std::string& value) {
-            // <your code>
+            string s(value);
+            if(value[0] == '-'){
+                _n = true;
+                s = value.substr(1);
+            }else{
+                _n = false;
+            }
+            for(char c : s)
+                _x.push_back(int(c-'0'));
             if (!valid())
-                throw std::invalid_argument("Integer::Integer()");}
+                throw std::invalid_argument("Integer::Integer()");
+        }
+            
+            
 
         // Default copy, destructor, and copy assignment.
         // Integer (const Integer&);
@@ -836,7 +887,20 @@ class Integer {
          * @throws invalid_argument if ((this == 0) && (e == 0)) or (e < 0)
          */
         Integer& pow (int e) {
-            // <your code>
+            if (((this == 0) && (e == 0)) || (e < 0))
+                throw invalid_argument("exponent < 0 or exponent = 0 and Integer = 0");
+            if (e != 0) {
+                Integer<int, C> product = 1;
+                product *= *this;
+                --e;
+                while( e != 0){
+                    *this *= product;
+                    --e;
+                }
+            }
+            else {
+                _x = C(1, 1);
+            }
             return *this;}};
 
 #endif // Integer_h

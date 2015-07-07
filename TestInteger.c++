@@ -211,6 +211,16 @@ TEST(IntegerFixture, minus_digits_5) {
 
 /* multiplies_digits tests */
 
+TEST(IntegerFixture, multiplies_digits_0) {
+	//tests the output vector
+    vector<int> vecOne = {1,2,3};
+    vector<int> vecTwo = {6,7,8};
+    vector<int> out(5);
+    vector<int> test = {8,3,3,9,4}; 
+    multiplies_digits(vecOne.begin(), vecOne.end(), vecTwo.begin(), vecTwo.end(), out.begin());
+    ASSERT_TRUE(equal(out.begin(), out.end(), test.begin()));
+}
+
 TEST(IntegerFixture, multiplies_digits_1) {
 	//tests the output vector
     vector<int> vecOne = {1,2,3,4,5};
@@ -399,7 +409,30 @@ TEST(IntegerFixture, constructor_int_3) {
 }
 
 TEST(IntegerFixture, constructor_string_1) {
+	Integer<int> a("12345");
+	ostringstream output;
+	output << a;
+	ASSERT_EQ(output.str(), "12345");
+}
 
+TEST(IntegerFixture, constructor_string_2) {
+	Integer<int> a("2147483647");
+	ostringstream output;
+	output << a;
+	ASSERT_EQ(output.str(), "2147483647");
+}
+
+TEST(IntegerFixture, constructor_string_3) {
+	Integer<int> a("0");
+	ostringstream output;
+	output << a;
+	ASSERT_EQ(output.str(), "0");
+}
+
+TEST(IntegerFixture, constructor_string_int_1) {
+	Integer<int> a("-12345");
+	Integer<int> b(-12345);
+	ASSERT_EQ(a, b);
 }
 
 TEST(IntegerFixture, negation_1) {
@@ -465,5 +498,28 @@ TEST(IntegerFixture, abs_1) {
 }
 
 TEST(IntegerFixture, pow_1) {
+	Integer<int> a = 12;
+	ASSERT_EQ(a.pow(2), 144);
+}
 
+TEST(IntegerFixture, pow_2) {
+	Integer<int> a = -12;
+	ASSERT_EQ(a.pow(2), 144);
+}
+
+TEST(IntegerFixture, pow_3) {
+	Integer<int> a = -12;
+	ASSERT_EQ(a.pow(3), -1728);
+}
+
+TEST(IntegerFixture, pow_4) {
+	Integer<int> a = 12;
+	ASSERT_EQ(a.pow(0), 1);
+}
+
+TEST(IntegerFixture, pow_5) {
+	Integer<int> a = 2;
+	ostringstream output;
+	output << a.pow(34);
+	ASSERT_EQ(output.str(), "17179869184");
 }
