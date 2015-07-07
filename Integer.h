@@ -337,11 +337,7 @@ FI multiplies_digits (II1 b1, II1 e1, II2 b2, II2 e2, FI x) {
     vector<int>::iterator z2e = multiplies_digits(high1B, high1E, high2B, high2E, z2.begin());
     //cout << "done with z2" << endl;
     vector<int> partOne(2*m);
-<<<<<<< HEAD
-    FI partOneEnd = shift_right_digits (z2.begin(), z2e, 2*m2, partOne.begin());
-=======
     vector<int>::iterator partOneEnd = shift_left_digits (z2.begin(), z2e, 2*m2, partOne.begin());
->>>>>>> a1efec0508de5946ce0c484d2c9ad7e83c2c02be
     
     i = partOne.begin();
     /*cout << "partOne: ";
@@ -358,13 +354,8 @@ FI multiplies_digits (II1 b1, II1 e1, II2 b2, II2 e2, FI x) {
     //cout << "Halfway through part two" <<endl;
     vector<int>::iterator subTwoEnd = minus_digits (subOne.begin(), subOneEnd, z0.begin(), z0e, subTwo.begin());
     vector<int> partTwo(subTwo.size() + m2);
-<<<<<<< HEAD
-    FI partTwoEnd = shift_right_digits (subTwo.begin(), subTwoEnd, m2, partTwo.begin());
-    cout << "Finished part two" << endl;
-=======
     vector<int>::iterator partTwoEnd = shift_left_digits (subTwo.begin(), subTwoEnd, m2, partTwo.begin());
     //cout << "Finished part two" << endl;
->>>>>>> a1efec0508de5946ce0c484d2c9ad7e83c2c02be
     vector<int> addOne(partOne.size());
     vector<int>::iterator addOneEnd = plus_digits(partOne.begin(), partOneEnd, partTwo.begin(), partTwoEnd, addOne.begin());
     //cout << "about to return at end" <<endl;
