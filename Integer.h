@@ -417,17 +417,17 @@ FI divides_digits (II1 b1, II1 e1, II2 b2, II2 e2, FI x) {
     
     while (true) {
         if((numEnd - numerator.begin()) < denominator.size()){
-            cout << "in if" << endl;
+            //cout << "in if" << endl;
             break;
         }
         else if ((numEnd - numerator.begin()) == denominator.size()){
-            cout << "In that one else if" << endl;
+            //cout << "In that one else if" << endl;
             for(int i = (numEnd - numerator.begin()) - 1; i >= 0; --i){
-                cout << "numerator: " << numerator[i] << " denom: " << denominator[i] << endl;
+                //cout << "numerator: " << numerator[i] << " denom: " << denominator[i] << endl;
                 if (numerator[i] > denominator[i])
                     break;
                 else if((numerator[i] < denominator[i])){
-                    cout << "In that one final if" << endl;
+                    //cout << "In that one final if" << endl;
                     goto finish;
                 }
             }
@@ -436,7 +436,7 @@ FI divides_digits (II1 b1, II1 e1, II2 b2, II2 e2, FI x) {
         numEnd = minus_digits(numerator.begin(), numEnd, denominator.begin(), denominator.end(), numerator.begin());
         quotientEnd = plus_digits(quotient.begin(), quotientEnd, one.begin(), one.end(), quotient.begin());
         vector<int>::iterator i = quotient.begin();
-        cout << "Quotient: ";
+        /*cout << "Quotient: ";
         while(i != quotientEnd){
             cout << *i << " ";
             ++i;
@@ -448,16 +448,16 @@ FI divides_digits (II1 b1, II1 e1, II2 b2, II2 e2, FI x) {
             cout << *i << " ";
             ++i;
         }
-        cout << endl;
+        cout << endl;*/
         
     }
     finish:
-    vector<int>::iterator i = quotient.begin();
+    /*vector<int>::iterator i = quotient.begin();
     while(i != quotientEnd){
         cout << "Writing " << *i << " to x" << endl;
         ++i;
     }
-    cout << "end numb" << endl;
+    cout << "end numb" << endl;*/
     return copy(quotient.begin(), quotientEnd, x);
 }
 
@@ -657,8 +657,8 @@ class Integer {
      * @return      true if lhs equals rhs, false otherwise
      */
     friend std::ostream& operator << (std::ostream& lhs, const Integer& rhs) {
-        for (int i : rhs._x) {
-            lhs << i;
+        for (int i = rhs._x.size()-1; i >= 0; --i) {
+            lhs << rhs._x[i];
         }
         return lhs;}
 
@@ -820,11 +820,18 @@ class Integer {
          * <your documentation>
          */
         Integer& operator += (const Integer& rhs) {
-            _x.push_back(0);
-            typename C::iterator addEnd = plus_digits(_x.begin(), _x.end()-1, rhs._x.begin(), rhs.end(), _x.begin());
-            if(_x.end() != addEnd){
-                //if so we did not use the last place.
-                _x.pop_back();
+            if (_n && !rhs._n) {
+                
+            }
+            else {
+                //adding negative to negative => neg
+                //    or positive to positive => pos
+                _x.push_back(0);
+                typename C::iterator addEnd = plus_digits(_x.begin(), _x.end()-1, rhs._x.begin(), rhs._x.end(), _x.begin());
+                if(_x.end() != addEnd){
+                    //if so we did not use the last place.
+                    _x.pop_back();
+                }
             }
             return *this;}
 
@@ -836,6 +843,8 @@ class Integer {
          * <your documentation>
          */
         Integer& operator -= (const Integer& rhs) {
+            return *this += -rhs;
+
             typename C::iterator minusEnd = minus_digits(_x.begin(), _x.end(), rhs._x.begin(), rhs._x.end(), _x.begin());
             //remove the empty space if there is one. 
             if(*minusEnd == 0){
