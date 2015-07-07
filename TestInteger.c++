@@ -227,6 +227,16 @@ TEST(IntegerFixture, minus_digits_5) {
 	ASSERT_TRUE(equal(out.begin(), itr, test.begin()));
 }
 
+TEST(IntegerFixture, minus_digits_6) {
+	//add in middle
+	vector<int> vecOne = {1,2,3,4,5};
+    vector<int> vecTwo = {1,2,3,4,5};
+    vector<int> out(1);
+    vector<int> test = {0};
+	vector<int>::iterator itr = minus_digits(vecOne.begin()+1, vecOne.end()-1, vecTwo.begin()+1, vecTwo.end()-1, out.begin());
+	ASSERT_TRUE(equal(out.begin(), itr, test.begin()));
+}
+
 /* multiplies_digits tests */
 
 TEST(IntegerFixture, multiplies_digits_0) {
@@ -313,7 +323,7 @@ TEST(IntegerFixture, divides_digits_2) {
 
 TEST(IntegerFixture, divides_digits_3) {
 	//vectors of two different lengths
-	vector<int> vecOne = {1,2,3,4,5};
+	vector<int> vecOne = {1,2,3};
     vector<int> vecTwo = {6,7};
 	vector<int> out(3);
 	vector<int> test = {1,8,4};
