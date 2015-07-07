@@ -124,18 +124,18 @@ TEST(IntegerFixture, shift_right_4) {
 
 TEST(IntegerFixture, plus_digits_1) {
 	//tests the output vector
-    vector<int> vecOne = {1,2,3,4,5};
-    vector<int> vecTwo = {6,7,8,9,3};
+    vector<int> vecOne = {5,4,3,2,1};
+    vector<int> vecTwo = {3,9,8,7,6};
     vector<int> out(5);
-    vector<int> test = {8,0,2,3,8};
+    vector<int> test = {8,3,2,0,8};
     plus_digits(vecOne.begin(), vecOne.end(), vecTwo.begin(), vecTwo.end(), out.begin());
     ASSERT_TRUE(equal(out.begin(), out.end(), test.begin()));
 }
 
 TEST(IntegerFixture, plus_digits_2) {
 	//tests the output iterator value
-	vector<int> vecOne = {1,2,3,4,5};
-    vector<int> vecTwo = {6,7,8,9,3};
+    vector<int> vecOne = {5,4,3,2,1};
+    vector<int> vecTwo = {3,9,8,7,6};
 	vector<int> out(5);
 	vector<int>::iterator itr = plus_digits(vecOne.begin(), vecOne.end(), vecTwo.begin(), vecTwo.end(), out.begin());
 	ASSERT_EQ(itr, out.end());
@@ -143,10 +143,10 @@ TEST(IntegerFixture, plus_digits_2) {
 
 TEST(IntegerFixture, plus_digits_3) {
 	//vectors of two different lengths
-	vector<int> vecOne = {1,2,3,4,5};
-    vector<int> vecTwo = {6,7,8,9};
+    vector<int> vecOne = {5,4,3,2,1};
+    vector<int> vecTwo = {9,8,7,6};
 	vector<int> out(5);
-	vector<int> test = {1,9,1,3,4};
+	vector<int> test = {4,3,1,9,1};
 	vector<int>::iterator itr = plus_digits(vecOne.begin(), vecOne.end(), vecTwo.begin(), vecTwo.end(), out.begin());
 	ASSERT_TRUE(equal(out.begin(), out.end(), test.begin()));
 	ASSERT_EQ(itr, out.end());
@@ -154,10 +154,10 @@ TEST(IntegerFixture, plus_digits_3) {
 
 TEST(IntegerFixture, plus_digits_4) {
 	//vectors of two different lengths
-	vector<int> vecOne = {1,2,3,4};
-    vector<int> vecTwo = {6,7,8,9,5};
+    vector<int> vecOne = {5,4,3,2,1};
+    vector<int> vecTwo = {9,8,7,6};
 	vector<int> out(5);
-	vector<int> test = {6,9,1,2,9};
+	vector<int> test = {4,3,1,9,1};
 	vector<int>::iterator itr = plus_digits(vecOne.begin(), vecOne.end(), vecTwo.begin(), vecTwo.end(), out.begin());
 	ASSERT_TRUE(equal(out.begin(), out.end(), test.begin()));
 	ASSERT_EQ(itr, out.end());
@@ -165,10 +165,10 @@ TEST(IntegerFixture, plus_digits_4) {
 
 TEST(IntegerFixture, plus_digits_5) {
 	//add in middle
-	vector<int> vecOne = {1,2,3,4,5};
-    vector<int> vecTwo = {6,7,8,9,3};
+    vector<int> vecOne = {5,4,3,2,1};
+    vector<int> vecTwo = {3,9,8,7,6};
     vector<int> out(4);
-    vector<int> test = {1,0,2,3};
+    vector<int> test = {3,2,0,1};
 	vector<int>::iterator itr = plus_digits(vecOne.begin()+1, vecOne.end()-1, vecTwo.begin()+1, vecTwo.end()-1, out.begin());
 	ASSERT_TRUE(equal(out.begin(), itr, test.begin()));
 }

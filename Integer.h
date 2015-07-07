@@ -92,6 +92,38 @@ FI shift_right_digits (II b, II e, int n, FI x) {
  */
 template <typename II1, typename II2, typename FI>
 FI plus_digits (II1 b1, II1 e1, II2 b2, II2 e2, FI x) {
+    int carry = 0;
+    int plus1 = 0;
+    int plus2 = 0;
+    int num = 0;
+    while (b1 != e1 || b2 != e2) {
+        if (b1 == e1) {
+            // b1 done, rest are from b2
+            plus1 = 0;
+            plus2 = *b2;
+            ++b2;
+        }
+        else if (b2 == e2) {
+            // b2 done, rest are from b1
+            plus1 = *b1;
+            plus2 = 0;
+            ++b1;
+        }
+        else {
+            // both have digits
+            plus1 = *b1;
+            plus2 = *b2;
+            ++b1;
+            ++b2;
+        }
+        num = plus1 + plus2 + carry;
+        carry = num / 10;
+        *x = num % 10;
+        ++x;
+    }
+    return x;
+/*
+
     vector<int> vec1(b1, e1);
     vector<int> vec2(b2, e2);
     deque<int> sum(0);
@@ -122,7 +154,7 @@ FI plus_digits (II1 b1, II1 e1, II2 b2, II2 e2, FI x) {
 
     if(carry != 0)
         sum.push_front(carry);
-    return copy(sum.begin(), sum.end(), x);
+    return copy(sum.begin(), sum.end(), x);*/
 }
 
 // ------------
