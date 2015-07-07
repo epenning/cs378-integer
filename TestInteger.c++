@@ -111,6 +111,14 @@ TEST(IntegerFixture, shift_right_4) {
 	ASSERT_TRUE(equal(out.begin(), itr, test.begin()));
 }
 
+TEST(IntegerFixture, shift_right_5) {
+	//output result into original vector
+	vector<int> vec = {1,0,2,0};
+	vector<int> test = {0,1,0,2};
+	vector<int>::iterator itr = shift_right_digits(vec.begin(), vec.end()-1, 1, vec.begin());
+	ASSERT_TRUE(equal(vec.begin(), itr, test.begin()));
+}
+
 /* plus_digits tests */
 
 TEST(IntegerFixture, plus_digits_1) {
@@ -214,15 +222,28 @@ TEST(IntegerFixture, minus_digits_5) {
     vector<int> out(2);
     vector<int> test = {0,4};
     minus_digits(vecOne.begin(), vecOne.end(), vecTwo.begin(), vecTwo.end(), out.begin());
-    for(int i : out){
-        cout << i << " ";
-    }
-    cout << endl;
-    for(int i : test){
-        cout << i << " ";
-    }
-    cout << endl;
     ASSERT_TRUE(equal(out.begin(), out.end(), test.begin()));
+}
+
+TEST(IntegerFixture, minus_digits_6) {
+	//failure case
+    vector<int> vecOne = {6,1,0,2};
+    vector<int> vecTwo = {6};
+    vector<int> out(4);
+    vector<int> test = {0,1,0,2};
+    minus_digits(vecOne.begin(), vecOne.end(), vecTwo.begin(), vecTwo.end(), out.begin());
+    ASSERT_TRUE(equal(out.begin(), out.end(), test.begin()));
+}
+
+TEST(IntegerFixture, minus_digits_7) {
+	//failure case
+    vector<int> vecOne = {0,1,0,2};
+    vector<int> vecTwo = {4,9,7,1};
+    vector<int> out(3);
+    vector<int> test = {6,1,2};
+    vector<int>::iterator itr = minus_digits(vecOne.begin(), vecOne.end(), vecTwo.begin(), vecTwo.end(), out.begin());
+    ASSERT_TRUE(equal(out.begin(), out.end(), test.begin()));
+    ASSERT_EQ(itr, out.end());
 }
 
 
@@ -248,20 +269,20 @@ TEST(IntegerFixture, multiplies_digits_0) {
     ASSERT_TRUE(equal(out.begin(), out.end(), test.begin()));
 }
 
-/*TEST(IntegerFixture, multiplies_digits_1) {
+TEST(IntegerFixture, multiplies_digits_1) {
 	//tests the output vector
-    vector<int> vecOne = {1,2,3,4,5};
-    vector<int> vecTwo = {6,7,8,9,3};
+    vector<int> vecOne = {5,4,3,2,1};
+    vector<int> vecTwo = {3,9,8,7,6};
     vector<int> out(9);
-    vector<int> test = {8,3,8,1,3,9,0,8,5}; 
+    vector<int> test = {5,8,0,9,3,1,8,3,8}; 
     multiplies_digits(vecOne.begin(), vecOne.end(), vecTwo.begin(), vecTwo.end(), out.begin());
     ASSERT_TRUE(equal(out.begin(), out.end(), test.begin()));
 }
 
 TEST(IntegerFixture, multiplies_digits_2) {
 	//tests the output iterator value
-	vector<int> vecOne = {1,2,3,4,5};
-    vector<int> vecTwo = {6,7,8,9,3};
+    vector<int> vecOne = {5,4,3,2,1};
+    vector<int> vecTwo = {3,9,8,7,6};
 	vector<int> out(9);
 	vector<int>::iterator itr = multiplies_digits(vecOne.begin(), vecOne.end(), vecTwo.begin(), vecTwo.end(), out.begin());
 	ASSERT_EQ(itr, out.end());
@@ -269,10 +290,10 @@ TEST(IntegerFixture, multiplies_digits_2) {
 
 TEST(IntegerFixture, multiplies_digits_3) {
 	//vectors of two different lengths
-	vector<int> vecOne = {1,2,3,4,5};
-    vector<int> vecTwo = {6,7,8,9};
+	vector<int> vecOne = {5,4,3,2,1};
+    vector<int> vecTwo = {9,8,7,6};
 	vector<int> out(8);
-	vector<int> test = {8,3,8,1,0,2,0,5};
+	vector<int> test = {5,0,2,0,1,8,3,8};
 	vector<int>::iterator itr = multiplies_digits(vecOne.begin(), vecOne.end(), vecTwo.begin(), vecTwo.end(), out.begin());
 	ASSERT_TRUE(equal(out.begin(), out.end(), test.begin()));
 	ASSERT_EQ(itr, out.end());
@@ -280,10 +301,10 @@ TEST(IntegerFixture, multiplies_digits_3) {
 
 TEST(IntegerFixture, multiplies_digits_4) {
 	//vectors of two different lengths
-	vector<int> vecOne = {1,2,3,4};
-    vector<int> vecTwo = {6,7,8,9,5};
+	vector<int> vecOne = {4,3,2,1};
+    vector<int> vecTwo = {5,9,8,7,6};
 	vector<int> out(8);
-	vector<int> test = {8,3,7,8,2,4,3,0};
+	vector<int> test = {0,3,4,2,8,7,3,8};
 	vector<int>::iterator itr = multiplies_digits(vecOne.begin(), vecOne.end(), vecTwo.begin(), vecTwo.end(), out.begin());
 	ASSERT_TRUE(equal(out.begin(), out.end(), test.begin()));
 	ASSERT_EQ(itr, out.end());
@@ -291,13 +312,13 @@ TEST(IntegerFixture, multiplies_digits_4) {
 
 TEST(IntegerFixture, multiplies_digits_5) {
 	//add in middle
-	vector<int> vecOne = {1,2,3,4,5};
-    vector<int> vecTwo = {6,7,8,9,3};
+    vector<int> vecOne = {5,4,3,2,1};
+    vector<int> vecTwo = {3,9,8,7,6};
     vector<int> out(6);
-    vector<int> test = {1,8,4,6,2,6}; 
+    vector<int> test = {6,2,6,4,8,1}; 
 	vector<int>::iterator itr = multiplies_digits(vecOne.begin()+1, vecOne.end()-1, vecTwo.begin()+1, vecTwo.end()-1, out.begin());
 	ASSERT_TRUE(equal(out.begin(), itr, test.begin()));
-}*/
+}
 
 /* divides_digits tests */
 
