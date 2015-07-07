@@ -74,15 +74,6 @@ TEST(IntegerFixture, shift_left_3) {
 	ASSERT_TRUE(equal(out.begin(), itr, test.begin()));
 }
 
-TEST(IntegerFixture, shift_left_4) {
-	//shift in middle
-	vector<int> vec = {0,0,0,0};
-    vector<int> out(1);
-    vector<int> test = {0};
-    shift_left_digits(vec.begin(), vec.end(), 2, out.begin());
-    ASSERT_TRUE(equal(out.begin(), out.end(), test.begin()));
-}
-
 /*shift_right tests */
 
 TEST(IntegerFixture, shift_right_1) {
@@ -112,12 +103,12 @@ TEST(IntegerFixture, shift_right_3) {
 }
 
 TEST(IntegerFixture, shift_right_4) {
-	//shift 0s
-	vector<int> vec = {0,0,0,0};
-	vector<int> out(1);
-	vector<int> test = {0};
-    shift_right_digits(vec.begin(), vec.end(), 2, out.begin());
-    ASSERT_TRUE(equal(out.begin(), out.end(), test.begin()));
+	//failure case
+	vector<int> vec = {4};
+	vector<int> out(2);
+	vector<int> test = {0,4};
+	vector<int>::iterator itr = shift_right_digits(vec.begin(), vec.end(), 1, out.begin());
+	ASSERT_TRUE(equal(out.begin(), itr, test.begin()));
 }
 
 /* plus_digits tests */
@@ -216,14 +207,43 @@ TEST(IntegerFixture, minus_digits_4) {
 	ASSERT_TRUE(equal(out.begin(), itr, test.begin()));
 }
 
+TEST(IntegerFixture, minus_digits_5) {
+	//failure case
+    vector<int> vecOne = {6,5};
+    vector<int> vecTwo = {6,1};
+    vector<int> out(2);
+    vector<int> test = {0,4};
+    minus_digits(vecOne.begin(), vecOne.end(), vecTwo.begin(), vecTwo.end(), out.begin());
+    for(int i : out){
+        cout << i << " ";
+    }
+    cout << endl;
+    for(int i : test){
+        cout << i << " ";
+    }
+    cout << endl;
+    ASSERT_TRUE(equal(out.begin(), out.end(), test.begin()));
+}
+
+
 /* multiplies_digits tests */
+
+TEST(IntegerFixture, multiplies_digits_00) {
+	//tests the output vector
+    vector<int> vecOne = {2,1};
+    vector<int> vecTwo = {7,6};
+    vector<int> out(3);
+    vector<int> test = {4,0,8}; 
+    multiplies_digits(vecOne.begin(), vecOne.end(), vecTwo.begin(), vecTwo.end(), out.begin());
+    ASSERT_TRUE(equal(out.begin(), out.end(), test.begin()));
+}
 
 TEST(IntegerFixture, multiplies_digits_0) {
 	//tests the output vector
-    vector<int> vecOne = {1,2,3};
-    vector<int> vecTwo = {6,7,8};
+    vector<int> vecOne = {3,2,1};
+    vector<int> vecTwo = {8,7,6};
     vector<int> out(5);
-    vector<int> test = {8,3,3,9,4}; 
+    vector<int> test = {4,9,3,3,8}; 
     multiplies_digits(vecOne.begin(), vecOne.end(), vecTwo.begin(), vecTwo.end(), out.begin());
     ASSERT_TRUE(equal(out.begin(), out.end(), test.begin()));
 }
