@@ -170,88 +170,53 @@ FI plus_digits (II1 b1, II1 e1, II2 b2, II2 e2, FI x) {
  * @param x  an iterator to the beginning of an output sequence (inclusive)
  * @return   an iterator to the end       of an output sequence (exclusive)
  * the sequences are of decimal digits
+ * requirement: first sequence > second sequence => positive answer
  * output the difference of the two input sequences into the output sequence
  * ([b1, e1) - [b2, e2)) => x
  */
 template <typename II1, typename II2, typename FI>
 FI minus_digits (II1 b1, II1 e1, II2 b2, II2 e2, FI x) {
-    vector<int> vec1(0);
-    vector<int> vec2(0);
-    deque<int> dif(0);
-    vector<int>* bigP;
-    vector<int>* littleP;
-    while (b1 != e1) {
-        vec1.push_back(*b1);
-        ++b1;
-    }
-    while (b2 != e2) {
-        vec2.push_back(*b2);
-        ++b2;
-    }
 
-    //find out which is bigger.
-    if(vec1.size() > vec2.size()){
-        bigP = &vec1;
-        littleP = &vec2;
-    }else if(vec1.size() < vec2.size()){
-        //NEED TO ADD FLIP THE NEGATIVE FLAG!!!!!!!!!
-        bigP = &vec2;
-        littleP = &vec1;
-    }else{
-        for(int i = 0; i < vec1.size(); ++i){
-            if(vec1[i] > vec2[i]){
-                bigP = &vec1;
-                littleP = &vec2;
-                break;
-            }else if(vec1[i] < vec2[i]){
-                bigP = &vec2;
-                littleP = &vec1;
-                // FLIP NEGATIVE FLAG
-                break;
-            }
-            else {
-                *x = 0;
-                ++x;
-                return x;
-            }
-        }
-    }
-
-    vector<int>& big = *bigP;
-    vector<int>& little = *littleP;
-
-    //now we subtract
     int borrow = 0;
-    while(!big.empty() || !little.empty()){
-
-        if (borrow) {
-            big.back() -= borrow;
-            borrow = 0;
-        }
-        if (little.empty()){
-            dif.push_front(big.back());
-            big.pop_back();
-        }else{
-            if(big.back() < little.back()){
-                //we borrow.
-                big.back() += 10;
-                borrow += 1;
+    int sub1 = 0;
+    int sub2 = 0;
+    // b2 guaranteed to reach end before or same time as b1
+    while (b1 != e1) {
+        if (b2 == e2) {
+            // b2 done, rest are from b1
+            sub1 = *b1;
+            sub2 = 0;
+            ++b1;
+            if (borrow) {
+                sub1 -= borrow;
+                borrow = 0;
             }
-            dif.push_front(big.back()  - little.back());
-            big.pop_back();
-            little.pop_back();
+        }
+        else {
+            // both have digits
+            sub1 = *b1;
+            sub2 = *b2;
+            ++b1;
+            ++b2;
+            if (borrow) {
+                sub1 -= borrow;
+                borrow = 0;
+            }
+            if (sub1 < sub2) {
+                borrow++;
+                sub1 += 10;
+            }
+        }
+        cout << sub1 << " ";
+        cout << sub2 << " ";
+        cout << endl;
+        if (sub1-sub2) {
+        *x = sub1 - sub2;
+        ++x;
         }
     }
-
-    while (!dif.front())
-        dif.pop_front();
-
-    for(int i : dif){
-        *x = i;
-        ++x;
-    }
-
-    return x;}
+    return x;
+}
 
 // -----------------
 // multiplies_digits
@@ -831,7 +796,7 @@ class Integer {
         Integer& operator += (const Integer& rhs) {
             _x.push_back(0);
             typename C::iterator addEnd = plus_digits(_x.begin(), _x.end()-1, rhs._x.begin(), rhs.end(), _x.begin());
-            if(x.end() != addEnd){
+            if(_x.end() != addEnd){
                 //if so we did not use the last place.
                 _x.pop_back();
             }

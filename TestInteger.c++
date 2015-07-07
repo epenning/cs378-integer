@@ -48,7 +48,6 @@ TYPED_TEST_CASE(Integer_Fixture, Integer_types);
 // insert tests here
 // ----
 
-<<<<<<< Updated upstream
 TEST(IntegerFixture, shift_left_1) {
 	//tests the output vector
     vector<int> vec = {1,2,3,4,5};
@@ -178,18 +177,18 @@ TEST(IntegerFixture, plus_digits_5) {
 
 TEST(IntegerFixture, minus_digits_1) {
 	//tests the output vector
-    vector<int> vecOne = {1,2,3,4,5};
-    vector<int> vecTwo = {6,7,8,9,3};
+    vector<int> vecOne = {3,9,8,7,6};
+    vector<int> vecTwo = {5,4,3,2,1};
     vector<int> out(5);
-    vector<int> test = {5,5,5,4,8}; //negative.
+    vector<int> test = {8,4,5,5,5};
     minus_digits(vecOne.begin(), vecOne.end(), vecTwo.begin(), vecTwo.end(), out.begin());
     ASSERT_TRUE(equal(out.begin(), out.end(), test.begin()));
 }
 
 TEST(IntegerFixture, minus_digits_2) {
 	//tests the output iterator value
-	vector<int> vecOne = {1,2,3,4,5};
-    vector<int> vecTwo = {6,7,8,9,3};
+    vector<int> vecOne = {5,4,3,2,1};
+    vector<int> vecTwo = {3,9,8,7,6};
 	vector<int> out(5);
 	vector<int>::iterator itr = minus_digits(vecOne.begin(), vecOne.end(), vecTwo.begin(), vecTwo.end(), out.begin());
 	ASSERT_EQ(itr, out.end());
@@ -197,10 +196,10 @@ TEST(IntegerFixture, minus_digits_2) {
 
 TEST(IntegerFixture, minus_digits_3) {
 	//vectors of two different lengths
-	vector<int> vecOne = {1,2,3,4,5};
-    vector<int> vecTwo = {6,7,8,9};
+    vector<int> vecOne = {5,4,3,2,1};
+    vector<int> vecTwo = {9,8,7,6};
 	vector<int> out(4);
-	vector<int> test = {5,5,5,6};
+	vector<int> test = {6,5,5,5};
 	vector<int>::iterator itr = minus_digits(vecOne.begin(), vecOne.end(), vecTwo.begin(), vecTwo.end(), out.begin());
 	ASSERT_TRUE(equal(out.begin(), out.end(), test.begin()));
 	ASSERT_EQ(itr, out.end());
@@ -208,27 +207,6 @@ TEST(IntegerFixture, minus_digits_3) {
 }
 
 TEST(IntegerFixture, minus_digits_4) {
-	//vectors of two different lengths
-	vector<int> vecOne = {1,2,3,4};
-    vector<int> vecTwo = {6,7,8,9,5};
-	vector<int> out(5);
-	vector<int> test = {6,6,6,6,1};
-	vector<int>::iterator itr = minus_digits(vecOne.begin(), vecOne.end(), vecTwo.begin(), vecTwo.end(), out.begin());
-	ASSERT_TRUE(equal(out.begin(), out.end(), test.begin()));
-	ASSERT_EQ(itr, out.end());
-}
-
-TEST(IntegerFixture, minus_digits_5) {
-	//add in middle
-	vector<int> vecOne = {1,2,3,4,5};
-    vector<int> vecTwo = {6,7,8,9,3};
-    vector<int> out(5);
-    vector<int> test = {5,5,5,4,8}; //negative.
-	vector<int>::iterator itr = minus_digits(vecOne.begin()+1, vecOne.end()-1, vecTwo.begin()+1, vecTwo.end()-1, out.begin());
-	ASSERT_TRUE(equal(out.begin(), itr, test.begin()));
-}
-
-TEST(IntegerFixture, minus_digits_6) {
 	//add in middle
 	vector<int> vecOne = {1,2,3,4,5};
     vector<int> vecTwo = {1,2,3,4,5};
@@ -353,7 +331,7 @@ TEST(IntegerFixture, divides_digits_5) {
 	vector<int>::iterator itr = divides_digits(vecOne.begin()+1, vecOne.end()-1, vecTwo.begin()+3, vecTwo.end()-2, out.begin());
 	ASSERT_TRUE(equal(out.begin(), itr, test.begin()));
 }*/
-=======
+
 // TEST(IntegerFixture, shift_left_1) {
 // 	//tests the output vector
 //     vector<int> vec = {1,2,3,4,5};
@@ -640,7 +618,6 @@ TEST(IntegerFixture, divides_digits_5) {
 // 	vector<int>::iterator itr = divides_digits(vecOne.begin()+1, vecOne.end()-1, vecTwo.begin()+3, vecTwo.end()-2, out.begin());
 // 	ASSERT_TRUE(equal(out.begin(), itr, test.begin()));
 // }
->>>>>>> Stashed changes
 
 TEST(IntegerFixture, equals_1) {
 	Integer<int> a = 12345;
@@ -769,15 +746,7 @@ TEST(IntegerFixture, negation_2) {
 
 // }
 
-<<<<<<< Updated upstream
-/*TEST(IntegerFixture, multi_equal_1) {
-	Integer<int> a = 123;
-	Integer<int> b = 123;
-	ASSERT_EQ(a*b, 15129);
-}
-=======
 // TEST(IntegerFixture, minus_equal_1) {
->>>>>>> Stashed changes
 
 // }
 
@@ -793,19 +762,11 @@ TEST(IntegerFixture, negation_2) {
 // 	ASSERT_EQ(a*b, 123);
 // }
 
-<<<<<<< Updated upstream
-TEST(IntegerFixture, multi_equal_5) {
-	Integer<int> a = 123;
-	Integer<int> b = -123;
-	ASSERT_EQ(a*b, -15129);
-}*/
-=======
 // TEST(IntegerFixture, multi_equal_3) {
 // 	Integer<int> a = 123;
 // 	Integer<int> b = 0;
 // 	ASSERT_EQ(a*b, 0);
 // }
->>>>>>> Stashed changes
 
 // TEST(IntegerFixture, multi_equal_4) {
 // 	Integer<int> a = -123;
@@ -835,14 +796,7 @@ TEST(IntegerFixture, multi_equal_5) {
 
 // }
 
-<<<<<<< Updated upstream
-/*TEST(IntegerFixture, pow_1) {
-	Integer<int> a = 12;
-	ASSERT_EQ(a.pow(2), 144);
-}
-=======
 // TEST(IntegerFixture, abs_1) {
->>>>>>> Stashed changes
 
 // }
 
@@ -856,14 +810,6 @@ TEST(IntegerFixture, multi_equal_5) {
 // 	ASSERT_EQ(a.pow(2), 144);
 // }
 
-<<<<<<< Updated upstream
-TEST(IntegerFixture, pow_5) {
-	Integer<int> a = 2;
-	ostringstream output;
-	output << a.pow(34);
-	ASSERT_EQ(output.str(), "17179869184");
-}*/
-=======
 // TEST(IntegerFixture, pow_3) {
 // 	Integer<int> a = -12;
 // 	ASSERT_EQ(a.pow(3), -1728);
@@ -880,4 +826,3 @@ TEST(IntegerFixture, pow_5) {
 // 	output << a.pow(34);
 // 	ASSERT_EQ(output.str(), "17179869184");
 // }
->>>>>>> Stashed changes
