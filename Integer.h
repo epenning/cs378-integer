@@ -164,10 +164,10 @@ FI minus_digits (II1 b1, II1 e1, II2 b2, II2 e2, FI x) {
                 sub1 -= borrow;
                 borrow = 0;
             }
-            if (sub1 < sub2) {
-                borrow++;
-                sub1 += 10;
-            }
+        }
+        if (sub1 < sub2) {
+            borrow++;
+            sub1 += 10;
         }
         if ((sub1-sub2) != 0 || !empty) {
             if (b1 == e1 && sub1-sub2 == 0) {
@@ -422,8 +422,8 @@ FI divides_digits (II1 b1, II1 e1, II2 b2, II2 e2, FI x) {
         }
         else if ((numEnd - numerator.begin()) == denominator.size()){
             cout << "In that one else if" << endl;
-            for(int i = 0; i < (numEnd - numerator.begin()); ++i){
-                cout << "numerator: " << numerator[i] << "denom: " << denominator[i] << endl;
+            for(int i = (numEnd - numerator.begin()) - 1; i >= 0; --i){
+                cout << "numerator: " << numerator[i] << " denom: " << denominator[i] << endl;
                 if (numerator[i] > denominator[i])
                     break;
                 else if((numerator[i] < denominator[i])){
@@ -432,23 +432,32 @@ FI divides_digits (II1 b1, II1 e1, II2 b2, II2 e2, FI x) {
                 }
             }
         }
+
         numEnd = minus_digits(numerator.begin(), numEnd, denominator.begin(), denominator.end(), numerator.begin());
         quotientEnd = plus_digits(quotient.begin(), quotientEnd, one.begin(), one.end(), quotient.begin());
         vector<int>::iterator i = quotient.begin();
+        cout << "Quotient: ";
         while(i != quotientEnd){
-            cout << "Writing " << *i << " to quotient" << endl;
+            cout << *i << " ";
             ++i;
         }
-        cout << "end numb" << endl;
+        cout << endl;
+        i = numerator.begin();
+        cout << "Numerator: ";
+        while(i != numEnd){
+            cout << *i << " ";
+            ++i;
+        }
+        cout << endl;
         
     }
     finish:
     vector<int>::iterator i = quotient.begin();
-        while(i != quotientEnd){
-            cout << "Writing " << *i << " to x" << endl;
-            ++i;
-        }
-        cout << "end numb" << endl;
+    while(i != quotientEnd){
+        cout << "Writing " << *i << " to x" << endl;
+        ++i;
+    }
+    cout << "end numb" << endl;
     return copy(quotient.begin(), quotientEnd, x);
 }
 
@@ -827,7 +836,7 @@ class Integer {
          * <your documentation>
          */
         Integer& operator -= (const Integer& rhs) {
-            typename C::iterator minusEnd = minus_digits(_x.begin(), _x.end(), rhs._x.begin(), rhs.end(), _x.begin());
+            typename C::iterator minusEnd = minus_digits(_x.begin(), _x.end(), rhs._x.begin(), rhs._x.end(), _x.begin());
             //remove the empty space if there is one. 
             if(*minusEnd == 0){
                 _x.pop_back();
