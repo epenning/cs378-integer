@@ -680,14 +680,57 @@ TEST(IntegerFixture, multi_equal_5) {
 	Integer<int> b = -123;
 	ASSERT_EQ(a*b, -15129);
 }
+TEST(IntegerFixture, multi_equal_6) {
+	Integer<int> a = -123;
+	Integer<int> b = 0;
+	ASSERT_EQ(a*b, 0);
+}
 
-// TEST(IntegerFixture, divide_equal_1) {
+TEST(IntegerFixture, divide_equal_1) {
+	Integer<int> a = 123;
+	Integer<int> b = 123;
+	ASSERT_EQ(a /= b, 1);
+}
 
-// }
+TEST(IntegerFixture, divide_equal_2) {
+	Integer<int> a = 123;
+	Integer<int> b = 678;
+	ASSERT_EQ(a /= b, 0);
+}
 
-// TEST(IntegerFixture, mod_equal_1) {
+TEST(IntegerFixture, divide_equal_3) {
+	Integer<int> a = 123;
+	Integer<int> b = 678;
+	ASSERT_EQ(b /= a, 5);
+}
 
-// }
+TEST(IntegerFixture, divide_equal_4) {
+	Integer<int> a = -123;
+	Integer<int> b = 678;
+	ASSERT_EQ(b /= a, -5);
+}
+
+TEST(IntegerFixture, divide_equal_5) {
+	Integer<int> a = 123;
+	Integer<int> b = -678;
+	ASSERT_EQ(b /= a, -5);
+}
+
+TEST(IntegerFixture, divide_equal_6) {
+	Integer<int> a = 0;
+	Integer<int> b = -678;
+	ASSERT_EQ(a /= b, 0);
+}
+
+TEST(IntegerFixture, divide_equal_7) {
+	Integer<int> a = -123;
+	Integer<int> b = -678;
+	ASSERT_EQ(b /= a, 5);
+}
+
+TEST(IntegerFixture, mod_equal_1) {
+
+}
 
 // TEST(IntegerFixture, left_shift_equal_1) {
 

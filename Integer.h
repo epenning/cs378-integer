@@ -928,6 +928,9 @@ class Integer {
             typename C::iterator productEnd = multiplies_digits(_x.begin(), _x.end(), rhs._x.begin(), rhs._x.end(), product.begin()); 
             _x = C(product.begin(), productEnd);
 
+            if (_x.size() == 1 && _x[0] == 0)
+                _n = false;
+
             return *this;}
 
         // -----------
@@ -939,7 +942,21 @@ class Integer {
          * @throws invalid_argument if (rhs == 0)
          */
         Integer& operator /= (const Integer& rhs) {
-            // <your code>
+            if (rhs == 0)
+                throw invalid_argument("divide by 0");
+
+            if ((_n && !rhs._n) || (!_n && rhs._n))
+                _n = true;
+            else
+                _n = false;
+
+            C quotient(_x.size()+rhs._x.size());
+            typename C::iterator quotientEnd = divides_digits(_x.begin(), _x.end(), rhs._x.begin(), rhs._x.end(), quotient.begin()); 
+            _x = C(quotient.begin(), quotientEnd);
+
+            if (_x.size() == 1 && _x[0] == 0)
+                _n = false;
+
             return *this;}
 
         // -----------
@@ -951,7 +968,8 @@ class Integer {
          * @throws invalid_argument if (rhs <= 0)
          */
         Integer& operator %= (const Integer& rhs) {
-            // <your code>
+            if (rhs <= 0)
+                throw invalid_argument("mod by <= 0");
             return *this;}
 
         // ------------
