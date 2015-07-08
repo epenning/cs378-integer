@@ -708,7 +708,7 @@ class Integer {
                 if (digit < 0 || digit > 9)
                     return false;
             // there should be no leading 0s
-            if ((_x.size() != 1) && !(_x.front()))
+            if ((_x.size() != 1) && !(_x.back()))
                 return false;
             return true;}
 
@@ -897,6 +897,7 @@ class Integer {
             }
             if (_x.size() == 1 && _x[0] == 0)
                 _n = false;
+            assert(valid());
             return *this;}
 
         // -----------
@@ -931,6 +932,7 @@ class Integer {
             if (_x.size() == 1 && _x[0] == 0)
                 _n = false;
 
+            assert(valid());
             return *this;}
 
         // -----------
@@ -957,6 +959,7 @@ class Integer {
             if (_x.size() == 1 && _x[0] == 0)
                 _n = false;
 
+            assert(valid());
             return *this;}
 
         // -----------
@@ -970,6 +973,14 @@ class Integer {
         Integer& operator %= (const Integer& rhs) {
             if (rhs <= 0)
                 throw invalid_argument("mod by <= 0");
+
+            Integer original = *this;
+            (*this) /= rhs;
+            (*this) *= rhs;
+            (*this) -= original;
+            _n = false;
+
+            assert(valid());
             return *this;}
 
         // ------------
@@ -980,7 +991,8 @@ class Integer {
          * <your documentation>
          */
         Integer& operator <<= (int n) {
-            // <your code>
+            Integer two = 2;
+            (*this) *= two.pow(n);
             return *this;}
 
         // ------------
@@ -991,7 +1003,7 @@ class Integer {
          * <your documentation>
          */
         Integer& operator >>= (int n) {
-            
+            assert(valid());
             return *this;}
 
         // ---
@@ -1004,6 +1016,7 @@ class Integer {
          */
         Integer& abs () {
             _n = false;
+            assert(valid());
             return *this;}
 
         // ---
@@ -1030,6 +1043,7 @@ class Integer {
             else {
                 _x = C(1, 1);
             }
+            assert(valid());
             return *this;}};
 
 #endif // Integer_h

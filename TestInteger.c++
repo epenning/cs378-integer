@@ -507,6 +507,13 @@ TEST(IntegerFixture, constructor_int_3) {
 	ASSERT_EQ(output.str(), "0");
 }
 
+TEST(IntegerFixture, constructor_int_4) {
+	Integer<int> a = 10;
+	ostringstream output;
+	output << a;
+	ASSERT_EQ(output.str(), "10");
+}
+
 TEST(IntegerFixture, constructor_string_1) {
 	Integer<int> a("12345");
 	ostringstream output;
@@ -729,7 +736,39 @@ TEST(IntegerFixture, divide_equal_7) {
 }
 
 TEST(IntegerFixture, mod_equal_1) {
+	Integer<int> a = 123;
+	Integer<int> b = 123;
+	ASSERT_EQ(a %= b, 0);
+}
 
+TEST(IntegerFixture, mod_equal_2) {
+	Integer<int> a = 144;
+	Integer<int> b = 12;
+	ASSERT_EQ(a %= b, 0);
+}
+
+TEST(IntegerFixture, mod_equal_3) {
+	Integer<int> a = 144;
+	Integer<int> b = 15;
+	ASSERT_EQ(a %= b, 9);
+}
+
+TEST(IntegerFixture, mod_equal_4) {
+	Integer<int> a = -123;
+	Integer<int> b = 2;
+	ASSERT_EQ(a %= b, 1);
+}
+
+TEST(IntegerFixture, mod_equal_5) {
+	Integer<int> a = 123;
+	Integer<int> b = 1;
+	ASSERT_EQ(a %= b, 0);
+}
+
+TEST(IntegerFixture, mod_equal_6) {
+	Integer<int> a = 0;
+	Integer<int> b = 10;
+	ASSERT_EQ(a %= b, 0);
 }
 
 // TEST(IntegerFixture, left_shift_equal_1) {
