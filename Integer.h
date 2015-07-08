@@ -225,9 +225,6 @@ FI multiplies_digits (II1 b1, II1 e1, II2 b2, II2 e2, FI x) {
     }
     cout << endl;*/
 
-    vector<int> total(vec1.size()+vec2.size());
-    vector<int>::iterator totalEnd = total.begin() + 1;
-
     //cout << "Made vectors 1 and 2"<< endl;
     if(vec1.size() < 2 || vec2.size() < 2){
         //cout << "Size vec1: " << vec1.size() << " Size vec2: " << vec2.size() << endl;
@@ -251,7 +248,6 @@ FI multiplies_digits (II1 b1, II1 e1, II2 b2, II2 e2, FI x) {
             }else{
                 product.resize(vec1.size() + 1,0);
                 productEnd = product.begin() + 1;
-                vector<int>::iterator g = product.begin();
                 for(int i = 0; i < vec2[0]; ++i){
                     //cout << "product digits: " << productEnd-product.begin() << endl;
                     productEnd = plus_digits(product.begin(), productEnd, vec1.begin(), vec1.end(), product.begin());
@@ -437,7 +433,7 @@ FI divides_digits (II1 b1, II1 e1, II2 b2, II2 e2, FI x) {
 
         numEnd = minus_digits(numerator.begin(), numEnd, denominator.begin(), denominator.end(), numerator.begin());
         quotientEnd = plus_digits(quotient.begin(), quotientEnd, one.begin(), one.end(), quotient.begin());
-        vector<int>::iterator i = quotient.begin();
+        //vector<int>::iterator i = quotient.begin();
         /*cout << "Quotient: ";
         while(i != quotientEnd){
             cout << *i << " ";

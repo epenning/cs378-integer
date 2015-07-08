@@ -27,7 +27,7 @@ ifeq ($(shell uname), Darwin)
 else
 	ifeq ($(CXX), clang++)
 	    COVFLAGS := --coverage
-	    GCOV     := gcov-4.6 --relative-only
+	    GCOV     := gcov-4.6
 	else
 	    CXX       := g++-4.8
 	    CXXVER    := --version 2>&1 | grep g++
