@@ -1,0 +1,198 @@
+commit d3a81a91fd68ce71318b7a08cb2fb168b591be7b
+Author: Erin Pennington <epenning@cs.utexas.edu>
+Date:   Tue Jul 7 21:30:08 2015 -0500
+
+    created documentation
+
+commit f9165599454a830d7af621fbcf017e65a13c8c11
+Author: Erin Pennington <epenning@cs.utexas.edu>
+Date:   Tue Jul 7 21:09:09 2015 -0500
+
+    added inline comments, cleaned up code
+
+commit 7e8b141843a7a704611712fe34cd3ed46d3f27e8
+Author: Erin Pennington <epenning@cs.utexas.edu>
+Date:   Tue Jul 7 20:58:12 2015 -0500
+
+    fixed makefile and runs with clang
+
+commit 41702f7cf28159f5a0b5eda945e303ec6b010245
+Author: Erin Pennington <epenning@cs.utexas.edu>
+Date:   Tue Jul 7 20:54:36 2015 -0500
+
+    removed timing from Run, edited makefile and travis file
+
+commit c85585294927059d0b8f1a187a7160afc0ce4ee7
+Author: Erin Pennington <epenning@cs.utexas.edu>
+Date:   Tue Jul 7 20:36:55 2015 -0500
+
+    adding .out files
+
+commit 4beb66312eab667e24c92654a17e1713f348c559
+Author: Erin Pennington <epenning@cs.utexas.edu>
+Date:   Tue Jul 7 20:35:48 2015 -0500
+
+    closes #17 closes #20 implemented left and right bit shift methods
+
+commit 948654e61eb51cea02b7e3e59243aeb904fe0439
+Author: Erin Pennington <epenning@cs.utexas.edu>
+Date:   Tue Jul 7 20:22:52 2015 -0500
+
+    mod equals implemented
+
+commit 323da5ce8d8e22a53495b287eeed9fc86b009cdd
+Author: Erin Pennington <epenning@cs.utexas.edu>
+Date:   Tue Jul 7 20:01:11 2015 -0500
+
+    implemented divide equal
+
+commit 278a722dc4fbba5f2c6988d37b6b9e3e3922703e
+Author: Erin Pennington <epenning@cs.utexas.edu>
+Date:   Tue Jul 7 19:48:33 2015 -0500
+
+    fixed bug in less than, implemented plus equal and minus equal #20
+
+commit 86edd1f1abf0bad895e8463866457002f63f130c
+Author: Erin Pennington <epenning@cs.utexas.edu>
+Date:   Tue Jul 7 16:49:17 2015 -0500
+
+    started working on plus equal, fixed some tests and output methods for new representation
+
+commit 618d7cbc143f3096bdbbd2e29d4d0718519181a9
+Author: Erin Pennington <epenning@cs.utexas.edu>
+Date:   Tue Jul 7 16:23:30 2015 -0500
+
+    fixed bug in minus digits, fixed divides digits to work with new representation closes #16
+
+commit a6a0a00cc33ad89de918a79cf7d080eead650164
+Author: Erin Pennington <epenning@cs.utexas.edu>
+Date:   Tue Jul 7 15:42:29 2015 -0500
+
+    fixed issues in minus and multiplies digits
+
+commit b54e005d1fda744d2bb3631d1c58d5054bba88e3
+Author: Erin Pennington <epenning@cs.utexas.edu>
+Date:   Tue Jul 7 14:49:29 2015 -0500
+
+    fixed minus digits for a failure case
+
+commit 0effc973141350ef8ce5828292204786ba270340
+Author: Erin Pennington <epenning@cs.utexas.edu>
+Date:   Tue Jul 7 12:57:13 2015 -0500
+
+    fixed minus digits with new representation
+
+commit 655b6b694a2ce409c86aed3db46403f24273208d
+Author: Scott Stephens <stevo4932@utexas.edu>
+Date:   Tue Jul 7 12:32:52 2015 -0500
+
+    changed functions to reverse order
+
+commit f5b035661a706445763478caf1e27dd83ae7769a
+Author: Erin Pennington <epenning@cs.utexas.edu>
+Date:   Tue Jul 7 12:29:38 2015 -0500
+
+    fixed plus and its tests to new representation
+
+commit 66ccfc6f73bc1579a49f02ae77bff574ff920695
+Author: Erin Pennington <epenning@cs.utexas.edu>
+Date:   Tue Jul 7 12:08:08 2015 -0500
+
+    fixed conflicts in Integer.h correctly
+
+commit e71bcd8aa860e47fd19bc9b8b5746e0a10970104
+Merge: 48800ad a1efec0
+Author: Erin Pennington <epenning@cs.utexas.edu>
+Date:   Tue Jul 7 12:03:14 2015 -0500
+
+    newer modified version of Integer.h overwriting broken one
+
+commit 48800ad675f33656f17c905917add24bac3dbb3d
+Author: Erin Pennington <epenning@cs.utexas.edu>
+Date:   Tue Jul 7 12:00:04 2015 -0500
+
+    edited shift left and right digits to use a representation with most significant digit at right
+
+commit a1efec0508de5946ce0c484d2c9ad7e83c2c02be
+Author: Erin Pennington <epenning@cs.utexas.edu>
+Date:   Mon Jul 6 23:37:47 2015 -0500
+
+    attempted to write divide, fixed minus, now multiply broken
+
+commit 3f75dcafacc8f2a8f7f0a9d847735c75e2d5bfe3
+Author: Erin Pennington <epenning@cs.utexas.edu>
+Date:   Mon Jul 6 21:43:25 2015 -0500
+
+    close #15, fixed karatsuba
+
+commit 2133dfc6cf2b1e34ba496a321a643eff0147be7d
+Author: Erin Pennington <epenning@cs.utexas.edu>
+Date:   Mon Jul 6 18:58:58 2015 -0500
+
+    fixed multiplies_digits to not shift left 0
+
+commit 16f1c1c7b07fd05faa0bf42a5b298cc0487cec9f
+Author: Erin Pennington <epenning@cs.utexas.edu>
+Date:   Mon Jul 6 18:40:55 2015 -0500
+
+    close #18, wrote more unit tests
+
+commit 23dd599a16562dd2010a15710cf80c61c6a5f1f5
+Author: Erin Pennington <epenning@cs.utexas.edu>
+Date:   Mon Jul 6 18:15:13 2015 -0500
+
+    wrote constructor, equals, valid, less than
+
+commit 0504f4033dc4cf34868334a4b5dddade15abdcc9
+Author: Erin Pennington <epenning@cs.utexas.edu>
+Date:   Mon Jul 6 17:19:24 2015 -0500
+
+    added skeleton for the test types we will need
+
+commit ee8f5c5763d5619b0028d5551fceafc6f19a5c6e
+Author: Erin Pennington <epenning@cs.utexas.edu>
+Date:   Mon Jul 6 17:18:54 2015 -0500
+
+    added documentation for some functions
+
+commit 800dfa4bc7f157ad31b02790ebadf9e216237274
+Author: Scott Stephens <stevo4932@gmail.com>
+Date:   Sun Jul 5 23:49:54 2015 -0500
+
+    divide test
+
+commit 4173c2fde1d52078c9920d97007545a719e16df8
+Author: Scott Stephens <stevo4932@utexas.edu>
+Date:   Sun Jul 5 22:05:46 2015 -0500
+
+    close #14 implemented multi
+
+commit e22a5ab8cba9fecee990ede462faa9f7ae16d19d
+Author: Scott Stephens <stevo4932@utexas.edu>
+Date:   Sun Jul 5 22:03:51 2015 -0500
+
+    fixed multiply digits test (typos)
+
+commit 0ff7e70a1bc93fbd5a789e05e97026619a65cbaa
+Author: Scott Stephens <stevo4932@utexas.edu>
+Date:   Sun Jul 5 18:03:34 2015 -0500
+
+    changed .gitignore
+
+commit 994ff35c1d7325fc90d0aaa1c8943bab0a2fed11
+Author: Scott Stephens <stevo4932@utexas.edu>
+Date:   Wed Jul 1 20:48:55 2015 -0500
+
+    close #11 close #12 and wrote unit tests for iter funcs
+
+commit d1065320ec8960a509380cb5a0741cd649500c30
+Author: Erin Pennington <epennington@utexas.edu>
+Date:   Tue Jun 30 13:45:18 2015 -0500
+
+    copied given integer files, added features from previous projects to makefile
+
+commit 6710090a2ea656e46f56e7a848b3b6550013d261
+Author: pieiscool <hashi10@gmail.com>
+Date:   Tue Jun 30 13:14:36 2015 -0500
+
+    Initial commit

@@ -69,11 +69,11 @@ sync:
     --exclude "*"                      \
     . downing@$(CS):cs/cs378/github/c++/integer/
 
-all: RunInteger.out TestInteger.out
+all: RunInteger TestInteger
 
 run: RunInteger.out
 
-test: TestInteger.out
+test: RunInteger.out TestInteger.out
 
 integer-tests:
 	git clone https://github.com/cs378-summer-2015/integer-tests.git
