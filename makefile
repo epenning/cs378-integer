@@ -10,22 +10,32 @@ FILES := 							\
 	integer.log
 
 ifeq ($(shell uname), Darwin)
-    CXX       := g++
-    CXXVER    := --version 2>&1 | grep c++
-    GTESTVER  := head -1 /usr/local/src/gtest-1.7.0/CHANGES
-    GCOV      := gcov
-    GCOVFLAGS := -fprofile-arcs -ftest-coverage
-    GCOVVER   := -version | grep version
+	ifeq ($(CXX), clang++)
+	    COVFLAGS := --coverage
+	    GCOV     := gcov-4.6 --relative-only
+	else
+	    CXX       := g++
+	    CXXVER    := --version 2>&1 | grep c++
+	    GTESTVER  := head -1 /usr/local/src/gtest-1.7.0/CHANGES
+	    GCOV      := gcov
+	    GCOVFLAGS := -fprofile-arcs -ftest-coverage
+	    GCOVVER   := -version | grep version
+	endif
     BOOST     := /usr/local/src/boost_1_57_0/boost
     LDFLAGS   := -lgtest_main
     VALGRIND  :=
 else
-    CXX       := g++-4.8
-    CXXVER    := --version 2>&1 | grep g++
-    GTESTVER  := dpkg -l libgtest-dev | grep libgtest
-    GCOV      := gcov-4.8
-    GCOVFLAGS := -fprofile-arcs -ftest-coverage
-    GCOVVER   := -v | grep gcov
+	ifeq ($(CXX), clang++)
+	    COVFLAGS := --coverage
+	    GCOV     := gcov-4.6 --relative-only
+	else
+	    CXX       := g++-4.8
+	    CXXVER    := --version 2>&1 | grep g++
+	    GTESTVER  := dpkg -l libgtest-dev | grep libgtest
+	    GCOV      := gcov-4.8  --relative-only
+	    GCOVFLAGS := -fprofile-arcs -ftest-coverage
+	    GCOVVER   := -v | grep gcov
+	endif
     BOOST     := /usr/include/boost
     LDFLAGS   := -lgtest -lgtest_main -pthread
     VALGRIND  := valgrind
@@ -58,6 +68,10 @@ sync:
     --include "RunInteger.c++"         \
     --exclude "*"                      \
     . downing@$(CS):cs/cs378/github/c++/integer/
+
+all: RunInteger.out TestInteger.out
+
+run: RunInteger.out
 
 test: TestInteger.out
 
@@ -108,7 +122,7 @@ RunInteger.out: RunInteger
 	cat RunInteger.out
 	
 TestInteger: Integer.h TestInteger.c++
-	$(CXX) $(COVFLAGS) $(CXXFLAGS) TestInteger.c++ -o TestInteger $(LDFLAGS)
+	$(CXX) $(GCOVFLAGS) $(CXXFLAGS) TestInteger.c++ -o TestInteger $(LDFLAGS)
 
 TestInteger.out: TestInteger
 	$(VALGRIND) ./TestInteger  >  TestInteger.out 2>&1

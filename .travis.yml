@@ -41,7 +41,10 @@ script:
     - ls -al
     - make html
     - ls -al
+    - make clean
     - make test
+    - make clean
+    - make test CXX=clang++
     - ls -al
     - make check
 
