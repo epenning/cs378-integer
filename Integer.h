@@ -212,6 +212,8 @@ FI multiplies_digits (II1 b1, II1 e1, II2 b2, II2 e2, FI x) {
     vector<int> vec1(b1, e1);
     vector<int> vec2(b2, e2);
 
+
+
     /*cout << "vec1: ";
     for(int i : vec1){
         cout << i << " ";
@@ -513,7 +515,7 @@ class Integer {
         }else if(lhs._x.size() < rhs._x.size()){
             return less;
         }else{
-            for(int i = lhs._x.size()-1; i > 0; --i){
+            for(int i = lhs._x.size()-1; i >= 0; --i){
                 if(lhs._x[i] > rhs._x[i]){
                     return !less;
                 }else if(lhs._x[i] < rhs._x[i]){
@@ -657,6 +659,8 @@ class Integer {
      * @return      true if lhs equals rhs, false otherwise
      */
     friend std::ostream& operator << (std::ostream& lhs, const Integer& rhs) {
+        if (rhs._n)
+            lhs << "-";
         for (int i = rhs._x.size()-1; i >= 0; --i) {
             lhs << rhs._x[i];
         }
@@ -821,11 +825,69 @@ class Integer {
          */
         Integer& operator += (const Integer& rhs) {
             if (_n && !rhs._n) {
-                
+                // -L += +R
+                // subtraction
+                if (rhs < (*this).abs()) {
+                    // |L| -= |R|
+                    typename C::iterator minusEnd = minus_digits(_x.begin(), _x.end(), rhs._x.begin(), rhs._x.end(), _x.begin());
+                    //remove the empty space if there is some
+                    _x.resize(minusEnd - _x.begin());
+                    while (!_x.back()) {
+                        _x.pop_back();
+                    }
+                    // result is negative
+                    _n = true;
+                }
+                else {
+                    // |R| -= |L|
+                    _x.resize(rhs._x.size());
+                    typename C::iterator minusEnd = minus_digits(rhs._x.begin(), rhs._x.end(), _x.begin(), _x.end(), _x.begin());
+                    //remove the empty space if there is some
+                    _x.resize(minusEnd - _x.begin());
+                    while (!_x.back() && _x.size() > 1) {
+                        _x.pop_back();
+                    }
+                    // result is positive
+                    _n = false;
+                }
+            }
+            else if (!_n && rhs._n) {
+                // L += -R
+                // subtraction
+                if (rhs > -(*this)) {
+                    // |L| -= |R|
+                    typename C::iterator minusEnd = minus_digits(_x.begin(), _x.end(), rhs._x.begin(), rhs._x.end(), _x.begin());
+                    //remove the empty space if there is some
+                    _x.resize(minusEnd - _x.begin());
+                    while (!_x.back()) {
+                        _x.pop_back();
+                    }
+                    // result is positive
+                    _n = false;
+                }
+                else {
+                    // |R| -= |L|
+                    _x.resize(rhs._x.size());
+                    typename C::iterator minusEnd = minus_digits(rhs._x.begin(), rhs._x.end(), _x.begin(), _x.end(), _x.begin());
+                    //remove the empty space if there is some
+                    _x.resize(minusEnd - _x.begin());
+                    while (!_x.back() && _x.size() > 1) {
+                        _x.pop_back();
+                    }
+                    // result is negative
+                    _n = true;
+                }
             }
             else {
-                //adding negative to negative => neg
-                //    or positive to positive => pos
+                // addition
+                if (_n && rhs._n) {
+                    //adding negative to negative => neg
+                    _n = true;
+                }
+                else if (!_n && !rhs._n) {
+                    //    or positive to positive => pos
+                    _n = false;
+                }
                 _x.push_back(0);
                 typename C::iterator addEnd = plus_digits(_x.begin(), _x.end()-1, rhs._x.begin(), rhs._x.end(), _x.begin());
                 if(_x.end() != addEnd){
@@ -833,6 +895,8 @@ class Integer {
                     _x.pop_back();
                 }
             }
+            if (_x.size() == 1 && _x[0] == 0)
+                _n = false;
             return *this;}
 
         // -----------
@@ -843,14 +907,8 @@ class Integer {
          * <your documentation>
          */
         Integer& operator -= (const Integer& rhs) {
-            return *this += -rhs;
-
-            typename C::iterator minusEnd = minus_digits(_x.begin(), _x.end(), rhs._x.begin(), rhs._x.end(), _x.begin());
-            //remove the empty space if there is one. 
-            if(*minusEnd == 0){
-                _x.pop_back();
-            }
-            return *this;}
+            return (*this += -rhs);
+        }
 
         // -----------
         // operator *=
@@ -927,7 +985,7 @@ class Integer {
          * <your documentation>
          */
         Integer& abs () {
-            // <your code>
+            _n = false;
             return *this;}
 
         // ---

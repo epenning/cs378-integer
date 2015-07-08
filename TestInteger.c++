@@ -466,7 +466,25 @@ TEST(IntegerFixture, less_than_5) {
 	ASSERT_TRUE(a < b);
 }
 
-// out is tested in constructor
+TEST(IntegerFixture, less_than_6) {
+	Integer<int> a = 1234;
+	Integer<int> b = 1232;
+	ASSERT_TRUE(b < a);
+}
+
+TEST(IntegerFixture, output_1) {
+	Integer<int> a = 12345;
+	ostringstream output;
+	output << a;
+	ASSERT_EQ(output.str(), "12345");
+}
+
+TEST(IntegerFixture, output_2) {
+	Integer<int> a = -12345;
+	ostringstream output;
+	output << a;
+	ASSERT_EQ(output.str(), "-12345");
+}
 
 TEST(IntegerFixture, constructor_int_1) {
 	Integer<int> a = 12345;
@@ -553,8 +571,84 @@ TEST(IntegerFixture, plus_equal_4) {
 	ASSERT_EQ(a += b, -1111);
 }
 
-TEST(IntegerFixture, minus_equal_1) {
+TEST(IntegerFixture, plus_equal_5) {
+	Integer<int> a = 123;
+	Integer<int> b = -1234;
+	ASSERT_EQ(a += b, -1111);
+}
 
+TEST(IntegerFixture, plus_equal_6) {
+	Integer<int> a = -123;
+	Integer<int> b = 1234;
+	ASSERT_EQ(a += b, 1111);
+}
+
+TEST(IntegerFixture, plus_equal_7) {
+	Integer<int> a = -123;
+	Integer<int> b = -123;
+	ASSERT_EQ(a += b, -246);
+}
+
+TEST(IntegerFixture, plus_equal_8) {
+	Integer<int> a = -1234;
+	Integer<int> b = 1232;
+	ASSERT_EQ(a += b, -2);
+}
+
+TEST(IntegerFixture, plus_equal_9) {
+	Integer<int> a = 1234;
+	Integer<int> b = 123;
+	ASSERT_EQ(a += b, 1357);
+}
+
+TEST(IntegerFixture, minus_equal_1) {
+	Integer<int> a = 123;
+	Integer<int> b = 123;
+	ASSERT_EQ(a -= b, 0);
+}
+
+TEST(IntegerFixture, minus_equal_2) {
+	Integer<int> a = 123;
+	Integer<int> b = 123;
+	Integer<int>& c = a -= b;
+	ASSERT_EQ(c, 0);
+	ASSERT_TRUE(&c == &a);
+}
+
+TEST(IntegerFixture, minus_equal_3) {
+	Integer<int> a = 1234;
+	Integer<int> b = -123;
+	ASSERT_EQ(a -= b, 1357);
+}
+
+TEST(IntegerFixture, minus_equal_4) {
+	Integer<int> a = -1234;
+	Integer<int> b = 123;
+	ASSERT_EQ(a -= b, -1357);
+}
+
+TEST(IntegerFixture, minus_equal_5) {
+	Integer<int> a = 123;
+	Integer<int> b = -1234;
+	ASSERT_EQ(a -= b, 1357);
+}
+
+TEST(IntegerFixture, minus_equal_6) {
+	Integer<int> a = -123;
+	Integer<int> b = 1234;
+	ASSERT_EQ(a -= b, -1357);
+}
+
+TEST(IntegerFixture, minus_equal_7) {
+	Integer<int> a = -123;
+	Integer<int> b = -123;
+	ASSERT_EQ(a -= b, 0);
+}
+
+TEST(IntegerFixture, minus_equal_8) {
+	Integer<int> a = -1234;
+	Integer<int> b = 1232;
+	ASSERT_EQ(a -= b, -2466);
 }
 
 TEST(IntegerFixture, multi_equal_1) {
@@ -603,9 +697,15 @@ TEST(IntegerFixture, multi_equal_5) {
 
 // }
 
-// TEST(IntegerFixture, abs_1) {
+TEST(IntegerFixture, abs_1) {
+	Integer<int> a = 12;
+	ASSERT_EQ(a.abs(), 12);
+}
 
-// }
+TEST(IntegerFixture, abs_2) {
+	Integer<int> a = 12;
+	ASSERT_EQ(a.abs(), 12);
+}
 
 TEST(IntegerFixture, pow_1) {
 	Integer<int> a = 12;
