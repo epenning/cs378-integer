@@ -993,6 +993,7 @@ class Integer {
         Integer& operator <<= (int n) {
             Integer two = 2;
             (*this) *= two.pow(n);
+            assert(valid());
             return *this;}
 
         // ------------
@@ -1003,6 +1004,8 @@ class Integer {
          * <your documentation>
          */
         Integer& operator >>= (int n) {
+            Integer two = 2;
+            (*this) /= two.pow(n);
             assert(valid());
             return *this;}
 

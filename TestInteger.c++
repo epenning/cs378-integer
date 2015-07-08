@@ -771,13 +771,65 @@ TEST(IntegerFixture, mod_equal_6) {
 	ASSERT_EQ(a %= b, 0);
 }
 
-// TEST(IntegerFixture, left_shift_equal_1) {
+TEST(IntegerFixture, left_shift_equal_1) {
+	Integer<int> a = 10;
+	int b = 0;
+	ASSERT_EQ(a <<= b, 10);
+}
 
-// }
+TEST(IntegerFixture, left_shift_equal_2) {
+	Integer<int> a = 10;
+	int b = 2;
+	ASSERT_EQ(a <<= b, 40);
+}
 
-// TEST(IntegerFixture, right_shift_equal_1) {
+TEST(IntegerFixture, left_shift_equal_3) {
+	Integer<int> a = -10;
+	int b = 2;
+	ASSERT_EQ(a <<= b, -40);
+}
 
-// }
+TEST(IntegerFixture, left_shift_equal_4) {
+	Integer<int> a = 0;
+	int b = 2;
+	ASSERT_EQ(a <<= b, 0);
+}
+
+TEST(IntegerFixture, left_shift_equal_5) {
+	Integer<int> a = 123;
+	int b = 10;
+	ASSERT_EQ(a <<= b, 125952);
+}
+
+TEST(IntegerFixture, right_shift_equal_1) {
+	Integer<int> a = 10;
+	int b = 0;
+	ASSERT_EQ(a >>= b, 10);
+}
+
+TEST(IntegerFixture, right_shift_equal_2) {
+	Integer<int> a = 10;
+	int b = 1;
+	ASSERT_EQ(a >>= b, 5);
+}
+
+TEST(IntegerFixture, right_shift_equal_3) {
+	Integer<int> a = -10;
+	int b = 1;
+	ASSERT_EQ(a >>= b, -5);
+}
+
+TEST(IntegerFixture, right_shift_equal_4) {
+	Integer<int> a = 0;
+	int b = 5;
+	ASSERT_EQ(a >>= b, 0);
+}
+
+TEST(IntegerFixture, right_shift_equal_5) {
+	Integer<int> a = 12345;
+	int b = 6;
+	ASSERT_EQ(a >>= b, 192);
+}
 
 TEST(IntegerFixture, abs_1) {
 	Integer<int> a = 12;
