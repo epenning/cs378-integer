@@ -38,6 +38,7 @@ template <typename II, typename FI>
 FI shift_left_digits (II b, II e, int n, FI x) {
     advance(b, n);
     x = copy(b, e, x);
+
     return x;}
 
 // ------------------
@@ -655,6 +656,8 @@ class Integer {
          */
         Integer operator - () const {
             Integer x = *this;
+            if(_x.size() == 1 && _x.front() == 0)
+                return x;
             x._n = !x._n;
             return x;}
 
