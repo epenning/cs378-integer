@@ -1,0 +1,14 @@
+This is the feedback for (group) elp692 sts768 project
+Requirement #1: 5
+Requirement #2: 5
+Requirement #3: 25
+Requirement #4: 20
+Requirement #5: 10
+Requirement #6: 5
+Bonus points:
+Minus (reasons in comments): 
+Comment:
+partner +5
+passed 61/68 test cases -3
+20th Mersenne prime 0.46718 seconds
+30th Mersenne prime : 181.777 seconds +5
